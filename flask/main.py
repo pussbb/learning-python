@@ -4,17 +4,15 @@ Created on Jul 3, 2013
 @author: pussbb
 '''
 
-from flask import Flask, make_response, jsonify
+from flask import Flask, abort
 from werkzeug.exceptions import HTTPException
+from api import json_responce
 import traceback
+
+import api.v01.app as app_v01
 
 app = Flask(__name__)
 app.config.from_object('config.DevelopmentConfig')
-
-print app.config
-
-def json_responce(data, code=200):
-    return make_response(jsonify(data), code)
 
 @app.errorhandler(Exception)
 def exception_handler(exception=None):
@@ -31,9 +29,14 @@ def exception_handler(exception=None):
 
     return json_responce({'error': msg}, code)
 
+versions = [app_v01]
+
+for v in versions:
+    app.register_blueprint(v.api, url_prefix='/v.{0}'.format(v.VERSION)) 
+
 @app.route('/')
 def index():
-    raise Exception('spam', 'eggs')
+    abort(404)
 
 
 if __name__ == '__main__':
