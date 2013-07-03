@@ -9,11 +9,14 @@ from .. import json_responce
 
 from flask.views import MethodView
 
-class Users(MethodView): 
-    methods = ['GET', 'POST', 'PUT']
+class Users(MethodView):
+    URI = 'users'
+    PK = 'user_id'
+    PK_TYPE = 'int'
 
-    def get(self, uuid): 
-        return json_responce({'id':uuid})
+    def get(self, user_id): 
+        print user_id
+        return json_responce({'id':user_id})
     
-    def __repr__(self):
-        return self.__class__.__name__.lower()
+    def post(self):
+        return json_responce({'id':9090})
