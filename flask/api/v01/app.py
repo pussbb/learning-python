@@ -5,7 +5,7 @@ Created on Jul 3, 2013
 '''
 from flask import Blueprint
 from .. import json_responce
-
+import pydoc
 
 from users import Users
 
@@ -17,7 +17,15 @@ commands = [Users]
 
 @api.route('/')
 def index():
-    return json_responce({'commands': commands})
+    result = []
+    for command in commands:
+        item = {
+            'uri': command.URI, 
+            'help': pydoc.render_doc(command, title="%s")
+        }
+        result.append(item)
+
+    return json_responce({'commands': result})
 
 for command in commands:
 
