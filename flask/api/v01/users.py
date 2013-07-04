@@ -12,9 +12,6 @@ from . import Command
 """
   Get User
 """
-# The auto-magic version
-# I pulled this off a blog, forget the source.
-
 
 class Users(Command):
     URI = 'users'
@@ -22,3 +19,5 @@ class Users(Command):
 
     def post(self):
         return json_responce(request.form.to_dict())
+
+    def delete(self, pk): pass

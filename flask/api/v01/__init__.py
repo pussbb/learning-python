@@ -21,14 +21,15 @@ class Command(MethodView):
         reply = self.REPLY_SUCCESS.copy()
         reply['records'] = [i.serialize() for i in records]
         return json_responce(reply)
-    
+
     def post(self):
         pass
-    
-    def delete(self):
-        pass
-    
-    def put(self):
+
+    def delete(self, pk):
+        r = self.TABLE.query.filter_by(id = pk).delete()
+        return json_responce({'total': r})
+
+    def put(self, pk):
         pass
 
 

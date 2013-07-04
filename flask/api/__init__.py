@@ -30,6 +30,14 @@ def exception_handler(exception=None):
 def index():
     abort(403)
 
+@app.teardown_request
+def apply_changes(exception=None):
+    try:
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        exception_handler(e)
+
 def run_server():
     app.run(port=5050)
 
