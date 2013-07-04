@@ -4,21 +4,21 @@ Created on Jul 3, 2013
 @author: pussbb
 '''
 
-from .. import json_responce
+from .. import json_responce, request
 
+from ..models.user import User
+from . import Command
 
-from flask.views import MethodView
-from flask import request
 """
   Get User
 """
-class Users(MethodView):
-    URI = 'users'
-    PK = 'user_id'
-    PK_TYPE = 'int'
+# The auto-magic version
+# I pulled this off a blog, forget the source.
 
-    def get(self, user_id): 
-        return json_responce({'id':user_id})
-    
+
+class Users(Command):
+    URI = 'users'
+    TABLE = User
+
     def post(self):
         return json_responce(request.form.to_dict())
