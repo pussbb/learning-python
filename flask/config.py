@@ -12,6 +12,10 @@ class Config(object):
     TRAP_BAD_REQUEST_ERRORS = True
     JSON_AS_ASCII = False
     JSONIFY_PRETTYPRINT_REGULAR = False
+    SQLALCHEMY_BINDS = {
+        'db1': SQLALCHEMY_DATABASE_URI,
+        'db2': 'mysql://root:root@localhost/speedgggdial'
+    }
 
 class ProductionConfig(Config): pass
 
