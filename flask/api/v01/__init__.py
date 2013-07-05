@@ -4,7 +4,7 @@ Created on Jul 3, 2013
 @author: pussbb
 '''
 from flask.views import MethodView
-from .. import json_responce, db
+from .. import json_responce
 from flask import request
 
 class Command(MethodView):
