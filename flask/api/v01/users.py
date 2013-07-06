@@ -17,7 +17,4 @@ class Users(Command):
     URI = 'users'
     TABLE = User
 
-    def post(self):
-        return json_responce(request.form.to_dict())
-
     def delete(self, pk): pass

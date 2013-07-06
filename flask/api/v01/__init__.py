@@ -4,7 +4,7 @@ Created on Jul 3, 2013
 @author: pussbb
 '''
 from flask.views import MethodView
-from .. import json_responce
+from .. import json_responce, db
 from flask import request
 
 class Command(MethodView):
@@ -24,7 +24,10 @@ class Command(MethodView):
         return json_responce(reply)
 
     def post(self):
-        pass
+        model = self.TABLE(**request.form.to_dict())
+        db.session.add(model)
+        db.session.commit()
+        return json_responce(model.serialize())
 
     def delete(self, pk):
         r = self.TABLE.query.filter_by(id = pk).delete()

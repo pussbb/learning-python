@@ -14,7 +14,7 @@ class BaseModel(object):
     __bind_key__ = 'db1'
 
     def __init__(self, **kargv):
-        for i,v in kargv:
+        for i,v in kargv.items():
             setattr(self, i, v)
 
     def serialize(self):
