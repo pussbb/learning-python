@@ -16,7 +16,6 @@ class BaseModel(object):
         http://pythonhosted.org/Flask-SQLAlchemy/binds.html
     """
 
-
     def __init__(self, **kwargs):
         for i,v in kwargs.items():
             setattr(self, i, v)
