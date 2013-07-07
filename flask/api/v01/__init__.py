@@ -36,16 +36,18 @@ class Command(MethodView):
             return self.custom_func(pk)
         query = self.__query()
         query = self.__with(query)
+
         #find record by id
         if pk:
             record = query.filter_by(id = pk).first_or_404()
             return json_responce(record.serialize())
+
         #return all records
-        query = self.__limit(query)
         query = self.__filter(query)
-        records = query.all()
+        query = self.__limit(query)
+
         reply = self.REPLY_SUCCESS.copy()
-        reply['records'] = [i.serialize() for i in records]
+        reply['records'] = [i.serialize() for i in query.all()]
         return json_responce(reply)
 
     def post(self):
@@ -74,6 +76,11 @@ class Command(MethodView):
         return func()
 
     def __filter(self, query):
+        if 'filter' not in request.args:
+            return query
+        filter_args = json.loads(request.args['filter'] or '{}')
+        for i,v in filter_args.iteritems():
+            query = query.filter(getattr(self.TABLE, i) == v)
         return query
 
     def __with(self, query):
@@ -84,7 +91,9 @@ class Command(MethodView):
 
 
     def __limit(self, query):
-        return query
+        if 'limit' not in request.args:
+            return query
+        return query.limit(int(request.args['limit']))
 
     def __query(self):
         return self.TABLE.query
