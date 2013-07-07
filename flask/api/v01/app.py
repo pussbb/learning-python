@@ -9,10 +9,11 @@ import pydoc
 
 from .users import Users
 from .languages import Languages
+from .news import News
 
 api = Blueprint('v.0.1', __name__, url_prefix='/api/v.0.1')
 
-commands = [Users, Languages]
+commands = [Users, Languages, News]
 
 @api.route('/')
 def index():

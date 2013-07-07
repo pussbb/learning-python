@@ -5,9 +5,9 @@ Created on Jul 4, 2013
 '''
 
 from . import BaseModel
-from api import db
+from .. import db
 
-from sqlalchemy.orm import validates, MapperExtension, mapper
+from sqlalchemy.orm import validates, MapperExtension
 
 import hashlib
 import uuid

@@ -5,7 +5,7 @@
 '''
 
 from . import BaseModel
-from api import db
+from .. import db
 
 
 class Language(BaseModel, db.Model):
