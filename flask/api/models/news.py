@@ -20,7 +20,7 @@ class News(BaseModel, db.Model):
     link = db.Column(db.String(255), nullable=False)
 
     author_id = db.Column(db.BigInteger, db.ForeignKey('users.id', name="author"))
-    author =  db.relationship(User, uselist=False ,lazy="joined", )
+    author =  db.relationship(User, uselist=False , lazy="joined" )
 
     content = db.Column(db.Text())
     created_at = db.Column(db.DateTime, server_default='NOW()')

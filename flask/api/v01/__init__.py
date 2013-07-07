@@ -6,8 +6,10 @@ Created on Jul 3, 2013
 from flask.views import MethodView
 from .. import json_responce, db
 from flask import request
-
+import json
 from werkzeug.exceptions import MethodNotAllowed, NotImplemented
+
+from sqlalchemy.orm import joinedload_all
 
 
 class Command(MethodView):
@@ -32,12 +34,16 @@ class Command(MethodView):
         # custom function
         if isinstance(pk, basestring):
             return self.custom_func(pk)
+        query = self.__query()
+        query = self.__with(query)
         #find record by id
         if pk:
-            record = self.TABLE.query.filter_by(id = pk).first_or_404()
+            record = query.filter_by(id = pk).first_or_404()
             return json_responce(record.serialize())
         #return all records
-        records = self.TABLE.query.all()
+        query = self.__limit(query)
+        query = self.__filter(query)
+        records = query.all()
         reply = self.REPLY_SUCCESS.copy()
         reply['records'] = [i.serialize() for i in records]
         return json_responce(reply)
@@ -49,20 +55,38 @@ class Command(MethodView):
         return json_responce(model.serialize())
 
     def delete(self, pk):
-        r = self.TABLE.query.filter_by(id = pk).delete()
+        r = self.__query().filter_by(id = pk).delete()
         return json_responce({'total': r})
 
     def put(self, pk):
-        model = self.TABLE.query.filter_by(id = pk).first_or_404()
+        model = self.__query().filter_by(id = pk).first_or_404()
         for i,v in request.form.iteritems():
             setattr(model, i, v)
         return json_responce(model.serialize())
 
     def not_allowed(self):
         raise MethodNotAllowed()
-    
+
     def custom_func(self, func_name):
         func = getattr(self, func_name, None)
         if not func:
             raise NotImplemented()
         return func()
+
+    def __filter(self, query):
+        return query
+
+    def __with(self, query):
+        if 'with' not in request.args:
+            return query
+        relations = json.loads(request.args['with'] or '[]')
+        return query.options(joinedload_all(*relations))
+
+
+    def __limit(self, query):
+        return query
+
+    def __query(self):
+        return self.TABLE.query
+
+
