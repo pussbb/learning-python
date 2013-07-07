@@ -45,9 +45,17 @@ class Command(MethodView):
         #return all records
         query = self.__filter(query)
         query = self.__limit(query)
+        query = self.__offset(query)
 
+        records = query.all()
         reply = self.REPLY_SUCCESS.copy()
-        reply['records'] = [i.serialize() for i in query.all()]
+        reply['records'] = [i.serialize() for i in records]
+
+        count = query.limit(None).offset(None).count()
+        reply['count'] = count
+        limit = self.get_limit()
+        if limit:
+            reply['page'] = count / limit + (1 if count % limit else 0)
         return json_responce(reply)
 
     def post(self):
@@ -91,9 +99,16 @@ class Command(MethodView):
 
 
     def __limit(self, query):
-        if 'limit' not in request.args:
-            return query
-        return query.limit(int(request.args['limit']))
+        return query.limit(self.get_limit())
+
+    def get_limit(self):
+        if 'limit' in request.args:
+            return int(request.args['limit'])
+
+    def __offset(self, query):
+        if 'offset' in request.args:
+            return query.offset(int(request.args['offset']))
+        return query
 
     def __query(self):
         return self.TABLE.query
