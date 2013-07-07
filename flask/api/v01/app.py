@@ -8,10 +8,11 @@ from .. import json_responce
 import pydoc
 
 from .users import Users
+from .languages import Languages
 
 api = Blueprint('v.0.1', __name__, url_prefix='/api/v.0.1')
 
-commands = [Users]
+commands = [Users, Languages]
 
 @api.route('/')
 def index():
@@ -31,6 +32,10 @@ for command in commands:
     api.add_url_rule('/{0}/'.format(command.URI),
                      view_func=func,
                      methods=['GET', ], defaults={command.PK:None})
+
+    api.add_url_rule('/{0}/<{1}>'.format(command.URI, command.PK),
+                     view_func=func,
+                     methods=['GET', ])
 
     api.add_url_rule('/{0}/'.format(command.URI),
                      view_func=func,

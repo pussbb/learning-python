@@ -17,4 +17,5 @@ class Users(Command):
     URI = 'users'
     TABLE = User
 
-    def delete(self, pk): pass
+    def me(self):
+        return 'hello me'
