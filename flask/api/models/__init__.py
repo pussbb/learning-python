@@ -9,7 +9,6 @@ from decimal import Decimal
 
 class BaseModel(object):
 
-    PK_KEY = 'id'
     EXTRA_FIELDS = []
 
     """

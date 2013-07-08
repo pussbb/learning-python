@@ -10,9 +10,10 @@ import json
 from werkzeug.exceptions import MethodNotAllowed, NotImplemented
 
 from sqlalchemy.orm import joinedload_all
-
+from sqlalchemy import desc
 
 class Command(MethodView):
+
     TABLE = None
     REPLY_SUCCESS = {
                       'total': 0,
@@ -20,6 +21,7 @@ class Command(MethodView):
                       'per_page': 20,
                       'records': [],
                    }
+
     """
         List of allowed methods that can be performed on the object
         e.g. 
@@ -50,6 +52,8 @@ class Command(MethodView):
 
         #return all records
         query = self.__filter(query)
+        query = self.__order_by(query)
+        print str(query)
 
         records = query.paginate(self.page(), self.per_page())
 
@@ -99,6 +103,15 @@ class Command(MethodView):
         relations = json.loads(request.args['with'] or '[]')
         return query.options(joinedload_all(*relations))
 
+    def __order_by(self, query):
+        if 'order_by' in request.args:
+            parts = request.args['order_by'].replace('"', '').split()
+            field = getattr(self.TABLE, parts[0])
+            if parts[-1] == 'desc': 
+                field = desc(field) 
+            return query.order_by(field)
+        return query
+
     def page(self):
         if 'page' in request.args:
             return int(request.args['page'])
@@ -111,5 +124,7 @@ class Command(MethodView):
 
     def __query(self):
         return self.TABLE.query
+    
+
 
 
