@@ -24,14 +24,17 @@ class BaseModel(object):
         result = {}
         for c in self.__table__.columns:
             result[c.name] = self.__get_attr(c.name)
-            self._append_relations(result, c)
-            for field in self.EXTRA_FIELDS:
-                result[field] = self.__get_attr(field)
+            result.update(self._append_relations(c))
+
+        for field in self.EXTRA_FIELDS:
+            result[field] = self.__get_attr(field)
         return result
 
-    def _append_relations(self,result ,column):
+    def _append_relations(self, column):
+        result = {}
         if not column.foreign_keys:
-            return
+            return result
+
         for i in column.foreign_keys:
             if i.name not in self.__dict__:
                 continue
@@ -45,6 +48,8 @@ class BaseModel(object):
                 result[i.name] = relation.serialize()
             else:
                 result[i.name] = [i.serialize() for i in relation]
+
+        return result
 
     def __get_attr(self, attr):
         value = getattr(self, attr)

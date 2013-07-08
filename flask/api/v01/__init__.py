@@ -14,7 +14,12 @@ from sqlalchemy.orm import joinedload_all
 
 class Command(MethodView):
     TABLE = None
-    REPLY_SUCCESS = {'records': [], 'count': 0, 'page': 0}
+    REPLY_SUCCESS = {
+                      'total': 0,
+                      'page': 0,
+                      'per_page': 20,
+                      'records': [],
+                   }
     """
         List of allowed methods that can be performed on the object
         e.g. 
@@ -45,18 +50,14 @@ class Command(MethodView):
 
         #return all records
         query = self.__filter(query)
-        query = self.__limit(query)
-        query = self.__offset(query)
 
-        records = query.all()
+        records = query.paginate(self.page(), self.per_page())
+
         reply = self.REPLY_SUCCESS.copy()
-        reply['records'] = [i.serialize() for i in records]
-
-        count = query.limit(None).offset(None).count()
-        reply['count'] = count
-        limit = self.get_limit()
-        if limit:
-            reply['page'] = count / limit + (1 if count % limit else 0)
+        reply['records'] = [i.serialize() for i in records.items]
+        reply['total'] = records.total
+        reply['page'] = records.page
+        reply['per_page'] = records.per_page
         return json_responce(reply)
 
     def post(self):
@@ -98,18 +99,15 @@ class Command(MethodView):
         relations = json.loads(request.args['with'] or '[]')
         return query.options(joinedload_all(*relations))
 
-
-    def __limit(self, query):
-        return query.limit(self.get_limit())
-
-    def get_limit(self):
-        if 'limit' in request.args:
-            return int(request.args['limit'])
-
-    def __offset(self, query):
-        if 'offset' in request.args:
-            return query.offset(int(request.args['offset']))
-        return query
+    def page(self):
+        if 'page' in request.args:
+            return int(request.args['page'])
+        return 1
+    
+    def per_page(self):
+        if 'per_page' in request.args:
+            return int(request.args['per_page'])
+        return 20
 
     def __query(self):
         return self.TABLE.query
