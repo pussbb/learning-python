@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 import traceback
 
 app = Flask(__name__)
-app.config.from_object('config.DevelopmentConfig')
+app.config.from_object('api.config.DevelopmentConfig')
 
 db = SQLAlchemy(app)
 

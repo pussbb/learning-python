@@ -31,6 +31,7 @@ class Command(MethodView):
         return MethodView.dispatch_request(self, *args, **kwargs)
 
     def get(self, pk):
+
         # custom function
         if isinstance(pk, basestring):
             return self.custom_func(pk)

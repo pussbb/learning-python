@@ -9,7 +9,7 @@ class Config(object):
     TESTING = False
     SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/speeddial'
     TRAP_HTTP_EXCEPTIONS = True
-    TRAP_BAD_REQUEST_ERRORS = True
+    TRAP_BAD_REQUEST_ERRORS = False
     JSON_AS_ASCII = False
     JSONIFY_PRETTYPRINT_REGULAR = False
     SQLALCHEMY_BINDS = {
@@ -22,6 +22,7 @@ class ProductionConfig(Config): pass
 class DevelopmentConfig(Config):
     DEBUG = True
     JSONIFY_PRETTYPRINT_REGULAR = True
+    TRAP_BAD_REQUEST_ERRORS = True
 
 class TestingConfig(Config):
     TESTING = True
