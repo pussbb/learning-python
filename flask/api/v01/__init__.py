@@ -54,7 +54,6 @@ class Command(MethodView):
         query = self.__filter(query)
         query = self.__order_by(query)
         print str(query)
-
         records = query.paginate(self.page(), self.per_page())
 
         reply = self.REPLY_SUCCESS.copy()
@@ -93,8 +92,32 @@ class Command(MethodView):
         if 'filter' not in request.args:
             return query
         filter_args = json.loads(request.args['filter'] or '{}')
-        for i,v in filter_args.iteritems():
-            query = query.filter(getattr(self.TABLE, i) == v)
+        for i,v in filter_args.items():
+            field = getattr(self.TABLE, i)
+            if isinstance(v, list):
+                query = query.filter(field.in_(v))
+                continue
+            if isinstance(v, dict):
+                query = self.__filter_by_condition(field, v, query)
+                continue
+            query = query.filter(field == v)
+        return query
+
+    def __filter_by_condition(self, field, condition, query):
+        comparison = condition['comparison_key']
+        value =  condition['value']
+        if comparison in ('<>', '!='):
+            if value is None:
+                return query.filter( field != None )
+            if isinstance(value, list):
+                return ~query.filter( field.in_(value))
+            return query.filter(field != value)
+        if comparison == '<':
+            return query.filter( field < value)
+        if comparison == '>':
+            return query.filter( field > value)
+        if comparison == 'between':
+            return query.filter(field.between(value[0], value[1]))
         return query
 
     def __with(self, query):
@@ -104,13 +127,15 @@ class Command(MethodView):
         return query.options(joinedload_all(*relations))
 
     def __order_by(self, query):
-        if 'order_by' in request.args:
-            parts = request.args['order_by'].replace('"', '').split()
-            field = getattr(self.TABLE, parts[0])
-            if parts[-1] == 'desc': 
-                field = desc(field) 
-            return query.order_by(field)
-        return query
+        if 'order_by' not in request.args:
+            return query
+
+        parts = request.args['order_by'].replace('"', '').split()
+        field = getattr(self.TABLE, parts[0])
+        if parts[-1] == 'desc': 
+            field = desc(field) 
+        return query.order_by(field)
+
 
     def page(self):
         if 'page' in request.args:
@@ -124,7 +149,4 @@ class Command(MethodView):
 
     def __query(self):
         return self.TABLE.query
-    
-
-
 
