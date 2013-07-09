@@ -22,6 +22,8 @@ class Command(MethodView):
                       'records': [],
                    }
 
+    FORM = None
+
     """
         List of allowed methods that can be performed on the object
         e.g. 
@@ -65,6 +67,10 @@ class Command(MethodView):
 
     def post(self):
         model = self.TABLE(**request.form.to_dict())
+        if self.FORM:
+            form = self.FORM(request.form, model)
+            if not form.validate():
+                return json_responce({'erorrs':form.errors})
         db.session.add(model)
         db.session.commit()
         return json_responce(model.serialize())

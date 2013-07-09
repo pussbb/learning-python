@@ -39,7 +39,7 @@ class BaseModel(object):
                 continue
 
             relation = self.__dict__[i.name]
-            if relation is None:
+            if not relation:
                 result[i.name] = None
                 continue
 

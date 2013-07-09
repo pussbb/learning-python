@@ -7,7 +7,7 @@ Created on Jul 4, 2013
 from . import BaseModel
 from .. import db
 
-from sqlalchemy.orm import validates, MapperExtension
+from sqlalchemy.orm import MapperExtension
 
 import hashlib
 import uuid
@@ -37,19 +37,9 @@ class User(BaseModel, db.Model):
 
     __mapper_args__ = { 'extension': UserMapperExtension() }
 
-    __table_args__ = (
-                      db.UniqueConstraint('email', 'login', name='_email_login_uc'),
-                      )
-
-    @validates('email')
-    def validate_email(self, key, address):
-        assert '@' in address
-        return address
-
     """
     http://docs.sqlalchemy.org/en/latest/orm/mapper_config.html#using-descriptors-and-hybrids
     """
-
     @property
     def password(self):
         return self._password
