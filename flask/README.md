@@ -9,11 +9,13 @@ Dependencies
 ```# pip install sqlalchemy
 ```
  [Flask-SQLAlchemy](http://pythonhosted.org/Flask-SQLAlchemy/)
+
 ```# pip install flask_sqlalchemy
 ```
  
 Run 
 =========
+
 ```$ python ./main.py
 ```
 
@@ -42,6 +44,7 @@ simple filtering
 ___
 ```{ 'author_id': 1} or { 'author_id': [1,2,3]}
 ```
+
 filtering >, <, <>(!=), between
 ___
 ``` {'created_at': {'comparison_key': '<>', 'value': 1}} or {'created_at': {'comparison_key': '<>', 'value': [1,2,3]}}
