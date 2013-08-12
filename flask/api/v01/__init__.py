@@ -135,24 +135,22 @@ class Command(MethodView):
         return query
 
     def __filter_by_condition(self, field, condition, query):
+
         comparison = condition['comparison_key']
         value =  condition['value']
 
         if comparison in ('<>', '!='):
             if value is None:
-                return query.filter( field != None )
+                query = query.filter( field != None )
             if isinstance(value, list):
-                return ~query.filter(field.in_(value))
-            return query.filter(field != value)
-
-        if comparison == '<':
-            return query.filter(field < value)
-
-        if comparison == '>':
-            return query.filter(field > value)
-
-        if comparison == 'between':
-            return query.filter(field.between(value[0], value[1]))
+                query = ~query.filter(field.in_(value))
+            query = query.filter(field != value)
+        elif comparison == '<':
+            query = query.filter(field < value)
+        elif comparison == '>':
+            query = query.filter(field > value)
+        elif comparison == 'between':
+            query = query.filter(field.between(value[0], value[1]))
 
         return query
 
