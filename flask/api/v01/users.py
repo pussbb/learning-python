@@ -5,7 +5,7 @@ Created on Jul 3, 2013
 '''
 
 from ..models.user import User
-from . import Command
+from . import Command, allowed_methods
 
 from wtforms import Form
 from wtforms import validators, TextField
@@ -23,5 +23,6 @@ class Users(Command):
     TABLE = User
     FORM = UserForm
 
+    @allowed_methods(['GET'])
     def me(self):
         return 'hello me'

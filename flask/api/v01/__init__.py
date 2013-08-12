@@ -13,6 +13,14 @@ from sqlalchemy.orm import joinedload_all
 from sqlalchemy import desc
 from wtforms import Form
 
+def allowed_methods(methods = []):
+    def real_wrapper(func):
+        def wrapper(*args, **kwargs):
+            if request.method not in methods:
+                raise MethodNotAllowed()
+            return func(*args, **kwargs)
+        return wrapper
+    return real_wrapper
 
 class Command(MethodView):
 
