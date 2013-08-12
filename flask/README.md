@@ -1,25 +1,33 @@
 Dependencies
 =========
 
- [Flask]( http://flask.pocoo.org/)
+[Flask]( http://flask.pocoo.org/)
+```sh
+pip install flask
+```
+[SQLAlchemy](http://www.sqlalchemy.org/)
+```sh
+pip install sqlalchemy
+```
+[Flask-SQLAlchemy](http://pythonhosted.org/Flask-SQLAlchemy/)
+```sh
+pip install flask_sqlalchemy
+```
+[WTForms](http://wtforms.simplecodes.com/)
+```sh
+pip install WTForms
+```
 
-```# pip install flask
-```
- [SQLAlchemy](http://www.sqlalchemy.org/)
-```# pip install sqlalchemy
-```
- [Flask-SQLAlchemy](http://pythonhosted.org/Flask-SQLAlchemy/)
-
-```# pip install flask_sqlalchemy
-```
  
 Run 
 =========
 in debug mode
-```$ python ./main.py
+```sh
+$ python ./main.py
 ```
 in production 
-```$ python -O -OO./main.py
+```sh
+$ python -O -OO./main.py
 ```
 
 Usage
@@ -37,20 +45,38 @@ Usage
 
 
 List of available query options:
-  * ?with=['relation'] - [http://localhost:5050/api/v.0.1/news/?with=["author"]]{http://localhost:5050/api/v.0.1/news/?with=["author"]}
+  * ?with=['relation'] - [http://localhost:5050/api/v.0.1/news/?with=["author"]](http://localhost:5050/api/v.0.1/news/?with=["author"])
   * ?per_page=50 - will return 50 records with total count of records. Will work only for collections. [http://localhost:5050/api/v.0.1/news/?per_page=2](http://localhost:5050/api/v.0.1/news/?per_page=2)
   * ?page=1 - page number(pagination). [http://localhost:5050/api/v.0.1/news/?per_page=2&page=2](http://localhost:5050/api/v.0.1/news/?per_page=2&page=2)
   * ?order_by="column_in_db type" - type is optional. [http://localhost:5050/api/v.0.1/news/?order_by="link"](http://localhost:5050/api/v.0.1/news/?order_by="link"), [http://localhost:5050/api/v.0.1/news/?order_by="link desc"](http://localhost:5050/api/v.0.1/news/?order_by="link desc")
   * ?filter={ dict }
 
+
+
 simple filtering 
 ___
-```{ 'author_id': 1} or { 'author_id': [1,2,3]}
+```javascript
+{ "author_id": 1} 
+//or 
+{ "author_id": [1,2,3]}
 ```
 
 filtering >, <, <>(!=), between
 ___
-``` {'created_at': {'comparison_key': '<>', 'value': 1}} or {'created_at': {'comparison_key': '<>', 'value': [1,2,3]}}
+```javascript
+{
+    "created_at": {
+          "comparison_key": "<>", 
+          "value": 1
+     }
+} 
+//   or
+{
+    "created_at": {
+        "comparison_key": "<>", 
+        "value": [1,2,3]
+    }
+}
 ```
 
 ___
