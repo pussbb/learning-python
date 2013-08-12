@@ -15,8 +15,11 @@ Dependencies
  
 Run 
 =========
-
+in debug mode
 ```$ python ./main.py
+```
+in production 
+```$ python -O -OO./main.py
 ```
 
 Usage

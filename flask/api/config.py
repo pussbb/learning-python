@@ -5,6 +5,7 @@ Created on Jul 3, 2013
 '''
 
 class Config(object):
+    PORT = 5050
     DEBUG = False
     TESTING = False
     SQLALCHEMY_DATABASE_URI = 'mysql://root:root@localhost/speeddial'
@@ -12,10 +13,6 @@ class Config(object):
     TRAP_BAD_REQUEST_ERRORS = False
     JSON_AS_ASCII = False
     JSONIFY_PRETTYPRINT_REGULAR = False
-    SQLALCHEMY_BINDS = {
-        'db1': SQLALCHEMY_DATABASE_URI,
-        'db2': 'mysql://root:root@localhost/speedgggdial'
-    }
 
 class ProductionConfig(Config): pass
 

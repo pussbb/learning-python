@@ -7,7 +7,10 @@ from flask_sqlalchemy import SQLAlchemy
 import traceback
 
 app = Flask(__name__)
-app.config.from_object('api.config.DevelopmentConfig')
+if __debug__:
+    app.config.from_object('api.config.DevelopmentConfig')
+else:
+    app.config.from_object('api.config.ProductionConfig')
 
 db = SQLAlchemy(app)
 
@@ -37,9 +40,11 @@ def apply_changes(exception=None):
     except Exception as e:
         db.session.rollback()
         exception_handler(e)
+    finally:
+        db.session.expunge_all()
 
 def run_server():
-    app.run(port=5050)
+    app.run(port=app.config['PORT'])
 
 def shutdown_server():
     func = request.environ.get('werkzeug.server.shutdown')
