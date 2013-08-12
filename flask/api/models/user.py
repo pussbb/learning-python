@@ -8,10 +8,12 @@ from . import BaseModel
 from .. import db
 
 from sqlalchemy.orm import MapperExtension
+from sqlalchemy import Column, Integer, String, Text
 
 import hashlib
 import uuid
 import json
+
 
 class UserMapperExtension(MapperExtension):
 
@@ -19,21 +21,19 @@ class UserMapperExtension(MapperExtension):
         if not instance.api_key:
             instance.api_key  = str(uuid.uuid1()).replace('-','')
 
-    def before_update(self, mapper, connection, instance): pass
-
 class User(BaseModel, db.Model):
     '''
     classdocs
     '''
     __tablename__ = 'users'
 
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique = True, nullable = False)
-    login = db.Column(db.String(120), unique = True, nullable = False)
-    _password = db.Column('password', db.String(20), nullable = False)
-    role_id = db.Column(db.Integer)
-    api_key = db.Column(db.String(150))
-    _meta_data = db.Column('meta_data',db.Text, default='[]')
+    id = Column(Integer, primary_key=True)
+    email = Column(String(120), unique = True, nullable = False)
+    login = Column(String(120), unique = True, nullable = False)
+    _password = Column('password', String(20), nullable = False)
+    role_id = Column(Integer)
+    api_key = Column(String(150))
+    _meta_data = Column('meta_data', Text, default='[]')
 
     __mapper_args__ = { 'extension': UserMapperExtension() }
 

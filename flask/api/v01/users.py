@@ -26,3 +26,4 @@ class Users(Command):
     @allowed_methods(['GET'])
     def me(self):
         return 'hello me'
+

@@ -11,11 +11,11 @@ from .users import Users
 from .languages import Languages
 from .news import News
 
-api = Blueprint('v.0.1', __name__, url_prefix='/api/v.0.1')
+api_v01 = Blueprint('v.0.1', __name__, url_prefix='/api/v.0.1')
 
 commands = [Users, Languages, News]
 
-@api.route('/')
+@api_v01.route('/')
 def index():
     result = []
     for command in commands:
@@ -30,20 +30,19 @@ def index():
 for command in commands:
     func = command.as_view(command.URI)
 
-    api.add_url_rule('/{0}/'.format(command.URI),
+    api_v01.add_url_rule('/{0}/'.format(command.URI),
                      view_func=func,
                      methods=['GET', ], defaults={command.PK:None})
 
-    api.add_url_rule('/{0}/<{1}>'.format(command.URI, command.PK),
+    api_v01.add_url_rule('/{0}/<{1}>'.format(command.URI, command.PK),
                      view_func=func,
                      methods=['GET', ])
 
-    api.add_url_rule('/{0}/'.format(command.URI),
+    api_v01.add_url_rule('/{0}/'.format(command.URI),
                      view_func=func,
                      methods=['POST', ])
-
-    api.add_url_rule(
-                 '/{0}/<{1}:{2}>'.format(command.URI, command.PK_TYPE, command.PK),
+    rule = '/{0}/<{1}:{2}>'.format(command.URI, command.PK_TYPE, command.PK)
+    api_v01.add_url_rule(rule,
                   view_func=func,
                   methods=['GET', 'PUT', 'DELETE']
                   )

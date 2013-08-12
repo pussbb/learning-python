@@ -53,6 +53,6 @@ def shutdown_server():
 def index():
     abort(403)
 
-from v01.app import api as api_v01
+from api.v01.app import api_v01
 app.register_blueprint(api_v01)
 

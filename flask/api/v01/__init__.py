@@ -5,15 +5,17 @@ Created on Jul 3, 2013
 '''
 from flask.views import MethodView
 from .. import json_responce, db
+
 from flask import request
 import json
-from werkzeug.exceptions import MethodNotAllowed, NotImplemented
+from werkzeug.exceptions import MethodNotAllowed
+from werkzeug.exceptions import NotImplemented as HTTPNotImplemented
 
 from sqlalchemy.orm import joinedload_all
 from sqlalchemy import desc
 from wtforms import Form
 
-def allowed_methods(methods = []):
+def allowed_methods(methods):
     def real_wrapper(func):
         def wrapper(*args, **kwargs):
             if request.method not in methods:
@@ -71,10 +73,10 @@ class Command(MethodView):
 
         if 'order_by' in request.args:
             parts = request.args['order_by'].replace('"', '').split()
-            query = self.__order_by(query, *parts)
+            query = self.__order_by(query, parts)
 
         #get records
-        records = query.paginate(self.page(), self.per_page())
+        records = query.paginate(Command.page(), Command.per_page())
 
         reply = self.REPLY_SUCCESS.copy()
         reply['records'] = [i.serialize() for i in records.items]
@@ -95,14 +97,14 @@ class Command(MethodView):
         return json_responce(model.serialize())
 
     def delete(self, pk):
-        r = self.__query().filter_by(id = pk).delete()
-        return json_responce({'total': r})
+        count = self.__query().filter_by(id = pk).delete()
+        return json_responce({'total': count})
 
     def put(self, pk):
         model = self.__query().filter_by(id = pk).first_or_404()
 
-        for i,v in request.form.iteritems():
-            setattr(model, i, v)
+        for item, value in request.form.iteritems():
+            setattr(model, item, value)
 
         form = self.FORM(request.form, model)
         if not form.validate():
@@ -117,19 +119,19 @@ class Command(MethodView):
     def custom_func(self, func_name):
         func = getattr(self, func_name, None)
         if not func:
-            raise NotImplemented()
+            raise HTTPNotImplemented()
         return func()
 
     def __filter(self, query, filter_args):
-        for i,v in filter_args.items():
-            field = getattr(self.TABLE, i)
-            if isinstance(v, list):
-                query = query.filter(field.in_(v))
+        for item, value in filter_args.items():
+            field = getattr(self.TABLE, item)
+            if isinstance(value, list):
+                query = query.filter(field.in_(value))
                 continue
-            if isinstance(v, dict):
-                query = self.__filter_by_condition(field, v, query)
+            if isinstance(value, dict):
+                query = self.__filter_by_condition(field, value, query)
                 continue
-            query = query.filter(field == v)
+            query = query.filter(field == value)
         return query
 
     def __filter_by_condition(self, field, condition, query):
@@ -140,14 +142,14 @@ class Command(MethodView):
             if value is None:
                 return query.filter( field != None )
             if isinstance(value, list):
-                return ~query.filter( field.in_(value))
+                return ~query.filter(field.in_(value))
             return query.filter(field != value)
 
         if comparison == '<':
-            return query.filter( field < value)
+            return query.filter(field < value)
 
         if comparison == '>':
-            return query.filter( field > value)
+            return query.filter(field > value)
 
         if comparison == 'between':
             return query.filter(field.between(value[0], value[1]))
@@ -157,18 +159,20 @@ class Command(MethodView):
     def __with(self, query, relations):
         return query.options(joinedload_all(*relations))
 
-    def __order_by(self, query, *args):
+    def __order_by(self, query, args):
         field = getattr(self.TABLE, args[0])
-        if args[-1] == 'desc': 
-            field = desc(field) 
+        if args[-1] == 'desc':
+            field = desc(field)
         return query.order_by(field)
 
-    def page(self):
+    @staticmethod
+    def page():
         if 'page' in request.args:
             return int(request.args['page'])
         return 1
-    
-    def per_page(self):
+
+    @staticmethod
+    def per_page():
         if 'per_page' in request.args:
             return int(request.args['per_page'])
         return 20

@@ -12,14 +12,14 @@ class BaseModel(object):
     EXTRA_FIELDS = []
 
     def __init__(self, **kwargs):
-        for i,v in kwargs.items():
-            setattr(self, i, v)
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def serialize(self):
         result = {}
-        for c in self.__table__.columns:
-            result[c.name] = self.__get_attr(c.name)
-            self._append_relations(c, result)
+        for column in self.__table__.columns:
+            result[column.name] = self.__get_attr(column.name)
+            self._append_relations(column, result)
 
         for field in self.EXTRA_FIELDS:
             result[field] = self.__get_attr(field)

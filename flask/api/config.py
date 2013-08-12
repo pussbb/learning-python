@@ -14,7 +14,8 @@ class Config(object):
     JSON_AS_ASCII = False
     JSONIFY_PRETTYPRINT_REGULAR = False
 
-class ProductionConfig(Config): pass
+class ProductionConfig(Config):
+    pass
 
 class DevelopmentConfig(Config):
     DEBUG = True
