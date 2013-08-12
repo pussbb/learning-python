@@ -27,7 +27,7 @@ $ python ./main.py
 ```
 in production 
 ```sh
-$ python -O -OO./main.py
+$ python -O -OO ./main.py
 ```
 
 Usage

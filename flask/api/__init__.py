@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 import traceback
 
 app = Flask(__name__)
+
 if __debug__:
     app.config.from_object('api.config.DevelopmentConfig')
 else:
@@ -29,10 +30,6 @@ def exception_handler(exception=None):
         msg = str(exception)
     return json_responce({'error': msg}, code)
 
-@app.route('/api')
-def index():
-    abort(403)
-
 @app.teardown_request
 def apply_changes(exception=None):
     try:
@@ -51,6 +48,10 @@ def shutdown_server():
     if func is None:
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
+
+@app.route('/api')
+def index():
+    abort(403)
 
 from v01.app import api as api_v01
 app.register_blueprint(api_v01)
