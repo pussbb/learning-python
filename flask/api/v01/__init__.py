@@ -11,6 +11,8 @@ from werkzeug.exceptions import MethodNotAllowed, NotImplemented
 
 from sqlalchemy.orm import joinedload_all
 from sqlalchemy import desc
+from wtforms import Form
+
 
 class Command(MethodView):
 
@@ -22,14 +24,15 @@ class Command(MethodView):
                       'records': [],
                    }
 
-    FORM = None
+    FORM = Form
 
     """
         List of allowed methods that can be performed on the object
         e.g. 
-        ALLOWED_METHODS = ['GET'] - allow only get data nothing else
+        ALLOWED_METHODS = ['GET'] - allow only getting data nothing else
     """
     ALLOWED_METHODS = ['GET', 'POST', 'PUT', 'DELETE']
+
     URI = None
     PK = 'pk'
     PK_TYPE = 'int'
@@ -40,22 +43,29 @@ class Command(MethodView):
         return MethodView.dispatch_request(self, *args, **kwargs)
 
     def get(self, pk):
-
         # custom function
         if isinstance(pk, basestring):
             return self.custom_func(pk)
         query = self.__query()
-        query = self.__with(query)
+
+        #load relations
+        if 'with' in request.args:
+            query = self.__with(query, json.loads(request.args['with'] or '[]'))
 
         #find record by id
         if pk:
             record = query.filter_by(id = pk).first_or_404()
             return json_responce(record.serialize())
 
-        #return all records
-        query = self.__filter(query)
-        query = self.__order_by(query)
-        print str(query)
+        if 'filter' in request.args:
+            filter_args = json.loads(request.args['filter'] or '{}')
+            query = self.__filter(query, filter_args)
+
+        if 'order_by' in request.args:
+            parts = request.args['order_by'].replace('"', '').split()
+            query = self.__order_by(query, *parts)
+
+        #get records
         records = query.paginate(self.page(), self.per_page())
 
         reply = self.REPLY_SUCCESS.copy()
@@ -67,10 +77,11 @@ class Command(MethodView):
 
     def post(self):
         model = self.TABLE(**request.form.to_dict())
-        if self.FORM:
-            form = self.FORM(request.form, model)
-            if not form.validate():
-                return json_responce({'erorrs':form.errors})
+
+        form = self.FORM(request.form, model)
+        if not form.validate():
+            return json_responce({'erorrs': form.errors})
+
         db.session.add(model)
         db.session.commit()
         return json_responce(model.serialize())
@@ -81,9 +92,16 @@ class Command(MethodView):
 
     def put(self, pk):
         model = self.__query().filter_by(id = pk).first_or_404()
+
         for i,v in request.form.iteritems():
             setattr(model, i, v)
+
+        form = self.FORM(request.form, model)
+        if not form.validate():
+            return json_responce({'erorrs': form.errors})
+
         return json_responce(model.serialize())
+
 
     def not_allowed(self):
         raise MethodNotAllowed()
@@ -94,10 +112,7 @@ class Command(MethodView):
             raise NotImplemented()
         return func()
 
-    def __filter(self, query):
-        if 'filter' not in request.args:
-            return query
-        filter_args = json.loads(request.args['filter'] or '{}')
+    def __filter(self, query, filter_args):
         for i,v in filter_args.items():
             field = getattr(self.TABLE, i)
             if isinstance(v, list):
@@ -112,36 +127,33 @@ class Command(MethodView):
     def __filter_by_condition(self, field, condition, query):
         comparison = condition['comparison_key']
         value =  condition['value']
+
         if comparison in ('<>', '!='):
             if value is None:
                 return query.filter( field != None )
             if isinstance(value, list):
                 return ~query.filter( field.in_(value))
             return query.filter(field != value)
+
         if comparison == '<':
             return query.filter( field < value)
+
         if comparison == '>':
             return query.filter( field > value)
+
         if comparison == 'between':
             return query.filter(field.between(value[0], value[1]))
+
         return query
 
-    def __with(self, query):
-        if 'with' not in request.args:
-            return query
-        relations = json.loads(request.args['with'] or '[]')
+    def __with(self, query, relations):
         return query.options(joinedload_all(*relations))
 
-    def __order_by(self, query):
-        if 'order_by' not in request.args:
-            return query
-
-        parts = request.args['order_by'].replace('"', '').split()
-        field = getattr(self.TABLE, parts[0])
-        if parts[-1] == 'desc': 
+    def __order_by(self, query, *args):
+        field = getattr(self.TABLE, args[0])
+        if args[-1] == 'desc': 
             field = desc(field) 
         return query.order_by(field)
-
 
     def page(self):
         if 'page' in request.args:
