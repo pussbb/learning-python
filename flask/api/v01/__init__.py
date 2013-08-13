@@ -36,11 +36,6 @@ class Command(MethodView):
 
     FORM = Form
 
-    """
-        List of allowed methods that can be performed on the object
-        e.g. 
-        ALLOWED_METHODS = ['GET'] - allow only getting data nothing else
-    """
     ALLOWED_METHODS = ['GET', 'POST', 'PUT', 'DELETE']
 
     URI = None
@@ -48,19 +43,23 @@ class Command(MethodView):
     PK_TYPE = 'int'
 
     def dispatch_request(self, *args, **kwargs):
+
+        key_value = kwargs.get(Command.PK)
+        if isinstance(key_value, basestring):
+            return self.custom_func(key_value)
+
         if request.method not in self.ALLOWED_METHODS:
             self.not_allowed()
         return MethodView.dispatch_request(self, *args, **kwargs)
 
     def get(self, pk):
-        # custom function
-        if isinstance(pk, basestring):
-            return self.custom_func(pk)
+
         query = self.__query()
 
         #load relations
         if 'with' in request.args:
-            query = self.__with(query, json.loads(request.args['with'] or '[]'))
+            names = json.loads(request.args['with'] or '[]')
+            query = Command.__with(query, names)
 
         #find record by id
         if pk:
@@ -112,8 +111,11 @@ class Command(MethodView):
 
         return json_responce(model.serialize())
 
+    def __query(self):
+        return self.TABLE.query
 
-    def not_allowed(self):
+    @staticmethod
+    def not_allowed():
         raise MethodNotAllowed()
 
     def custom_func(self, func_name):
@@ -129,12 +131,19 @@ class Command(MethodView):
                 query = query.filter(field.in_(value))
                 continue
             if isinstance(value, dict):
-                query = self.__filter_by_condition(field, value, query)
+                query = Command.__filter_by_condition(field, value, query)
                 continue
             query = query.filter(field == value)
         return query
 
-    def __filter_by_condition(self, field, condition, query):
+    def __order_by(self, query, args):
+        field = getattr(self.TABLE, args[0])
+        if args[-1] == 'desc':
+            field = desc(field)
+        return query.order_by(field)
+
+    @staticmethod
+    def __filter_by_condition(field, condition, query):
 
         comparison = condition['comparison_key']
         value =  condition['value']
@@ -154,14 +163,9 @@ class Command(MethodView):
 
         return query
 
-    def __with(self, query, relations):
+    @staticmethod
+    def __with(query, relations):
         return query.options(joinedload_all(*relations))
-
-    def __order_by(self, query, args):
-        field = getattr(self.TABLE, args[0])
-        if args[-1] == 'desc':
-            field = desc(field)
-        return query.order_by(field)
 
     @staticmethod
     def page():
@@ -174,7 +178,4 @@ class Command(MethodView):
         if 'per_page' in request.args:
             return int(request.args['per_page'])
         return 20
-
-    def __query(self):
-        return self.TABLE.query
 

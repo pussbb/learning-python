@@ -3,6 +3,7 @@ from flask import make_response, jsonify, Flask, abort, request
 from werkzeug.exceptions import HTTPException
 
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import SQLAlchemyError
 
 import traceback
 
@@ -32,11 +33,12 @@ def exception_handler(exception=None):
 
 @app.teardown_request
 def apply_changes(exception=None):
+    app.log_exception(exception)
     try:
         db.session.commit()
-    except Exception as e:
+    except SQLAlchemyError as database_exception:
         db.session.rollback()
-        exception_handler(e)
+        exception_handler(database_exception)
     finally:
         db.session.expunge_all()
 

@@ -9,7 +9,7 @@ from ..models.language import Language
 from . import Command
 
 """
-  Get User
+Get Languages
 """
 
 class Languages(Command):
@@ -17,13 +17,13 @@ class Languages(Command):
     ALLOWED_METHODS = ['GET']
     TABLE = Language
 
-# 
-#     def delete(self, pk): 
+#
+#     def delete(self, pk):
 #         self.not_allowed()
-# 
-#     def post(self): 
+#
+#     def post(self):
 #         self.not_allowed()
-# 
-#     def put(self, pk): 
+#
+#     def put(self, pk):
 #         self.not_allowed()
 

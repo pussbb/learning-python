@@ -11,7 +11,7 @@ from wtforms import Form
 from wtforms import validators, TextField
 
 """
-  Get User
+Get User
 """
 
 # http://flask.pocoo.org/snippets/64/
@@ -23,7 +23,7 @@ class Users(Command):
     TABLE = User
     FORM = UserForm
 
-    @allowed_methods(['GET'])
+    @allowed_methods(['GET', 'POST',])
     def me(self):
-        return 'hello me'
+        return "hello me <xmp>%s</xmp>" % repr(self)
 

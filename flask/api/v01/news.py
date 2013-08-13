@@ -9,7 +9,7 @@ from ..models.news import News as NewsModel
 from . import Command
 
 """
-  Get User
+Get News
 """
 
 class News(Command):

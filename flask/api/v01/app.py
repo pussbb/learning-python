@@ -35,8 +35,7 @@ for command in commands:
                      methods=['GET', ], defaults={command.PK:None})
 
     api_v01.add_url_rule('/{0}/<{1}>'.format(command.URI, command.PK),
-                     view_func=func,
-                     methods=['GET', ])
+                     view_func=func)
 
     api_v01.add_url_rule('/{0}/'.format(command.URI),
                      view_func=func,
