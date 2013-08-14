@@ -14,7 +14,6 @@ class Test(unittest.TestCase):
     def setUp(self):
         api.app.config.from_object('api.config.TestingConfig')
         self.app = api.app.test_client()
-        pass
 
     def tearDown(self):
         pass
