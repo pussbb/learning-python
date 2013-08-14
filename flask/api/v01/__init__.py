@@ -57,8 +57,8 @@ class Command(MethodView):
         query = self.__query()
 
         #load relations
-        if 'with' in request.args:
-            names = json.loads(request.args['with'] or '[]')
+        if 'with' in request.values:
+            names = json.loads(request.values['with'] or '[]')
             query = Command.__with(query, names)
 
         #find record by id
@@ -66,12 +66,12 @@ class Command(MethodView):
             record = query.filter_by(id = pk).first_or_404()
             return json_responce(record.serialize())
 
-        if 'filter' in request.args:
-            filter_args = json.loads(request.args['filter'] or '{}')
+        if 'filter' in request.values:
+            filter_args = json.loads(request.values['filter'] or '{}')
             query = self.__filter(query, filter_args)
 
-        if 'order_by' in request.args:
-            parts = request.args['order_by'].replace('"', '').split()
+        if 'order_by' in request.values:
+            parts = request.values['order_by'].replace('"', '').split()
             query = self.__order_by(query, parts)
 
         #get records
@@ -169,13 +169,13 @@ class Command(MethodView):
 
     @staticmethod
     def page():
-        if 'page' in request.args:
-            return int(request.args['page'])
+        if 'page' in request.values:
+            return int(request.values['page'])
         return 1
 
     @staticmethod
     def per_page():
-        if 'per_page' in request.args:
-            return int(request.args['per_page'])
+        if 'per_page' in request.values:
+            return int(request.values['per_page'])
         return 20
 
