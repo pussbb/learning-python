@@ -4,7 +4,9 @@ Created on Jul 3, 2013
 @author: pussbb
 '''
 from flask.views import MethodView
-from .. import json_responce, db
+from .. import db
+
+from ..output import output_response
 
 from flask import request
 import json
@@ -43,7 +45,6 @@ class Command(MethodView):
     PK_TYPE = 'int'
 
     def dispatch_request(self, *args, **kwargs):
-
         key_value = kwargs.get(Command.PK)
         if isinstance(key_value, basestring):
             return self.custom_func(key_value)
@@ -64,7 +65,7 @@ class Command(MethodView):
         #find record by id
         if pk:
             record = query.filter_by(id = pk).first_or_404()
-            return json_responce(record.serialize())
+            return output_response(record.serialize())
 
         if 'filter' in request.values:
             filter_args = json.loads(request.values['filter'] or '{}')
@@ -82,22 +83,24 @@ class Command(MethodView):
         reply['total'] = records.total
         reply['page'] = records.page
         reply['per_page'] = records.per_page
-        return json_responce(reply)
+        return output_response(reply)
 
     def post(self):
         model = self.TABLE(**request.form.to_dict())
 
         form = self.FORM(request.form, model)
         if not form.validate():
-            return json_responce({'erorrs': form.errors})
+            return output_response({'erorrs': form.errors}, 400)
 
         db.session.add(model)
         db.session.commit()
-        return json_responce(model.serialize())
+        return output_response(model.serialize(), 201)
 
     def delete(self, pk):
         count = self.__query().filter_by(id = pk).delete()
-        return json_responce({'total': count})
+        if count == 0:
+            return output_response({'erorrs': ['Could not delete']}, 400)
+        return output_response({'total': count}, 204)
 
     def put(self, pk):
         model = self.__query().filter_by(id = pk).first_or_404()
@@ -107,9 +110,9 @@ class Command(MethodView):
 
         form = self.FORM(request.form, model)
         if not form.validate():
-            return json_responce({'erorrs': form.errors})
+            return output_response({'erorrs': form.errors})
 
-        return json_responce(model.serialize())
+        return output_response(model.serialize())
 
     def __query(self):
         return self.TABLE.query

@@ -4,7 +4,7 @@ Created on Jul 3, 2013
 @author: pussbb
 '''
 from flask import Blueprint, url_for
-from .. import json_responce
+from ..output import output_response
 import pydoc
 
 from .users import Users
@@ -25,17 +25,16 @@ def index():
         }
         result.append(item)
 
-    return json_responce({'commands': result})
+    return output_response({'commands': result})
 
 for command in commands:
     func = command.as_view(command.URI)
-
     api_v01.add_url_rule('/{0}/'.format(command.URI),
                      view_func=func,
-                     methods=['GET', ], defaults={command.PK:None})
+                     methods=['GET', ], defaults={command.PK:None},)
 
     api_v01.add_url_rule('/{0}/<{1}>'.format(command.URI, command.PK),
-                     view_func=func)
+                     view_func=func,)
 
     api_v01.add_url_rule('/{0}/'.format(command.URI),
                      view_func=func,

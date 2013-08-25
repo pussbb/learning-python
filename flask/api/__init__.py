@@ -1,9 +1,11 @@
 
-from flask import make_response, jsonify, Flask, abort, request
+from flask import Flask, abort, request
 from werkzeug.exceptions import HTTPException
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
+
+from output import output_response
 
 import traceback
 
@@ -16,9 +18,6 @@ else:
 
 db = SQLAlchemy(app)
 
-def json_responce(data, code=200):
-    return make_response(jsonify(data), code)
-
 @app.errorhandler(Exception)
 def exception_handler(exception=None):
     msg = ''
@@ -29,7 +28,7 @@ def exception_handler(exception=None):
         msg = traceback.format_exc()
     else:
         msg = str(exception)
-    return json_responce({'error': msg}, code)
+    return output_response({'error': msg}, code)
 
 @app.teardown_request
 def apply_changes(exception=None):
@@ -40,7 +39,7 @@ def apply_changes(exception=None):
         db.session.rollback()
         exception_handler(database_exception)
     finally:
-        db.session.expunge_all()
+        db.session.remove()
 
 def run_server():
     app.run(port=app.config['PORT'])
