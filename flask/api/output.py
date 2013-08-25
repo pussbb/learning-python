@@ -43,7 +43,8 @@ def output_response(data, code=200, mediatype=None):
 
     if not mediatype:
         mediatype = request.headers.get('accept')
+    func = json_response
     if mediatype in REPRESENTATIONS:
-        return REPRESENTATIONS[mediatype](data, code)
-    return json_response(data, code)
+        func = REPRESENTATIONS[mediatype]
+    return func(data, code)
 
