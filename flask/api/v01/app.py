@@ -11,14 +11,14 @@ from .users import Users
 from .languages import Languages
 from .news import News
 
-api_v01 = Blueprint('v.0.1', __name__, url_prefix='/api/v.0.1')
+API_V01 = Blueprint('v.0.1', __name__, url_prefix='/api/v.0.1')
 
-commands = [Users, Languages, News]
+_COMMANDS = [Users, Languages, News]
 
-@api_v01.route('/')
+@API_V01.route('/')
 def index():
     result = []
-    for command in commands:
+    for command in _COMMANDS:
         item = {
             'uri': url_for('.{0}'.format(command.URI), _external=True),
             'help': pydoc.render_doc(command)
@@ -27,20 +27,20 @@ def index():
 
     return output_response({'commands': result})
 
-for command in commands:
-    func = command.as_view(command.URI)
-    api_v01.add_url_rule('/{0}/'.format(command.URI),
+for element in _COMMANDS:
+    func = element.as_view(element.URI)
+    API_V01.add_url_rule('/{0}/'.format(element.URI),
                      view_func=func,
-                     methods=['GET', ], defaults={command.PK:None},)
+                     methods=['GET', ], defaults={element.PK:None},)
 
-    api_v01.add_url_rule('/{0}/<{1}>'.format(command.URI, command.PK),
+    API_V01.add_url_rule('/{0}/<{1}>'.format(element.URI, element.PK),
                      view_func=func,)
 
-    api_v01.add_url_rule('/{0}/'.format(command.URI),
+    API_V01.add_url_rule('/{0}/'.format(element.URI),
                      view_func=func,
                      methods=['POST', ])
-    rule = '/{0}/<{1}:{2}>'.format(command.URI, command.PK_TYPE, command.PK)
-    api_v01.add_url_rule(rule,
+    rule = '/{0}/<{1}:{2}>'.format(element.URI, element.PK_TYPE, element.PK)
+    API_V01.add_url_rule(rule,
                   view_func=func,
                   methods=['GET', 'PUT', 'DELETE']
                   )

@@ -18,6 +18,10 @@ from sqlalchemy import desc
 from wtforms import Form
 
 def allowed_methods(methods):
+    '''Decorator set allowed methods for custom function
+    @allowed_methods(['GET', 'POST',])
+    def me(self): pass
+    '''
     def real_wrapper(func):
         def wrapper(*args, **kwargs):
             if request.method not in methods:
@@ -168,16 +172,22 @@ class Command(MethodView):
 
     @staticmethod
     def __with(query, relations):
+        '''Append relations
+        '''
         return query.options(joinedload_all(*relations))
 
     @staticmethod
     def page():
+        '''Get page number from request
+        '''
         if 'page' in request.values:
             return int(request.values['page'])
         return 1
 
     @staticmethod
     def per_page():
+        '''Get amount of records to show from request
+        '''
         if 'per_page' in request.values:
             return int(request.values['per_page'])
         return 20
