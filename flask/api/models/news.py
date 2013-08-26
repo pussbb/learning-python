@@ -6,12 +6,12 @@ Created on Jul 7, 2013
 
 from . import BaseModel
 from .user import User
-from .. import db
+from api import DB
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy import BigInteger, DateTime, Text
 from sqlalchemy.orm import relationship
 
-class News(BaseModel, db.Model):
+class News(BaseModel, DB.Model):
 
     __tablename__ = 'news'
 

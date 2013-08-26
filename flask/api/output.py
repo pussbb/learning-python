@@ -1,12 +1,5 @@
 '''
 Created on Aug 25, 2013
->>> from requests import get
->>> get('http://localhost:5000/me').content # default_mediatype
-'<?xml version="1.0" ?><response><hello>me</hello></response>'
->>>get('http://localhost:5000/me', headers={"accept":"application/json"})
-'{"hello": "me"}'
->>>get('http://localhost:5000/me', headers={"accept":"application/xml"})
-'<?xml version="1.0" ?><response><hello>me</hello></response>'
 
 @author: pussbb
 '''

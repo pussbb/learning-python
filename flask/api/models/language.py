@@ -5,10 +5,10 @@
 '''
 
 from . import BaseModel
-from .. import db
+from api import DB
 from sqlalchemy import Column, Integer, String
 
-class Language(BaseModel, db.Model):
+class Language(BaseModel, DB.Model):
 
     __tablename__ = 'languages'
 

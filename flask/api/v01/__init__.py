@@ -4,9 +4,8 @@ Created on Jul 3, 2013
 @author: pussbb
 '''
 from flask.views import MethodView
-from .. import db
-
-from ..output import output_response, output_error
+from api import DB
+from api.output import output_response, output_error
 
 from flask import request
 import json
@@ -96,8 +95,8 @@ class Command(MethodView):
         if not form.validate():
             return output_error(form.errors)
 
-        db.session.add(model)
-        db.session.commit()
+        DB.session.add(model)
+        DB.session.commit()
         return output_response(model.serialize(), 201)
 
     def delete(self, pk):

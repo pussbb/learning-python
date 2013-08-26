@@ -15,32 +15,32 @@ __all__ = (
     'attach_logger',
 )
 
-config = api.config.Config
+CONFIG = api.config.Config
 
 if __debug__:
-    config = api.config.DevelopmentConfig
+    CONFIG = api.config.DevelopmentConfig
 else:
-    config = api.config.ProductionConfig
+    CONFIG = api.config.ProductionConfig
 
-path = os.path.abspath(os.path.dirname(config.LOG_FILENAME))
+path = os.path.abspath(os.path.dirname(CONFIG.LOG_FILENAME))
 if not os.path.exists(path) or not os.path.isdir(path):
     os.mkdir(path)
 
 LOGGER = logging.getLogger()
 LOGGER.setLevel(logging.DEBUG)
 
-log_handler = logging.handlers.RotatingFileHandler(
-     config.LOG_FILENAME,
-     maxBytes= config.LOG_MAX_BYTES, 
-     backupCount= config.LOG_BACKUP_COUNT
+handler = logging.handlers.RotatingFileHandler(
+     CONFIG.LOG_FILENAME,
+     maxBytes= CONFIG.LOG_MAX_BYTES,
+     backupCount= CONFIG.LOG_BACKUP_COUNT
 )
 
-_formatter = logging.Formatter("%(asctime)s: %(levelname)s: %(message)s")
+logging.Formatter("%(asctime)s: %(levelname)s: %(message)s")
 
-LOGGER.addHandler(log_handler)
+LOGGER.addHandler(handler)
 
 def attach_logger(*args):
     for logger in args:
         logger.propagate = False
         del logger.handlers[:]
-        logger.addHandler(log_handler)
+        logger.addHandler(handler)

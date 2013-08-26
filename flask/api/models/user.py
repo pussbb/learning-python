@@ -5,7 +5,7 @@ Created on Jul 4, 2013
 '''
 
 from . import BaseModel
-from .. import db
+from api import DB
 
 from sqlalchemy.orm import MapperExtension
 from sqlalchemy import Column, Integer, String, Text
@@ -21,7 +21,7 @@ class UserMapperExtension(MapperExtension):
         if not instance.api_key:
             instance.api_key  = str(uuid.uuid1()).replace('-','')
 
-class User(BaseModel, db.Model):
+class User(BaseModel, DB.Model):
     '''
     classdocs
     '''
@@ -52,9 +52,7 @@ class User(BaseModel, db.Model):
 
     @property
     def meta_data(self):
-        if self._meta_data is None:
-            return []
-        return json.loads(self._meta_data)
+        return json.loads(self._meta_data or '[]')
 
     @meta_data.setter
     def meta_data(self, meta_data):

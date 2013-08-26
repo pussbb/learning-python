@@ -21,9 +21,9 @@ if __debug__:
 else:
     app.config.from_object('api.config.ProductionConfig')
 
-db = SQLAlchemy(app)
+DB = SQLAlchemy(app)
 
-attach_logger(app.logger, getLogger('sqlalchemy'), getLogger('db'))
+attach_logger(app.logger, getLogger('sqlalchemy'), getLogger('DB'))
 
 @app.errorhandler(Exception)
 def exception_handler(exception=None):
@@ -46,12 +46,12 @@ def apply_changes(exception=None):
     if exception:
         app.logger.exception(exception)
     try:
-        db.session.commit()
+        DB.session.commit()
     except SQLAlchemyError as database_exception:
-        db.session.rollback()
+        DB.session.rollback()
         exception_handler(database_exception)
     finally:
-        db.session.remove()
+        DB.session.remove()
 
 def run_server():
     """Start application
