@@ -13,6 +13,9 @@ class Config(object):
     TRAP_BAD_REQUEST_ERRORS = False
     JSON_AS_ASCII = False
     JSONIFY_PRETTYPRINT_REGULAR = False
+    LOG_FILENAME = 'log/access.log'
+    LOG_MAX_BYTES = 524288000
+    LOG_BACKUP_COUNT = 5
 
 class ProductionConfig(Config):
     pass

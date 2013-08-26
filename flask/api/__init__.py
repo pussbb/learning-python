@@ -10,7 +10,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
 from api.output import output_response, output_error
-
+from api.logger import attach_logger
+from logging import getLogger
 import traceback
 
 app = Flask(__name__)
@@ -21,6 +22,8 @@ else:
     app.config.from_object('api.config.ProductionConfig')
 
 db = SQLAlchemy(app)
+
+attach_logger(app.logger, getLogger('sqlalchemy'), getLogger('db'))
 
 @app.errorhandler(Exception)
 def exception_handler(exception=None):
