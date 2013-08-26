@@ -17,8 +17,6 @@ __all__ = (
     'output_error',
 )
 
-
-# needs: pip install python-simplexml
 from flask import make_response, jsonify, request
 from simplexml import dumps
 

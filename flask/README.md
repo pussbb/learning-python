@@ -17,15 +17,18 @@ pip install flask_sqlalchemy
 ```sh
 pip install WTForms
 ```
+[SImpleXml](https://github.com/marcelnicolay/simplexml)
+```sh
+pip install python-simplexml
+```
 
- 
-Run 
+Run
 =========
 in debug mode
 ```sh
 $ python ./main.py
 ```
-in production 
+in production
 ```sh
 $ python -O -OO ./main.py
 ```
@@ -33,7 +36,7 @@ $ python -O -OO ./main.py
 Usage
 =========
 
-  List of all available commands [http://localhost:5050/api/v.0.1/](http://localhost:5050/api/v.0.1/) 
+  List of all available commands [http://localhost:5050/api/v.0.1/](http://localhost:5050/api/v.0.1/)
 
 |  URL        | Method      | Description                  |
 | ----------- |:-----------:| ----------------------------:|
@@ -53,11 +56,11 @@ List of available query options:
 
 
 
-simple filtering 
+simple filtering
 ___
 ```javascript
-{ "author_id": 1} 
-//or 
+{ "author_id": 1}
+//or
 { "author_id": [1,2,3]}
 ```
 
@@ -66,14 +69,14 @@ ___
 ```javascript
 {
     "created_at": {
-          "comparison_key": "<>", 
+          "comparison_key": "<>",
           "value": 1
      }
-} 
+}
 //   or
 {
     "created_at": {
-        "comparison_key": "<>", 
+        "comparison_key": "<>",
         "value": [1,2,3]
     }
 }
