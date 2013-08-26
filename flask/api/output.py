@@ -14,15 +14,13 @@ Created on Aug 25, 2013
 __all__ = (
     'REPRESENTATIONS',
     'output_response',
+    'output_error',
 )
 
 
 # needs: pip install python-simplexml
 from flask import make_response, jsonify, request
 from simplexml import dumps
-# you need requests
-
-
 
 def json_response(data, code=200):
     resp = make_response(jsonify(data), code)
@@ -47,4 +45,7 @@ def output_response(data, code=200, mediatype=None):
     if mediatype in REPRESENTATIONS:
         func = REPRESENTATIONS[mediatype]
     return func(data, code)
+
+def output_error(data, code=400):
+    return output_response({'errors': data}, code);
 

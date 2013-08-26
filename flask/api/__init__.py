@@ -50,7 +50,7 @@ def shutdown_server():
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
 
-@app.route('/api')
+@app.route('/api/')
 def index():
     abort(403)
 

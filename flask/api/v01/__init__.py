@@ -6,7 +6,7 @@ Created on Jul 3, 2013
 from flask.views import MethodView
 from .. import db
 
-from ..output import output_response
+from ..output import output_response, output_error
 
 from flask import request
 import json
@@ -90,7 +90,7 @@ class Command(MethodView):
 
         form = self.FORM(request.form, model)
         if not form.validate():
-            return output_response({'erorrs': form.errors}, 400)
+            return output_error(form.errors)
 
         db.session.add(model)
         db.session.commit()
@@ -99,8 +99,8 @@ class Command(MethodView):
     def delete(self, pk):
         count = self.__query().filter_by(id = pk).delete()
         if count == 0:
-            return output_response({'erorrs': ['Could not delete']}, 400)
-        return output_response({'total': count}, 204)
+            return output_error(['Could not delete'])
+        return output_response({}, 204)
 
     def put(self, pk):
         model = self.__query().filter_by(id = pk).first_or_404()
@@ -110,9 +110,9 @@ class Command(MethodView):
 
         form = self.FORM(request.form, model)
         if not form.validate():
-            return output_response({'erorrs': form.errors})
+            return output_error(form.errors)
 
-        return output_response(model.serialize())
+        return output_response(model.serialize(), 202)
 
     def __query(self):
         return self.TABLE.query

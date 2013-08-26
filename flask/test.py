@@ -5,7 +5,8 @@ Created on Aug 14, 2013
 '''
 import unittest
 import api
-from flask import json, jsonify
+from flask import json
+import simplexml
 
 
 class Test(unittest.TestCase):
@@ -21,11 +22,19 @@ class Test(unittest.TestCase):
 
     def test_api_route(self):
         rv = self.app.get('/api/')
-        assert rv.status_code == 404
+        print rv
+        assert rv.status_code == 403
 
     def test_v01_blueprint(self):
         rv = self.app.get('/api/v.0.1/')
         assert '"commands":' in rv.data
+
+    def test_v01_response_format(self):
+        rv = self.app.get('/api/v.0.1/users/', headers={"accept":"application/xml"})
+        self.assertIsNotNone(simplexml.loads(rv.data))
+
+        rv = self.app.get('/api/v.0.1/users/', headers={"accept":"application/json"})
+        self.assertIsNotNone(json.loads(rv.data))
 
     def test_v01_simple_calls(self):
         rv = self.app.get('/api/v.0.1/users/')
@@ -41,7 +50,8 @@ class Test(unittest.TestCase):
         assert '501: Not Implemented' in rv.data
 
         rv = self.app.post('/api/v.0.1/users/')
-        assert '"erorrs":' in rv.data and rv.status_code == 200
+
+        assert '"errors":' in rv.data and rv.status_code == 400
 
         rv = self.app.post('/api/v.0.1/users/', data={"login": "test",
                                                       "email": "test@email.net",
@@ -49,14 +59,14 @@ class Test(unittest.TestCase):
                                                       "role_id" : 1,
                                                       })
 
-        assert '"id"' in rv.data and rv.status_code == 200
+        assert '"id"' in rv.data and rv.status_code == 201
         data = json.loads(rv.data)
 
         rv = self.app.put('/api/v.0.1/users/{0}'.format(data['id']))
-        assert rv.status_code == 200
+        assert rv.status_code == 202
 
         rv = self.app.delete('/api/v.0.1/users/{0}'.format(data['id']))
-        assert '"total"'in rv.data and rv.status_code == 200
+        assert rv.status_code == 204
 
         rv = self.app.get('/api/v.0.1/users/me')
         assert rv.status_code == 200 and 'hello me' in rv.data
