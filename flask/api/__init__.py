@@ -43,7 +43,8 @@ def exception_handler(exception=None):
 def apply_changes(exception=None):
     """Commit all changes to database and remove scroped session
     """
-    app.log_exception(exception)
+    if exception:
+        app.logger.exception(exception)
     try:
         db.session.commit()
     except SQLAlchemyError as database_exception:
