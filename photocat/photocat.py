@@ -25,8 +25,9 @@ __version__ = '0.0.1'
 __all__ = ('walk_directory', 'SPLIT_BY_YEAR', 'copy_file')
 
 
-EXTENTIONS = ['png', 'jpg', 'gif', 'jpeg']
+EXTENTIONS = ['png', 'jpg', 'gif', 'jpeg', 'mpeg']
 SPLIT_BY_YEAR = False
+TOTAL = 0
 
 def sizeof_fmt(num):
     ''' Human readable file size '''
@@ -38,6 +39,7 @@ def sizeof_fmt(num):
 
 def copy_file(origin_file, destination_dir):
     ''' Copy file into folder '''
+    global TOTAL
     mtime = os.path.getmtime(origin_file)
     ctime = os.path.getmtime(origin_file)
     timestamp = ctime
@@ -60,21 +62,22 @@ def copy_file(origin_file, destination_dir):
     index = 1
     while os.path.exists(destination_file):
         parts = filename.split('.')
-        parts[-2] = "%s(%s)" % (parts[-2], index)
+        parts[-2] += "(%s)" % index
         destination_file = os.path.join(path, '.'.join(parts))
         index += 1
 
-    print "Copying file: %s (%s)" % (filename,
-                                   sizeof_fmt(os.path.getsize(origin_file)))
+    print("Copying file: %s (%s)" % (filename,
+                                   sizeof_fmt(os.path.getsize(origin_file))))
+    TOTAL += 1
     shutil.copy2(origin_file, destination_file)
 
 def walk_directory(source_dir, destination_dir):
     ''' Recursively walk through directory'''
     for root, dir_names, files in os.walk(source_dir, followlinks=True):
-        print "Scaning %s" % root
+        print("Scaning %s" % root)
         for name in files:
             ext = name.split('.')[-1]
-            if ext in EXTENTIONS:
+            if ext.lower() in EXTENTIONS:
                 copy_file(os.path.join(root, name), destination_dir)
         for dir_name in dir_names:
             walk_directory(dir_name, destination_dir)
@@ -95,3 +98,6 @@ if __name__ == '__main__':
         raise Exception('Folder %s not writable' % DESTINATION_DIR)
 
     walk_directory(SOURCE_DIR, DESTINATION_DIR)
+
+    print('%s files were copied' % TOTAL)
+    print('Done!')
