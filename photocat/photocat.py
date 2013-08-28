@@ -49,7 +49,7 @@ def copy_file(origin_file, destination_dir):
 
     path = os.path.join(destination_dir, date_time.strftime('%Y-%m'))
 
-    if (SPLIT_BY_YEAR):
+    if SPLIT_BY_YEAR:
         path = os.path.join(destination_dir, date_time.strftime('%Y'),
                              date_time.strftime('%m'))
 
