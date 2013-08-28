@@ -19,3 +19,14 @@ or
 
 * 2013-02 (year - month)
     + image.jpg
+
+
+Usage
+=========
+```sh
+$ python photcat.py SOURCE_DIR DESTINATION_DIR
+```
+
+```sh
+$ python photcat.py DESTINATION_DIR
+```
