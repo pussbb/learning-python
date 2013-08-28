@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Photo catalog.
 
 Usage:
@@ -13,8 +14,7 @@ Options:
 
 """
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
+from __future__ import unicode_literals, print_function
 
 from docopt import docopt
 import os
@@ -61,12 +61,12 @@ def copy_file(origin_file, destination_dir):
 
     index = 1
     while os.path.exists(destination_file):
-        parts = filename.split('.')
+        parts = filename.decode('utf-8').split('.')
         parts[-2] += "(%s)" % index
         destination_file = os.path.join(path, '.'.join(parts))
         index += 1
 
-    print("Copying file: %s (%s)" % (filename,
+    print("Copying file: %s (%s)" % (filename.decode('UTF-8'),
                                    sizeof_fmt(os.path.getsize(origin_file))))
     TOTAL += 1
     shutil.copy2(origin_file, destination_file)
@@ -74,9 +74,9 @@ def copy_file(origin_file, destination_dir):
 def walk_directory(source_dir, destination_dir):
     ''' Recursively walk through directory'''
     for root, dir_names, files in os.walk(source_dir, followlinks=True):
-        print("Scaning %s" % root)
+        print("Scaning %s" % root.decode('UTF-8'))
         for name in files:
-            ext = name.split('.')[-1]
+            ext = name.decode('UTF-8').split('.')[-1]
             if ext.lower() in EXTENTIONS:
                 copy_file(os.path.join(root, name), destination_dir)
         for dir_name in dir_names:
