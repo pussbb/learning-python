@@ -91,4 +91,26 @@ Complex query
 ____
 [http://localhost:5050/api/v.0.1/news/?filter={"created_at":{"comparison_key": "<", "value":"2013-04-02"}}&with=["author"]&per_page=2&page=2](http://localhost:5050/api/v.0.1/news/?filter={"created_at":{"comparison_key": "<", "value":"2013-04-02"}}&with=["author"]&per_page=2&page=2)
 
+Simple http_load test
+=========
+```sh
+$ http_load -parallel 10 -seconds 5 ./urls 
+645 fetches, 10 max parallel, 2.64575e+06 bytes, in 5 seconds
+4101.94 mean bytes/connection
+129 fetches/sec, 529150 bytes/sec
+msecs/connect: 0.0790791 mean, 0.382 max, 0.024 min
+msecs/first-response: 76.3896 mean, 277.693 max, 26.858 min
+HTTP response codes:
+  code 200 -- 446
+  code 301 -- 199
+
+```
+urls file
+```
+http://localhost:5050/api/v.0.1/news/?with=%5B%22author%22%5D
+http://localhost:5050/api/v.0.1/news/?per_page=2
+http://localhost:5050/api/v.0.1/users
+
+```
+
 
