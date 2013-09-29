@@ -49,7 +49,7 @@ def copy_file(origin_file, destination_dir):
     """ Copy file into folder """
     global TOTAL
     mtime = os.path.getmtime(origin_file)
-    ctime = os.path.getmtime(origin_file)
+    ctime = os.path.getctime(origin_file)
     timestamp = ctime
     if ctime > mtime:
         timestamp = mtime
