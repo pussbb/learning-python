@@ -97,7 +97,7 @@ if __name__ == '__main__':
     SPLIT_BY_YEAR = ARGS['-y']
 
     if not SOURCE_DIR:
-        SOURCE_DIR = os.path.realpath(__file__)
+        SOURCE_DIR = os.path.dirname(os.path.realpath(__file__))
 
     if not os.path.isdir(DESTINATION_DIR):
         os.mkdir(DESTINATION_DIR)

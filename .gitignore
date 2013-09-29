@@ -39,3 +39,4 @@ nosetests.xml
 .kdev4
 *.kdev4
 *.log
+*.cfg
