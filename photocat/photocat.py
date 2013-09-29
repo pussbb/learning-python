@@ -16,11 +16,17 @@ Options:
 
 from __future__ import unicode_literals, print_function
 
+import sys
+
+if sys.version_info[0] < 3:
+    import imp
+    imp.reload(sys)
+    sys.setdefaultencoding("UTF-8")
+
 from docopt import docopt
 import os
 from datetime import datetime
 import shutil
-
 
 __version__ = '0.0.1'
 __all__ = ('walk_directory', 'SPLIT_BY_YEAR', 'copy_file')
@@ -30,16 +36,17 @@ EXTENTIONS = ['png', 'jpg', 'gif', 'jpeg', 'mpeg']
 SPLIT_BY_YEAR = False
 TOTAL = 0
 
+
 def sizeof_fmt(num):
-    ''' Human readable file size '''
-    for x in ['bytes', 'KB', 'MB', 'GB']:
-        if num < 1024.0 and num > -1024.0:
-            return "%3.1f %s" % (num, x)
+    """ Human readable file size """
+    for label in ['bytes', 'KB', 'MB', 'GB']:
+        if 1024.0 > num > -1024.0:
+            return "%3.1f %s" % (num, label)
         num /= 1024.0
     return "%3.1f %s" % (num, 'TB')
 
 def copy_file(origin_file, destination_dir):
-    ''' Copy file into folder '''
+    """ Copy file into folder """
     global TOTAL
     mtime = os.path.getmtime(origin_file)
     ctime = os.path.getmtime(origin_file)
@@ -62,32 +69,32 @@ def copy_file(origin_file, destination_dir):
 
     index = 1
     while os.path.exists(destination_file):
-        parts = filename.decode('utf-8').split('.')
+        parts = filename.split('.')
         parts[-2] += "(%s)" % index
         destination_file = os.path.join(path, '.'.join(parts))
         index += 1
 
-    print("Copying file: %s (%s)" % (filename.decode('UTF-8'),
+    print("Copying file: %s (%s)" % (filename,
                                    sizeof_fmt(os.path.getsize(origin_file))))
     TOTAL += 1
     shutil.copy2(origin_file, destination_file)
 
 def walk_directory(source_dir, destination_dir):
-    ''' Recursively walk through directory'''
+    """ Recursively walk through directory"""
     for root, dir_names, files in os.walk(source_dir, followlinks=True):
-        print("Scaning %s" % root.decode('UTF-8'))
+        print("Scaning %s" % root)
         for name in files:
-            ext = name.decode('UTF-8').split('.')[-1]
+            ext = name.split('.')[-1]
             if ext.lower() in EXTENTIONS:
                 copy_file(os.path.join(root, name), destination_dir)
         for dir_name in dir_names:
             walk_directory(dir_name, destination_dir)
 
 if __name__ == '__main__':
-    arguments = docopt(__doc__, version= __version__)
-    SOURCE_DIR = arguments['SOURCE_DIR']
-    DESTINATION_DIR = os.path.realpath(arguments['DESTINATION_DIR'])
-    SPLIT_BY_YEAR = arguments['-y']
+    ARGS = docopt(__doc__, version= __version__)
+    SOURCE_DIR = ARGS['SOURCE_DIR']
+    DESTINATION_DIR = os.path.realpath(ARGS['DESTINATION_DIR'])
+    SPLIT_BY_YEAR = ARGS['-y']
 
     if not SOURCE_DIR:
         SOURCE_DIR = os.path.realpath(__file__)
