@@ -34,3 +34,8 @@ nosetests.xml
 .project
 .pydevproject
 .settings
+
+.idea
+.kdev4
+*.kdev4
+*.log

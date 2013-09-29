@@ -21,6 +21,7 @@ import os
 from datetime import datetime
 import shutil
 
+
 __version__ = '0.0.1'
 __all__ = ('walk_directory', 'SPLIT_BY_YEAR', 'copy_file')
 
