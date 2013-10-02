@@ -8,7 +8,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 settings = Settings()
 settings.setValue('list_value', [1, 2, 3])
-
+timer =  QtCore.QTimer()
 
 class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
 
@@ -16,6 +16,12 @@ class SystemTrayIcon(QtWidgets.QSystemTrayIcon):
         QtWidgets.QSystemTrayIcon.__init__(self, icon, parent)
         self.menu = QtWidgets.QMenu(parent)
         self.setContextMenu(self.menu)
+        self.activated.connect(self.on_activated)
+
+    def on_activated(self, reason):
+        if reason == QtWidgets.QSystemTrayIcon.Trigger:
+            self.showMessage("dfdsfdsf", "ytytrytr")
+
 
     def add_menu_actions(self, actions):
         for i in actions:
@@ -37,7 +43,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.trayIcon.show()
 
     def on_exit(self):
-        sys.exit()
+        QtWidgets.QApplication.instance().exit()
 
 
 def main():
