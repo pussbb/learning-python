@@ -87,8 +87,6 @@ def walk_directory(source_dir, destination_dir):
             ext = name.split('.')[-1]
             if ext.lower() in EXTENTIONS:
                 copy_file(os.path.join(root, name), destination_dir)
-        for dir_name in dir_names:
-            walk_directory(dir_name, destination_dir)
 
 if __name__ == '__main__':
     ARGS = docopt(__doc__, version= __version__)
