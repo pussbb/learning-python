@@ -40,4 +40,6 @@ nosetests.xml
 *.kdev4
 *.log
 *.cfg
-jad*
+jad
+jad.txt
+procyon*
