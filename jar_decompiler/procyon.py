@@ -41,7 +41,14 @@ def decompile(decompiler, jar, output_dir=None, options=None):
     @param options:
     @return:
     """
-    #java -jar decompiler.jar -jar myJar.jar -o out
+
+    if not output_dir:
+        output_dir = absolute_file_path(jar)
+
+    basename = os.path.basename(jar)
+    if not output_dir.endswith(basename):
+        output_dir = os.path.join(output_dir, basename)
+
     command = [
         'java',
         '-jar',

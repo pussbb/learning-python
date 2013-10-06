@@ -48,6 +48,7 @@ def look_for_jars(func, app, directory, output_dir, options):
     @param jad_options:
     @return:
     """
+    print(output_dir)
     for root, _, files in os.walk(directory, followlinks=True):
         for file_name in files:
             if not file_name.lower().endswith('.jar'):
@@ -69,7 +70,7 @@ def parse_arguments(args):
         output_dir = absolute_file_path(jar)
 
     if jar_dir:
-        jar_dir = os.path.abspath(output_dir)
+        jar_dir = os.path.abspath(jar_dir)
         if not output_dir:
             output_dir = jar_dir
 
