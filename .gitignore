@@ -42,4 +42,4 @@ nosetests.xml
 *.cfg
 jad
 jad.txt
-procyon*
+procyon-*
