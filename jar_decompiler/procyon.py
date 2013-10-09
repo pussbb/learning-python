@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 """Procyon decompiler helper script.
 
