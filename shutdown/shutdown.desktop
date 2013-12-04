@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[en_US]=shutdown
+Comment=shutdown
+Exec=python ./shutdown.py
+GenericName[en_US]=shutdown
+GenericName=shutdown
+Icon=exec
+MimeType=
+Name[en_US]=shutdown
+Name=shutdown
+Path=./
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
