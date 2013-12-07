@@ -2,10 +2,11 @@
 """Photo catalog.
 
 Usage:
-  photcat.py SOURCE_DIR DESTINATION_DIR [-y]
-  photcat.py DESTINATION_DIR [-y]
-  photcat.py (-h | --help)
-  photcat.py --version
+  photocat.py gui
+  photocat.py SOURCE_DIR DESTINATION_DIR [-y]
+  photocat.py DESTINATION_DIR [-y]
+  photocat.py (-h | --help)
+  photocat.py --version
 
 Options:
   -h --help     Show this screen.
@@ -91,19 +92,25 @@ def walk_directory(source_dir, destination_dir):
 if __name__ == '__main__':
     ARGS = docopt(__doc__, version= __version__)
     SOURCE_DIR = ARGS['SOURCE_DIR']
-    DESTINATION_DIR = os.path.realpath(ARGS['DESTINATION_DIR'])
+    DESTINATION_DIR = ARGS['DESTINATION_DIR']
+
     SPLIT_BY_YEAR = ARGS['-y']
 
     if not SOURCE_DIR:
         SOURCE_DIR = os.path.dirname(os.path.realpath(__file__))
 
-    if not os.path.isdir(DESTINATION_DIR):
-        os.mkdir(DESTINATION_DIR)
+    if DESTINATION_DIR:
+        DESTINATION_DIR = os.path.realpath(DESTINATION_DIR)
+        if not os.path.isdir(DESTINATION_DIR):
+            os.mkdir(DESTINATION_DIR)
 
-    if not os.access(DESTINATION_DIR, os.W_OK):
-        raise Exception('Folder %s not writable' % DESTINATION_DIR)
+        if not os.access(DESTINATION_DIR, os.W_OK):
+            raise Exception('Folder %s not writable' % DESTINATION_DIR)
 
-    walk_directory(SOURCE_DIR, DESTINATION_DIR)
-
-    print('%s files were copied' % TOTAL)
-    print('Done!')
+    if ARGS['gui'] or sys.platform.startswith('win'):
+        import ui.app
+        ui.app.main()
+    else:
+        walk_directory(SOURCE_DIR, DESTINATION_DIR)
+        print('%s files were copied' % TOTAL)
+        print('Done!')
