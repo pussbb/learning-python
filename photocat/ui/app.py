@@ -48,11 +48,11 @@ class PhotoCat(QtGui.QMainWindow):
         self.connect(self.ui.start, QtCore.SIGNAL("clicked()"), self.start)
 
     def get_folder(self, title, mode=os.R_OK):
-        options=QtGui.QFileDialog.ShowDirsOnly
+        options_ = QtGui.QFileDialog.ShowDirsOnly
         user_folder =  QtGui.QFileDialog.getExistingDirectory(self,
                                                               title,
                                                               '/home',
-                                                              options=options)
+                                                              options=options_)
 
         if user_folder and not os.access(user_folder, mode):
             message = "Somthing wrong with folder {0}".format(user_folder)
@@ -75,10 +75,10 @@ class PhotoCat(QtGui.QMainWindow):
         if destination_folder:
             self.ui.destFolder.setText(destination_folder)
 
-    def folders_changed(self, text):
+    def folders_changed(self, _):
         enabled = True
         if not self.ui.sourceFolder.text() or not self.ui.destFolder.text():
-            enabled =False
+            enabled = False
         self.ui.start.setEnabled(enabled)
 
     def start(self):
@@ -87,13 +87,13 @@ class PhotoCat(QtGui.QMainWindow):
         self.ui.chooseSorceFolder.setEnabled(False)
         self.ui.progressBar.setMaximum(0)
         self.ui.progressBar.setMinimum(0)
-        self.ui.filesCount.setText("0")
+        self.ui.files_count.setText("0")
         for root, _, files in os.walk(str(self.ui.sourceFolder.text()),
                                       followlinks=True):
-            filesCount = self.ui.filesCount.text().toInt()[0]
-            filesCount += len(files)
-            self.ui.progressBar.setMaximum(filesCount)
-            self.ui.filesCount.setText(str(filesCount))
+            files_count = self.ui.files_count.text().toInt()[0]
+            files_count += len(files)
+            self.ui.progressBar.setMaximum(files_count)
+            self.ui.files_count.setText(str(files_count))
             for name in files:
                 self.ui.progressBar.setValue(self.ui.progressBar.value() + 1)
                 ext = name.split('.')[-1]
