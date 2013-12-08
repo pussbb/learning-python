@@ -22,7 +22,6 @@ class MPlayer(object):
         self.__init_mplayer_commands()
         self.__start_mplayer()
 
-
     def __del__(self):
         if self.__mp_proc:
             self.quit()
@@ -84,7 +83,37 @@ class MPlayer(object):
                 'help': cmd_str,
                 'args': args_,
             }
+
             setattr(self, cmd_name, self.__exec_mp_cmd(cmd_name, cmd_data))
+            self.__add_property(cmd_name, cmd_data)
+
+    def __add_property(self, name, cmd_data):
+        fget = None
+        fset = None
+        cmd = name
+        prop_name = name[4:]
+        if name.startswith('get'):
+            # fget - readonly
+            fget = lambda self: getattr(self, cmd)()
+        elif name.startswith('set'):
+            fset = lambda self, value: self.__set_property(cmd, value)
+        # else:
+        #     prop_name = name
+        #     if cmd_data['args']:
+        #         fset = lambda self, value: self.__set_property(cmd, value)
+        #     else:
+        #         fget = lambda self: getattr(self, cmd)()
+
+        if hasattr(self, prop_name) or (fget is None and fset is None):
+            return
+
+        setattr(self.__class__, prop_name, property(fget, fset))
+
+
+    def __set_property(self, name, value):
+        if isinstance(value, (list, tuple)):
+            return getattr(self, name)(*value)
+        return getattr(self, name)(value)
 
     def __exec_mp_cmd(self, cmd, cmd_data):
         def wrapper(*args):
@@ -101,9 +130,10 @@ class MPlayer(object):
 
             cmd_args = []
             for i, arg in enumerate(args):
-                cmd_args.append(cmd_data['args'][i](arg))
+                cmd_args.append(str(cmd_data['args'][i](arg)))
 
             cmd_str = '{0:s} {1}\n'.format(cmd, " ".join(cmd_args))
+
             self.__mp_proc.stdin.write(cmd_str)
             self.__mp_proc.stdin.flush()
 
@@ -112,11 +142,11 @@ class MPlayer(object):
                     try:
                         line = self.__mp_proc.stdout.readline().strip()
                         if line.startswith('ANS'):
-                            return line.split('=')[1]
-                            break
+                            return line.split('=')[1].strip(' \'')
                     except UnicodeDecodeError as _:
                         pass
-
+        wrapper.__name__ = cmd
+        wrapper.__doc__ = cmd_data['help']
         return wrapper
 
     def __start_mplayer(self):
@@ -129,14 +159,18 @@ class MPlayer(object):
             '-prefer-ipv4',
             '-quiet',
             '-nocolorkey',
+            '-noconsolecontrols',
+            '-nofontconfig',
+            '-msglevel',
+            'all=4',
         ]
         self.__mp_proc = MPlayer.__create_proc(args)
         if not self.is_running():
             raise MPlayerException("Couldnot start mplayer proccess")
 
+
     def is_running(self):
         return self.__mp_proc.poll() is None
-
 
 if __name__ == "__main__":
     p = MPlayer()
@@ -147,8 +181,11 @@ if __name__ == "__main__":
     #p.quit()
     #print(p.is_running())
     time.sleep(3)
-    print(p.get_percent_pos())
-    print(p.get_audio_bitrate())
+    #print(p.volume)
+    #p.volume = [60.0, 4]
+    #print(p.volume)
+    print(p.percent_pos)
+    print(p.audio_bitrate)
     print(p.get_time_pos())
     #p.pause()
     time.sleep(4)
