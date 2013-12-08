@@ -16,7 +16,7 @@ class MPlayerException(Exception):
 
 class MPlayer(object):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self):
         self.mplayer_exe = MPlayer.get_mplayer_system_path()
         self.__mp_proc = None
         self.__init_mplayer_commands()
@@ -25,6 +25,12 @@ class MPlayer(object):
     def __del__(self):
         if self.__mp_proc:
             self.quit()
+
+    def __setattr__(self, key, value):
+        if hasattr(self, key) and callable(getattr(self, key)):
+            self.__set_property(key, value)
+        else:
+            object.__setattr__(self, key, value)
 
     @staticmethod
     def __create_proc(*args):
@@ -85,9 +91,9 @@ class MPlayer(object):
             }
 
             setattr(self, cmd_name, self.__exec_mp_cmd(cmd_name, cmd_data))
-            self.__add_property(cmd_name, cmd_data)
+            self.__add_property(cmd_name)
 
-    def __add_property(self, name, cmd_data):
+    def __add_property(self, name):
         fget = None
         fset = None
         cmd = name
@@ -97,12 +103,6 @@ class MPlayer(object):
             fget = lambda self: getattr(self, cmd)()
         elif name.startswith('set'):
             fset = lambda self, value: self.__set_property(cmd, value)
-        # else:
-        #     prop_name = name
-        #     if cmd_data['args']:
-        #         fset = lambda self, value: self.__set_property(cmd, value)
-        #     else:
-        #         fget = lambda self: getattr(self, cmd)()
 
         if hasattr(self, prop_name) or (fget is None and fset is None):
             return
@@ -182,10 +182,13 @@ if __name__ == "__main__":
     #print(p.is_running())
     time.sleep(3)
     #print(p.volume)
-    #p.volume = [60.0, 4]
+    p.volume = [30.0, 4]
+
     #print(p.volume)
     print(p.percent_pos)
     print(p.audio_bitrate)
+    time.sleep(3)
+    p.volume(90.0, 4)
     print(p.get_time_pos())
     #p.pause()
     time.sleep(4)
