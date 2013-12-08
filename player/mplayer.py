@@ -58,14 +58,14 @@ class MPlayer(object):
             raise MPlayerException('Not supported platform')
 
         proc = MPlayer.__create_proc('type -P mplayer')
-        stdout, stderr = proc.communicate()
+        stdout, _ = proc.communicate()
         if proc.returncode != 0:
             raise MPlayerException('Cold not find mplayer')
         return stdout.split()[0]
 
     def __init_mplayer_commands(self):
         proc = MPlayer.__create_proc(self.mplayer_exe, '-input', 'cmdlist')
-        stdout, stderr = proc.communicate()
+        stdout, _ = proc.communicate()
         if proc.returncode != 1:
             raise MPlayerException('Cold not fetch cmdlist')
         types = {
@@ -74,7 +74,7 @@ class MPlayer(object):
             'Float': float,
         }
         for cmd_str in stdout.split('\n')[:-2]:
-            cmd_name, *args = tuple(cmd_str.split())
+            cmd_name, *args =tuple(cmd_str.split())
             if hasattr(self, cmd_name):
                 continue
             required_count = 0
