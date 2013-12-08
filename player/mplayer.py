@@ -45,7 +45,6 @@ class MPlayer(object):
                                 stderr=subprocess.PIPE,
                                 stdin=subprocess.PIPE,
                                 close_fds=True,
-                                bufsize=-1,
                                 universal_newlines=True)
 
     @staticmethod
@@ -71,6 +70,8 @@ class MPlayer(object):
         }
         for cmd_str in stdout.split('\n')[:-2]:
             cmd_name, *args = tuple(cmd_str.split())
+            if hasattr(self, cmd_name):
+                continue
             required_count = 0
             args_ = []
             for arg in args:
@@ -105,9 +106,17 @@ class MPlayer(object):
             cmd_str = '{0:s} {1}\n'.format(cmd, " ".join(cmd_args))
             self.__mp_proc.stdin.write(cmd_str)
             self.__mp_proc.stdin.flush()
-            print(self.__mp_proc.stdout.newlines)
+
             if cmd.startswith('get'):
-                print(self.__mp_proc.stdout.read())
+                while True:
+                    try:
+                        line = self.__mp_proc.stdout.readline().strip()
+                        if line.startswith('ANS'):
+                            return line.split('=')[1]
+                            break
+                    except UnicodeDecodeError as _:
+                        pass
+
         return wrapper
 
     def __start_mplayer(self):
@@ -118,7 +127,8 @@ class MPlayer(object):
             '-nolirc',
             '-nocache',
             '-prefer-ipv4',
-            #'-really-quiet'
+            '-quiet',
+            '-nocolorkey',
         ]
         self.__mp_proc = MPlayer.__create_proc(args)
         if not self.is_running():
@@ -137,10 +147,13 @@ if __name__ == "__main__":
     #p.quit()
     #print(p.is_running())
     time.sleep(3)
-    p.get_percent_pos()
+    print(p.get_percent_pos())
+    print(p.get_audio_bitrate())
+    print(p.get_time_pos())
     #p.pause()
-    #time.sleep(4)
+    time.sleep(4)
+    print(p.get_percent_pos())
     #p.pause()
-    #time.sleep(573)
+    time.sleep(573)
     p.quit()
     print(p.is_running())
