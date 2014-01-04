@@ -1,7 +1,25 @@
 # -*- coding: utf-8 -*-
 
 """
-for Python 3 only
+Wrapper for MPlayer.
+To get list of supported commands execute
+$ mplayer -input cmdlist
+
+all commands from that list are available as functions.
+Also :
+    - all commands which starts with 'get_' available as readonly properties
+     without 'get_' substring
+    e.g. get_percent_pos = obj.percent_pos
+    - all commands which starts with 'set_' available as properties
+     without 'set_' substring
+    - send command to Mplayer is simple
+        p.volume = [90.0, 1] | p.volume = 90.0, 1 | p.volume(90.0, 1)
+all parameters which passing will convert to types which MPlayer expect
+if command except Float param will convert to Float etc. Also it controls amount
+of params for command. E.g.
+seek                 Float [Integer] [Integer]
+p.seek() - will raise exception 'Not enough args'
+p.seek(34.4, 5, 5, 5) - will raise to many args
 """
 
 __author__ = 'pussbb'
@@ -177,7 +195,7 @@ if __name__ == "__main__":
 
     p.loadfile('http://s8-3.pleer.com/0357febeb13357987027cde2cd05b43d90b2a23a'
                '35a5918cfa565c8ead4c9e50b5469a762150ef921c6e83d5246c8e4d5ff861'
-               '7d7dee0f0afb779457bf4c9a690c759d36163d4c/9b6db7e4bd.mp3')
+               '7d7dee0f0afb779457bf4c9a690c759d36163d4c/9b6db70bc1.mp3')
     #p.quit()
     #print(p.is_running())
     time.sleep(3)
