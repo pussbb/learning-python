@@ -9,7 +9,7 @@ from PyQt4 import QtGui, QtCore, uic
 from datetime import datetime
 import shutil
 
-EXTENTIONS = ['png', 'jpg', 'gif', 'jpeg', 'mpeg']
+EXTENTIONS = ['png', 'jpg', 'gif', 'jpeg', 'mpeg', 'mp4']
 
 def current_directory():
     return os.path.dirname(os.path.realpath(__file__))
@@ -87,13 +87,13 @@ class PhotoCat(QtGui.QMainWindow):
         self.ui.chooseSorceFolder.setEnabled(False)
         self.ui.progressBar.setMaximum(0)
         self.ui.progressBar.setMinimum(0)
-        self.ui.files_count.setText("0")
+        self.ui.filesCount.setText("0")
         for root, _, files in os.walk(str(self.ui.sourceFolder.text()),
                                       followlinks=True):
-            files_count = self.ui.files_count.text().toInt()[0]
+            files_count = self.ui.filesCount.text().toInt()[0]
             files_count += len(files)
             self.ui.progressBar.setMaximum(files_count)
-            self.ui.files_count.setText(str(files_count))
+            self.ui.filesCount.setText(str(files_count))
             for name in files:
                 self.ui.progressBar.setValue(self.ui.progressBar.value() + 1)
                 ext = name.split('.')[-1]

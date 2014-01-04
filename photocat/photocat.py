@@ -33,7 +33,7 @@ __version__ = '0.0.1'
 __all__ = ('walk_directory', 'SPLIT_BY_YEAR', 'copy_file')
 
 
-EXTENTIONS = ['png', 'jpg', 'gif', 'jpeg', 'mpeg']
+EXTENTIONS = ['png', 'jpg', 'gif', 'jpeg', 'mpeg', 'mp4']
 SPLIT_BY_YEAR = False
 TOTAL = 0
 
