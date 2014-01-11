@@ -28,6 +28,10 @@ import subprocess
 import sys
 import time
 import pipes
+import threading
+
+
+DEBUG = __debug__
 
 class MPlayerException(Exception):
     pass
@@ -39,10 +43,16 @@ class MPlayer(object):
         self.__mp_proc = None
         self.__init_mplayer_commands()
         self.__start_mplayer()
+        self.thread = threading.Thread(target=self._mplayer_error)
+        self.thread.setDaemon(True)
+        self.thread.start()
+
 
     def __del__(self):
-        if self.__mp_proc:
+        if self.__mp_proc and self.is_running():
             self.quit()
+        if self.thread and self.thread.is_alive():
+            self.thread.join(0.1)
 
     def __setattr__(self, key, value):
         if hasattr(self, key) and callable(getattr(self, key)):
@@ -157,15 +167,33 @@ class MPlayer(object):
 
             if cmd.startswith('get'):
                 while True:
-                    try:
-                        line = self.__mp_proc.stdout.readline().strip()
-                        if line.startswith('ANS'):
-                            return line.split('=')[1].strip(' \'')
-                    except UnicodeDecodeError as _:
-                        pass
+                    line = self._mplayer_stdout_line()
+                    if line.startswith('ANS'):
+                        return line.split('=')[1].strip(' \'')
         wrapper.__name__ = cmd
         wrapper.__doc__ = cmd_data['help']
         return wrapper
+
+    def _mplayer_stdout_line(self):
+        return self.__mplayer_readline(self.__mp_proc.stdout, 'Output')
+
+    def _mplayer_error_line(self):
+        return self.__mplayer_readline(self.__mp_proc.stderr, 'Error')
+
+    def __mplayer_readline(self, stream, type=""):
+        line = ''
+        try:
+            line = stream.readline().strip()
+            if DEBUG:
+                print("{0} - ".format(type), line)
+        except UnicodeDecodeError as _:
+            pass
+        return line
+
+    def _mplayer_error(self):
+        line = self._mplayer_error_line()
+        if line:
+            raise MPlayerException(line)
 
     def __start_mplayer(self):
         args = [
@@ -174,7 +202,7 @@ class MPlayer(object):
             '-idle',
             '-nolirc',
             '-nocache',
-            '-prefer-ipv4',
+            #'-prefer-ipv4',
             '-quiet',
             '-nocolorkey',
             '-noconsolecontrols',
@@ -192,16 +220,19 @@ class MPlayer(object):
 
 if __name__ == "__main__":
     p = MPlayer()
-
-    p.loadfile('http://s8-3.pleer.com/0357febeb13357987027cde2cd05b43d90b2a23a'
-               '35a5918cfa565c8ead4c9e50b5469a762150ef921c6e83d5246c8e4d5ff861'
-               '7d7dee0f0afb779457bf4c9a690c759d36163d4c/9b6db70bc1.mp3')
+    try:
+        p.loadfile('http://s8-3.pleer.com/0357febeb13357987027cde2cd05b43d90b2a23a'
+                   '35a5918cfa565c8ead4c9e50b5469a762150ef921c6e83d5246c8e4d5ff861'
+                   '7d7dee0f0afb779457bf4c9a690c759d36163d4c/9b6db70bc1.mp3')
+    except MPlayerException as exception:
+        raise
     #p.quit()
     #print(p.is_running())
     time.sleep(3)
+
     #print(p.volume)
     p.volume = [30.0, 4]
-
+    print(p.thread.is_alive())
     #print(p.volume)
     print(p.percent_pos)
     print(p.audio_bitrate)
