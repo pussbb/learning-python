@@ -20,10 +20,11 @@ def json_response(data, code=200):
     resp.headers['Content-Type'] = 'application/json'
     return resp
 
+
 def xml_response(data, code=200):
     ''' Return Response object wich containce XML
     '''
-    resp = make_response(dumps({'response' :data}), code)
+    resp = make_response(dumps({'response': data}), code)
     resp.headers['Content-Type'] = 'application/xml'
     return resp
 
@@ -43,6 +44,7 @@ def output_response(data, code=200, mediatype=None):
     if mediatype in REPRESENTATIONS:
         func = REPRESENTATIONS[mediatype]
     return func(data, code)
+
 
 def output_error(data, code=400):
     '''Helper function to unify output errors format

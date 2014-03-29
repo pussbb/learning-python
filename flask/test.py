@@ -19,10 +19,8 @@ class Test(unittest.TestCase):
     def tearDown(self):
         pass
 
-
     def test_api_route(self):
         rv = self.app.get('/api/')
-        print rv
         assert rv.status_code == 403
 
     def test_v01_blueprint(self):

@@ -12,6 +12,7 @@ from . import Command
 Get News
 """
 
+
 class News(Command):
     TABLE = NewsModel
     URI = 'news'

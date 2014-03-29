@@ -1,12 +1,12 @@
-'''
-
-
+"""
 @author: pussbb
-'''
+
+"""
 
 from . import BaseModel
 from api import DB
 from sqlalchemy import Column, Integer, String
+
 
 class Language(BaseModel, DB.Model):
 

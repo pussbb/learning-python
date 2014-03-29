@@ -9,8 +9,8 @@ from werkzeug.exceptions import HTTPException
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
-from api.output import output_response, output_error
-from api.logger import attach_logger
+from .output import output_response, output_error
+from .logger import attach_logger
 from logging import getLogger
 import traceback
 
@@ -24,6 +24,7 @@ else:
 DB = SQLAlchemy(app)
 
 attach_logger(app.logger, getLogger('sqlalchemy'), getLogger('DB'))
+
 
 @app.errorhandler(Exception)
 def exception_handler(exception=None):
@@ -72,6 +73,6 @@ def index():
     """
     abort(403)
 
-from api.v01.app import API_V01
+from .v01.app import API_V01
 app.register_blueprint(API_V01)
 

@@ -23,7 +23,7 @@ class Users(Command):
     TABLE = User
     FORM = UserForm
 
-    @allowed_methods(['GET', 'POST',])
+    @allowed_methods(['GET', 'POST', ])
     def me(self):
         return "hello me <xmp>%s</xmp>" % repr(self)
 

@@ -1,8 +1,8 @@
-'''
+"""
 Created on Jul 4, 2013
 
 @author: pussbb
-'''
+"""
 
 import datetime
 from decimal import Decimal

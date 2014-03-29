@@ -1,8 +1,8 @@
-'''
+"""
 Created on Jul 7, 2013
-
 @author: pussbb
-'''
+
+"""
 
 from . import BaseModel
 from .user import User
@@ -22,7 +22,7 @@ class News(BaseModel, DB.Model):
     link = Column(String(255), nullable=False)
 
     author_id = Column(BigInteger, ForeignKey('users.id', name="author"))
-    author =  relationship(User, uselist=False ) #, lazy="joined"
+    author = relationship(User, uselist=False) #, lazy="joined"
 
     content = Column(Text())
     created_at = Column(DateTime, server_default='NOW()')

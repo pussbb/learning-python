@@ -7,7 +7,7 @@ Created on Aug 26, 2013
 import logging
 import logging.handlers
 
-import api.config
+from . import config
 import os
 
 __all__ = (
@@ -15,12 +15,12 @@ __all__ = (
     'attach_logger',
 )
 
-CONFIG = api.config.Config
+CONFIG = config.Config
 
 if __debug__:
-    CONFIG = api.config.DevelopmentConfig
+    CONFIG = config.DevelopmentConfig
 else:
-    CONFIG = api.config.ProductionConfig
+    CONFIG = config.ProductionConfig
 
 path = os.path.abspath(os.path.dirname(CONFIG.LOG_FILENAME))
 if not os.path.exists(path) or not os.path.isdir(path):
@@ -30,9 +30,8 @@ LOGGER = logging.getLogger()
 LOGGER.setLevel(logging.DEBUG)
 
 handler = logging.handlers.RotatingFileHandler(
-     CONFIG.LOG_FILENAME,
-     maxBytes= CONFIG.LOG_MAX_BYTES,
-     backupCount= CONFIG.LOG_BACKUP_COUNT
+    CONFIG.LOG_FILENAME, maxBytes=CONFIG.LOG_MAX_BYTES,
+    backupCount=CONFIG.LOG_BACKUP_COUNT
 )
 
 logging.Formatter("%(asctime)s: %(levelname)s: %(message)s")

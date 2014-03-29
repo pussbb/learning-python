@@ -1,11 +1,12 @@
-'''
+"""
 Created on Jul 3, 2013
 
 @author: pussbb
-'''
+"""
+
 from flask.views import MethodView
-from api import DB
-from api.output import output_response, output_error
+from .. import DB
+from ..output import output_response, output_error
 
 from flask import request
 import json
@@ -29,15 +30,16 @@ def allowed_methods(methods):
         return wrapper
     return real_wrapper
 
+
 class Command(MethodView):
 
     TABLE = None
     REPLY_SUCCESS = {
-                      'total': 0,
-                      'page': 0,
-                      'per_page': 20,
-                      'records': [],
-                   }
+      'total': 0,
+      'page': 0,
+      'per_page': 20,
+      'records': [],
+    }
 
     FORM = Form
 
@@ -49,7 +51,8 @@ class Command(MethodView):
 
     def dispatch_request(self, *args, **kwargs):
         key_value = kwargs.get(Command.PK)
-        if isinstance(key_value, basestring):
+        print(key_value)
+        if key_value and not isinstance(key_value, int):
             return self.custom_func(key_value)
 
         if request.method not in self.ALLOWED_METHODS:
@@ -152,14 +155,14 @@ class Command(MethodView):
     def __filter_by_condition(field, condition, query):
 
         comparison = condition['comparison_key']
-        value =  condition['value']
+        value = condition['value']
 
         if comparison in ('<>', '!='):
             if value is None:
-                query = query.filter( field != None )
+                query = query.filter(field.isnot(None))
             if isinstance(value, list):
                 query = ~query.filter(field.in_(value))
-            query = query.filter(field != value)
+            query = query.filter(field.isnot(value))
         elif comparison == '<':
             query = query.filter(field < value)
         elif comparison == '>':
