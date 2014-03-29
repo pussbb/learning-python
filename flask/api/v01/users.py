@@ -8,15 +8,17 @@ from ..models.user import User
 from . import Command, allowed_methods
 
 from wtforms import Form
-from wtforms import validators, TextField
+from wtforms import validators, StringField
 
 """
 Get User
 """
 
+
 # http://flask.pocoo.org/snippets/64/
 class UserForm(Form):
-    email = TextField('email', [validators.Email()])
+    email = StringField('email', [validators.Email()])
+
 
 class Users(Command):
     URI = 'users'

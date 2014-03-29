@@ -51,7 +51,6 @@ class Command(MethodView):
 
     def dispatch_request(self, *args, **kwargs):
         key_value = kwargs.get(Command.PK)
-        print(key_value)
         if key_value and not isinstance(key_value, int):
             return self.custom_func(key_value)
 
@@ -103,21 +102,18 @@ class Command(MethodView):
         return output_response(model.serialize(), 201)
 
     def delete(self, pk):
-        count = self.__query().filter_by(id = pk).delete()
+        count = self.__query().filter_by(id=pk).delete()
         if count == 0:
             return output_error(['Could not delete'])
         return output_response({}, 204)
 
     def put(self, pk):
-        model = self.__query().filter_by(id = pk).first_or_404()
+        model = self.__query().filter_by(id=pk).first_or_404()
 
-        for item, value in request.form:
-            setattr(model, item, value)
-
-        form = self.FORM(request.form, model)
+        form = self.FORM(request.form, obj=model)
         if not form.validate():
             return output_error(form.errors)
-
+        form.populate_obj(model)
         return output_response(model.serialize(), 202)
 
     def __query(self):

@@ -4,7 +4,7 @@
 """
 
 from . import BaseModel
-from api import DB
+from .. import DB
 from sqlalchemy import Column, Integer, String
 
 

@@ -6,7 +6,7 @@ Created on Jul 7, 2013
 
 from . import BaseModel
 from .user import User
-from api import DB
+from .. import DB
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy import BigInteger, DateTime, Text
 from sqlalchemy.orm import relationship

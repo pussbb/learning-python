@@ -5,9 +5,10 @@ Created on Jul 4, 2013
 '''
 
 from . import BaseModel
-from api import DB
+from .. import DB
 
-from sqlalchemy.orm import MapperExtension
+from sqlalchemy.orm import mapper
+from sqlalchemy import event
 from sqlalchemy import Column, Integer, String, Text
 
 import hashlib
@@ -15,14 +16,8 @@ import uuid
 import json
 
 
-class UserMapperExtension(MapperExtension):
-
-    def before_insert(self, mapper, connection, instance):
-        if not instance.api_key:
-            instance.api_key  = str(uuid.uuid1()).replace('-', '')
-
-
 class User(BaseModel, DB.Model):
+
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
@@ -32,8 +27,6 @@ class User(BaseModel, DB.Model):
     role_id = Column(Integer)
     api_key = Column(String(150))
     _meta_data = Column('meta_data', Text, default='[]')
-
-    __mapper_args__ = { 'extension': UserMapperExtension()}
 
     """
     http://docs.sqlalchemy.org/en/latest/orm/mapper_config.html#using-descriptors-and-hybrids
@@ -58,3 +51,22 @@ class User(BaseModel, DB.Model):
             meta_data = json.dumps(meta_data)
         self._meta_data = meta_data
 
+
+def check_meta_data_field(data):
+    print(data.id)
+    if isinstance(data._meta_data, (list, dict)):
+        data._meta_data = json.dumps(data._meta_data)
+
+def before_user_insert(mapper, connection, target):
+    if not target.api_key:
+        target.api_key = str(uuid.uuid1()).replace('-', '')
+    if target._meta_data is None:
+        target._meta_data = []
+    check_meta_data_field(target)
+
+def before_user_update(mapper, connection, target):
+    print('before update')
+    check_meta_data_field(target)
+
+event.listen(User, 'before_insert', before_user_insert)
+event.listen(User, 'before_update', before_user_update)

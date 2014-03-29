@@ -65,12 +65,14 @@ class Test(unittest.TestCase):
                      "email": "test@email.net",
                      "password": "123456",
                      "role_id": 1}
+
         rv = self.app.post('/api/v.0.1/users/', data=post_data)
         self.assertEqual(rv.status_code, 201)
         data = self.to_json(rv.data)
         self.assertIn('id', data)
 
-        rv = self.app.put('/api/v.0.1/users/{0}'.format(data['id']))
+        rv = self.app.put('/api/v.0.1/users/{0}'.format(data['id']),
+                          data={'login': 'test2'})
         self.assertEqual(rv.status_code, 202)
 
         rv = self.app.delete('/api/v.0.1/users/{0}'.format(data['id']))
