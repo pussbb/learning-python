@@ -23,8 +23,6 @@ class UserMapperExtension(MapperExtension):
 
 
 class User(BaseModel, DB.Model):
-    """
-    """
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
@@ -48,7 +46,7 @@ class User(BaseModel, DB.Model):
     def password(self, pswd):
         if pswd == self._password:
             return
-        self._password = hashlib.md5(str(pswd)).hexdigest()
+        self._password = hashlib.md5(pswd.encode('utf8')).hexdigest()
 
     @property
     def meta_data(self):

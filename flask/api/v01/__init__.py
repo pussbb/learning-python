@@ -111,7 +111,7 @@ class Command(MethodView):
     def put(self, pk):
         model = self.__query().filter_by(id = pk).first_or_404()
 
-        for item, value in request.form.iteritems():
+        for item, value in request.form:
             setattr(model, item, value)
 
         form = self.FORM(request.form, model)
