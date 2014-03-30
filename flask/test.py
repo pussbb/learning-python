@@ -71,8 +71,9 @@ class Test(unittest.TestCase):
         data = self.to_json(rv.data)
         self.assertIn('id', data)
 
+        data['login'] = 'test2'
         rv = self.app.put('/api/v.0.1/users/{0}'.format(data['id']),
-                          data={'login': 'test2'})
+                          data=data)
         self.assertEqual(rv.status_code, 202)
 
         rv = self.app.delete('/api/v.0.1/users/{0}'.format(data['id']))

@@ -7,7 +7,6 @@ Created on Jul 4, 2013
 from . import BaseModel
 from .. import DB
 
-from sqlalchemy.orm import mapper
 from sqlalchemy import event
 from sqlalchemy import Column, Integer, String, Text
 
@@ -53,19 +52,17 @@ class User(BaseModel, DB.Model):
 
 
 def check_meta_data_field(data):
-    print(data.id)
+    if data.id is None:
+        data._meta_data = []
     if isinstance(data._meta_data, (list, dict)):
         data._meta_data = json.dumps(data._meta_data)
 
 def before_user_insert(mapper, connection, target):
     if not target.api_key:
         target.api_key = str(uuid.uuid1()).replace('-', '')
-    if target._meta_data is None:
-        target._meta_data = []
     check_meta_data_field(target)
 
 def before_user_update(mapper, connection, target):
-    print('before update')
     check_meta_data_field(target)
 
 event.listen(User, 'before_insert', before_user_insert)

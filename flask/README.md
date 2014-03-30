@@ -5,18 +5,26 @@ Dependencies
 ```sh
 pip install flask
 ```
+
 [SQLAlchemy](http://www.sqlalchemy.org/)
 ```sh
 pip install sqlalchemy
 ```
+
 [Flask-SQLAlchemy](http://pythonhosted.org/Flask-SQLAlchemy/)
 ```sh
 pip install flask_sqlalchemy
 ```
+
 [WTForms](http://wtforms.simplecodes.com/)
 ```sh
 pip install WTForms
 ```
+[WTForms-Alchemy](http://wtforms-alchemy.readthedocs.org/en/latest/)
+```sh
+pip install WTForms-Alchemy
+```
+
 [SImpleXml](https://github.com/marcelnicolay/simplexml)
 ```sh
 pip install python-simplexml
@@ -94,7 +102,7 @@ ____
 Simple http_load test
 =========
 ```sh
-$ http_load -parallel 10 -seconds 5 ./urls 
+$ http_load -parallel 10 -seconds 5 ./urls
 514 fetches, 10 max parallel, 2.10279e+06 bytes, in 5 seconds
 4091.03 mean bytes/connection
 102.8 fetches/sec, 420557 bytes/sec

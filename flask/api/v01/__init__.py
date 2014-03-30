@@ -10,12 +10,11 @@ from ..output import output_response, output_error
 
 from flask import request
 import json
-from werkzeug.exceptions import MethodNotAllowed
+from werkzeug.exceptions import MethodNotAllowed, UnprocessableEntity
 from werkzeug.exceptions import NotImplemented as HTTPNotImplemented
 
 from sqlalchemy.orm import joinedload_all
 from sqlalchemy import desc
-from wtforms import Form
 
 def allowed_methods(methods):
     '''Decorator set allowed methods for custom function
@@ -41,7 +40,7 @@ class Command(MethodView):
       'records': [],
     }
 
-    FORM = Form
+    FORM = None
 
     ALLOWED_METHODS = ['GET', 'POST', 'PUT', 'DELETE']
 
@@ -56,6 +55,9 @@ class Command(MethodView):
 
         if request.method not in self.ALLOWED_METHODS:
             self.not_allowed()
+
+        if request.method in ['POST', 'PUT'] and self.FORM is None:
+            raise UnprocessableEntity()
         return MethodView.dispatch_request(self, *args, **kwargs)
 
     def get(self, pk):
@@ -97,8 +99,10 @@ class Command(MethodView):
         if not form.validate():
             return output_error(form.errors)
 
+        form.populate_obj(model)
         DB.session.add(model)
         DB.session.commit()
+
         return output_response(model.serialize(), 201)
 
     def delete(self, pk):
@@ -109,7 +113,6 @@ class Command(MethodView):
 
     def put(self, pk):
         model = self.__query().filter_by(id=pk).first_or_404()
-
         form = self.FORM(request.form, obj=model)
         if not form.validate():
             return output_error(form.errors)

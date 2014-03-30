@@ -7,8 +7,8 @@ Created on Jul 3, 2013
 from ..models.user import User
 from . import Command, allowed_methods
 
-from wtforms import Form
 from wtforms import validators, StringField
+from wtforms_alchemy import ModelForm
 
 """
 Get User
@@ -16,8 +16,12 @@ Get User
 
 
 # http://flask.pocoo.org/snippets/64/
-class UserForm(Form):
+class UserForm(ModelForm):
     email = StringField('email', [validators.Email()])
+
+
+    class Meta:
+        model = User
 
 
 class Users(Command):
