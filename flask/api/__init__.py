@@ -3,7 +3,7 @@ Init Flask application
 @author: pussbb
 '''
 
-from flask import Flask, abort, request
+from flask import Flask, url_for, request
 from werkzeug.exceptions import HTTPException
 
 from flask_sqlalchemy import SQLAlchemy
@@ -71,8 +71,12 @@ def shutdown_server():
 def index():
     """Main route for application
     """
-    abort(403)
+    data = {}
+    for i, v in app.blueprints.items():
+        data[i] = url_for("{0}.index".format(v.name), _external=True)
+    return output_response(data)
 
 from .v01.app import API_V01
+
 app.register_blueprint(API_V01)
 

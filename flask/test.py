@@ -3,6 +3,7 @@ Created on Aug 14, 2013
 
 @author: pussbb
 """
+
 import unittest
 import api
 from flask import json
@@ -23,7 +24,7 @@ class Test(unittest.TestCase):
 
     def test_api_route(self):
         rv = self.app.get('/api/')
-        assert rv.status_code == 403
+        self.assertEqual(rv.status_code, 200)
 
     def test_v01_blueprint(self):
         rv = self.app.get('/api/v.0.1/')
