@@ -61,6 +61,9 @@ class Command(MethodView):
         return MethodView.dispatch_request(self, *args, **kwargs)
 
     def get(self, pk):
+        """ dsfdsf
+
+        """
 
         query = self.__query()
 

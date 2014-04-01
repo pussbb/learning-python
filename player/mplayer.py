@@ -4,6 +4,7 @@
 Wrapper for MPlayer.
 To get list of supported commands execute
 $ mplayer -input cmdlist
+http://www.mplayerhq.hu/DOCS/tech/slave.txt
 
 all commands from that list are available as functions.
 Also :

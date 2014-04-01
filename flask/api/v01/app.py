@@ -7,7 +7,7 @@ Created on Jul 3, 2013
 
 from flask import Blueprint, url_for
 from ..output import output_response
-import pydoc
+import inspect
 
 from .users import Users
 from .languages import Languages
@@ -17,16 +17,50 @@ API_V01 = Blueprint('v_0_1', __name__, url_prefix='/api/v.0.1')
 
 _COMMANDS = [Users, Languages, News]
 
+__ACTION = {
+    'url': None,
+    'description': None,
+    'methods': []
+}
+
+__MODULE = {
+    'url': None,
+    'description': None,
+    'uri': None,
+    'actions' : []
+}
 
 @API_V01.route('/')
 def index():
     result = []
+    def get_available_actions(command):
+        actions = []
+
+        for method in command.ALLOWED_METHODS:
+            action = __ACTION.copy()
+            action['methods'] = [str(method)]
+            action['description'] = getattr(command, method.lower()).__doc__
+            action['url'] = url_for(".{0}".format(command.URI), _external=True)
+            actions.append(action)
+
+        for i in command.__dict__:
+            item = getattr(command, i)
+            if  i.startswith('_') or inspect.isclass(item):
+                continue
+
+            if not inspect.ismethod(item) and not inspect.isfunction(item):
+                continue
+
+            print(i, item.__doc__)
+        return actions
+
     for command in _COMMANDS:
-        item = {
-            'uri': url_for('.{0}'.format(command.URI), _external=True),
-            'help': pydoc.render_doc(command)
-        }
-        result.append(item)
+        module = __MODULE.copy()
+        module['name'] = command.__name__
+        module['description'] = command.__doc__
+        module['uri'] = command.URI
+        module['actions'] = get_available_actions(command)
+        result.append(module)
 
     return output_response({'commands': result})
 

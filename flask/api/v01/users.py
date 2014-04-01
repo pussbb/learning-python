@@ -17,6 +17,7 @@ Get User
 
 # http://flask.pocoo.org/snippets/64/
 class UserForm(ModelForm):
+
     email = StringField('email', [validators.Email()])
 
 
@@ -25,11 +26,18 @@ class UserForm(ModelForm):
 
 
 class Users(Command):
+    """Get all users from system
+
+    """
+
     URI = 'users'
     TABLE = User
     FORM = UserForm
 
     @allowed_methods(['GET', 'POST', ])
     def me(self):
+        """sdasdas
+
+        """
         return "hello me <xmp>%s</xmp>" % repr(self)
 
