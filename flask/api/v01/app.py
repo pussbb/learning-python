@@ -70,6 +70,7 @@ def index():
         module['name'] = command.__name__
         module['description'] = command.__doc__
         module['uri'] = command.URI
+        module['url'] = url_for(".{0}".format(command.URI), _external=True)
         module['actions'] = __get_available_actions(command)
         result.append(module)
 
