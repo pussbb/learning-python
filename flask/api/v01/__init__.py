@@ -4,6 +4,8 @@ Created on Jul 3, 2013
 @author: pussbb
 """
 
+from functools import wraps
+
 from flask.views import MethodView
 from .. import DB
 from ..output import output_response, output_error
@@ -16,12 +18,14 @@ from werkzeug.exceptions import NotImplemented as HTTPNotImplemented
 from sqlalchemy.orm import joinedload_all
 from sqlalchemy import desc
 
+
 def allowed_methods(methods):
     '''Decorator set allowed methods for custom function
     @allowed_methods(['GET', 'POST',])
     def me(self): pass
     '''
     def real_wrapper(func):
+        @wraps(func)
         def wrapper(*args, **kwargs):
             if request.method not in methods:
                 raise MethodNotAllowed()

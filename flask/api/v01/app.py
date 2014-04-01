@@ -13,6 +13,7 @@ from .users import Users
 from .languages import Languages
 from .news import News
 
+
 API_V01 = Blueprint('v_0_1', __name__, url_prefix='/api/v.0.1')
 
 _COMMANDS = [Users, Languages, News]
@@ -30,36 +31,46 @@ __MODULE = {
     'actions' : []
 }
 
+
+def __get_available_actions(command):
+    actions = []
+    for method in command.ALLOWED_METHODS:
+        action = __ACTION.copy()
+        action['methods'] = [str(method)]
+        action['description'] = getattr(command, method.lower()).__doc__
+        extra = {
+            command.PK: '<{0}>'.format(command.PK_TYPE),
+            '_external': True
+        }
+        action['url'] = url_for(".{0}".format(command.URI), **extra)
+        actions.append(action)
+
+    for name in command.__dict__:
+        item = getattr(command, name)
+        if name.startswith('_') or inspect.isclass(item):
+            continue
+        if not inspect.ismethod(item) and not inspect.isfunction(item):
+            continue
+
+        action = __ACTION.copy()
+        action['methods'] = []
+        action['description'] = item.__doc__
+        extra = {command.PK: item.__name__, '_external': True}
+        action['url'] = url_for(".{0}".format(command.URI), **extra)
+        actions.append(action)
+
+    return actions
+
+
 @API_V01.route('/')
 def index():
     result = []
-    def get_available_actions(command):
-        actions = []
-
-        for method in command.ALLOWED_METHODS:
-            action = __ACTION.copy()
-            action['methods'] = [str(method)]
-            action['description'] = getattr(command, method.lower()).__doc__
-            action['url'] = url_for(".{0}".format(command.URI), _external=True)
-            actions.append(action)
-
-        for i in command.__dict__:
-            item = getattr(command, i)
-            if  i.startswith('_') or inspect.isclass(item):
-                continue
-
-            if not inspect.ismethod(item) and not inspect.isfunction(item):
-                continue
-
-            print(i, item.__doc__)
-        return actions
-
     for command in _COMMANDS:
         module = __MODULE.copy()
         module['name'] = command.__name__
         module['description'] = command.__doc__
         module['uri'] = command.URI
-        module['actions'] = get_available_actions(command)
+        module['actions'] = __get_available_actions(command)
         result.append(module)
 
     return output_response({'commands': result})
