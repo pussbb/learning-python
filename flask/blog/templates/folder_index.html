@@ -1,6 +1,6 @@
-{% extends "bootstrap/base.html" %}
+{% extends "layout.html" %}
 
-{% block body %}
+{% block main_content %}
       <ul>
       {% for key, value in items.items() %}
             <li><a href="{{ value }}">{{ key }}</a></li>
