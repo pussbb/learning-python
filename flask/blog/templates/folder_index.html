@@ -1,0 +1,9 @@
+{% extends "bootstrap/base.html" %}
+
+{% block body %}
+      <ul>
+      {% for key, value in items.items() %}
+            <li><a href="{{ value }}">{{ key }}</a></li>
+      {% endfor %}
+      </ul>
+{% endblock %}

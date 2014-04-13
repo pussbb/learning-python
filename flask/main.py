@@ -5,9 +5,11 @@ Created on Jul 3, 2013
 '''
 from __future__ import absolute_import, unicode_literals
 
-import api
+#import api
+import blog
 
 if __name__ == '__main__':
     # run api server
-    api.run_server()
+    #api.run_server()
+    blog.run_server()
 
