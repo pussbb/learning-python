@@ -1,4 +1,11 @@
 {% extends "bootstrap/base.html" %}
+
+{% macro tree_items(list) -%}
+   {% for i in list%}
+        <li>{{i}}</li>
+   {% endfor %}
+{%- endmacro %}
+
 {% block navbar %}
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -25,10 +32,13 @@
 {% endblock %}
 
 
-{% block body %}
+{% block body %}{{ format_price(0.33) }}
     <div class="row">
         <div class="col-xs-4 col-md-2">
             {% block sidebar%}
+                <ul>
+                {{ tree_items(routes) }}
+                </ul>
             {% endblock %}
         </div>
         <div class="col-xs-14 col-md-10">

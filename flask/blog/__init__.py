@@ -43,20 +43,19 @@ def file_name(file):
 def available_routes():
     result = []
     for root, dirs, files in os.walk(MARKDOWN_DIR):
-        real_path = os.path.relpath(root, MARKDOWN_DIR)
-        if real_path == '.':
-            real_path = ''
+        uri_path = os.path.relpath(root, MARKDOWN_DIR)
+        #print(uri_path.split('/'))
+        if uri_path == '.':
+            uri_path = ''
         else:
-            result.append(real_path)
+            result.append(uri_path)
         for file in files:
             name = file_name(os.path.join(root, file))
             if not name:
                 continue
-            uri = '{path}/{file}'.format(path=real_path, file=name)
+            uri = '{path}/{file}'.format(path=uri_path, file=name)
             result.append(uri.strip('/'))
     return result
-
-AVAILABLE_ROUTES = available_routes()
 
 
 def folder_index(real_path, uri):
@@ -83,6 +82,13 @@ def render_markdown_file(file, **kwargs):
     return render_template('article.html', **view_data)
 
 
+@app.context_processor
+def utility_processor():
+    def format_price(amount, currency=u'€'):
+        return u'{0:.2f}{1}'.format(amount, currency)
+    return dict(format_price=format_price)
+
+
 @app.errorhandler(404)
 def page_not_found(_):
     return render_template('404.html'), 404
@@ -105,8 +111,11 @@ def blog_index(path):
         }
         breadcrumb.append(item)
 
-    if path not in AVAILABLE_ROUTES:
+    routes = available_routes()
+    if path not in routes:
         raise NotFound
+
+    tree_items = []
 
     real_path = os.path.join(MARKDOWN_DIR, path)
     if os.path.isdir(real_path):
