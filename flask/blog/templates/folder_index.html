@@ -3,7 +3,9 @@
 {% block main_content %}
       <ul>
       {% for key, value in items.items() %}
-            <li><a href="{{ value }}">{{ key }}</a></li>
+            <li><a href="{{ value }}">{{ key | prettify_file_name }}</a></li>
+      {% else %}
+          <li><em>Empty directory</em></li>
       {% endfor %}
       </ul>
 {% endblock %}

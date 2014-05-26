@@ -42,20 +42,37 @@ def file_name(file):
 
 def available_routes():
     result = []
+    def tree_item(name=None, route=None):
+        return {'name': name, 'route': route, 'items': {}}
+
+    root_item = tree_item('/', '/')
     for root, dirs, files in os.walk(MARKDOWN_DIR):
         uri_path = os.path.relpath(root, MARKDOWN_DIR)
-        #print(uri_path.split('/'))
+        item = root_item
         if uri_path == '.':
             uri_path = ''
         else:
+            for i in uri_path.split('/'):
+                item = item['items'].get(i)
             result.append(uri_path)
+
+        for dir in dirs:
+            dir_item = tree_item(dir,
+                                 "{0}/{1}".format(uri_path, dir).strip('/'))
+            item['items'][dir] = dir_item
+
         for file in files:
             name = file_name(os.path.join(root, file))
-            if not name:
+            if not name :
                 continue
-            uri = '{path}/{file}'.format(path=uri_path, file=name)
-            result.append(uri.strip('/'))
-    return result
+
+            uri = '{path}/{file}'.format(path=uri_path, file=name).strip('/')
+            if name != 'index' :
+                file_item = tree_item(name, uri)
+                item['items'][name] = file_item
+            result.append(uri)
+
+    return result, root_item
 
 
 def folder_index(real_path, uri):
@@ -77,6 +94,7 @@ def folder_index(real_path, uri):
 
 def render_markdown_file(file, **kwargs):
     view_data = kwargs
+
     view_data['content'] = Markup(markdown.markdown(open(file, 'r').read(),
                                                     output_format='html5'))
     return render_template('article.html', **view_data)
@@ -86,7 +104,13 @@ def render_markdown_file(file, **kwargs):
 def utility_processor():
     def format_price(amount, currency=u'€'):
         return u'{0:.2f}{1}'.format(amount, currency)
+
     return dict(format_price=format_price)
+
+@app.template_filter('prettify_file_name')
+def prettify_file_name(name):
+    return name.replace('_', ' ').capitalize()
+
 
 
 @app.errorhandler(404)
@@ -100,10 +124,10 @@ def blog_index(path):
     """Main route for application
 
     """
-    path = path.strip('/')
+    requested_path = path.strip('/')
 
     breadcrumb = [{'title': 'home', 'uri': 'index'}]
-    path_list = path.split('/')
+    path_list = requested_path.split('/')
     for key, item in enumerate(path_list):
         item = {
             'title': item,
@@ -111,13 +135,12 @@ def blog_index(path):
         }
         breadcrumb.append(item)
 
-    routes = available_routes()
-    if path not in routes:
+    routes, route_tree = available_routes()
+
+    if requested_path not in routes:
         raise NotFound
 
-    tree_items = []
-
-    real_path = os.path.join(MARKDOWN_DIR, path)
+    real_path = os.path.join(MARKDOWN_DIR, requested_path)
     if os.path.isdir(real_path):
         index_file = os.path.join(real_path, 'index.md')
         if os.path.isfile(index_file):

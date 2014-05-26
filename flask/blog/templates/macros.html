@@ -1,0 +1,33 @@
+{% macro tree_items(item, requested_path='') -%}
+   {% for key, value in item['items'].items() recursive %}
+        <li class="active">
+            {% set child_items =  value['items']  %}
+            {% set requested = key in requested_path %}
+
+            <a class="{% if child_items %} folder {% endif %} {% if requested_path.endswith(key)  %} active {% endif %}"
+               href="{{ url_for('blog_index', path=value['route']) }}">
+                {{ value['name'] | prettify_file_name }}
+            </a>
+            {% if value['items'] %}
+                <ul class="sub {% if not requested %} hidden {% endif %}">
+                    {{ loop(child_items.items()) }}</ul>
+            {% endif %}
+        </li>
+   {% endfor %}
+{%- endmacro %}
+
+{% macro render_breadcrumb(list) -%}
+    <ol class="breadcrumb">
+        {% for item in list %}
+            {% if item != list[-1]%}
+            <li>
+                <a href="{{ url_for('blog_index', path=item['uri'], _external=True) }}">
+                    {{ item['title'] | prettify_file_name }}
+                </a>
+            </li>
+            {% else %}
+            <li class="active">{{ item['title'] | prettify_file_name}}
+            {% endif %}
+        {% endfor %}
+    </ol>
+{%- endmacro %}

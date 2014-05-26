@@ -1,10 +1,12 @@
 {% extends "bootstrap/base.html" %}
 
-{% macro tree_items(list) -%}
-   {% for i in list%}
-        <li>{{i}}</li>
-   {% endfor %}
-{%- endmacro %}
+{% import "macros.html" as blog %}
+
+{% block css_base %}
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/main.css') }}">
+    {{ super() }}
+{% endblock %}
+
 
 {% block navbar %}
 <nav class="navbar navbar-default" role="navigation">
@@ -26,35 +28,34 @@
 </nav>
 {% endblock %}
 
+{%if breadcrumb is defined %}
+    {% set title = breadcrumb[-1]['title'] | prettify_file_name %}
+{% endif %}
 
 {% block top %}
-{{ title }}
+    <div class="page-header">{{ title | center }}</div>
 {% endblock %}
 
 
-{% block body %}{{ format_price(0.33) }}
+{% block body %}
     <div class="row">
         <div class="col-xs-4 col-md-2">
             {% block sidebar%}
-                <ul>
-                {{ tree_items(routes) }}
-                </ul>
+                {%if breadcrumb is defined %}
+                    <ul>
+                    <li>
+                        <a href="{{ url_for('blog_index') }}"> Index </a>
+                    </li>
+
+                    {{ blog.tree_items(route_tree, requested_path) }}
+                    </ul>
+                 {% endif %}
             {% endblock %}
         </div>
         <div class="col-xs-14 col-md-10">
-            <ol class="breadcrumb">
-                {% for item in breadcrumb %}
-                    {% if item != breadcrumb[-1]%}
-                    <li>
-                        <a href="{{ url_for('blog_index', path=item['uri'], _external=True) }}">
-                            {{ item['title'] }}
-                        </a>
-                    </li>
-                    {% else %}
-                    <li class="active">{{ item['title'] }}
-                    {% endif %}
-                {% endfor %}
-            </ol>
+            {%if breadcrumb is defined %}
+                {{ blog.render_breadcrumb(breadcrumb) }}
+            {% endif %}
             {% block main_content %}
             {% endblock %}
         </div>
