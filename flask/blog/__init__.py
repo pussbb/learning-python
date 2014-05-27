@@ -3,13 +3,18 @@ Init Flask application
 
 """
 
+from urllib.parse import urlparse
+import os
+
 
 import markdown
+from markdown.inlinepatterns import LinkPattern, LINK_RE
+
 
 from flask import Flask, render_template, Markup, request, url_for
 from werkzeug.exceptions import NotFound
 from flask_bootstrap3 import Bootstrap
-import os
+
 
 app = Flask(__name__)
 
@@ -92,11 +97,46 @@ def folder_index(real_path, uri):
     return result
 
 
+class CheckLinkPattern(LinkPattern):
+
+
+    def __init__(self, pattern, markdown_instance=None, requested_path=None):
+        super().__init__(pattern, markdown_instance)
+        self.requested_path = requested_path.split('/')
+
+
+    def handleMatch(self, m):
+        node = LinkPattern.handleMatch(self, m)
+        # check 'src' to ensure it is local
+        src = node.attrib.get('href')
+        scheme, netloc, path, params, query, fragment = urlparse(src)
+        if scheme or netloc:
+            return node
+
+        if path.endswith('.md'):
+            path = path[:-3]
+        path_parts = path.split('/')
+        if path_parts[-1] == 'index':
+            path_parts = path_parts[:-1]
+        current_path = self.requested_path[:]
+        for path_part in path_parts:
+            if path_part == '.' or path_part == '..':
+                path_parts = path_parts[1:]
+                current_path = current_path[:-1]
+
+        url = url_for('blog_index', path='/'.join(current_path + path_parts),
+                      _external=True, _anchor=fragment)
+        node.set('href', url)
+        return node
+
+
+
 def render_markdown_file(file, **kwargs):
     view_data = kwargs
-
-    view_data['content'] = Markup(markdown.markdown(open(file, 'r').read(),
-                                                    output_format='html5'))
+    md = markdown.Markdown(output_format='html5')
+    md.inlinePatterns['link'] = CheckLinkPattern(LINK_RE, md,
+                                                 view_data.get('requested_path'))
+    view_data['content'] = Markup(md.convert(open(file, 'r').read()))
     return render_template('article.html', **view_data)
 
 
@@ -107,10 +147,10 @@ def utility_processor():
 
     return dict(format_price=format_price)
 
+
 @app.template_filter('prettify_file_name')
 def prettify_file_name(name):
     return name.replace('_', ' ').capitalize()
-
 
 
 @app.errorhandler(404)

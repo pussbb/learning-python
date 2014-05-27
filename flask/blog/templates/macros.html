@@ -10,7 +10,8 @@
             </a>
             {% if value['items'] %}
                 <ul class="sub {% if not requested %} hidden {% endif %}">
-                    {{ loop(child_items.items()) }}</ul>
+                    {{ loop(child_items.items()) }}
+                </ul>
             {% endif %}
         </li>
    {% endfor %}
