@@ -28,7 +28,7 @@ MARKDOWN_DIR = os.path.join(APP_ROOT, 'markdown_files')
 def run_server():
     """Start application
     """
-    app.run(port=8080, debug=True)
+    app.run(port=8080, debug=True, threaded=True)
 
 
 def shutdown_server():
@@ -194,3 +194,14 @@ def blog_index(path):
         return render_markdown_file(md_file, **locals())
     raise NotFound
 
+'''
+class Dispatcher(object):
+    def __init__(self, app):
+        self.app = app
+
+    def __call__(self, environ, start_response):
+        print(environ)
+        return self.app(environ, start_response)
+
+app.wsgi_app = Dispatcher(app.wsgi_app)
+'''

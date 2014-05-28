@@ -14,6 +14,7 @@ from .logger import attach_logger
 from logging import getLogger
 import traceback
 
+
 app = Flask(__name__)
 
 if __debug__:
@@ -67,7 +68,7 @@ def shutdown_server():
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
 
-@app.route('/api/')
+@app.route('/')
 def index():
     """Main route for application
     """
@@ -80,3 +81,15 @@ from .v01.app import API_V01
 
 app.register_blueprint(API_V01)
 
+'''
+class Dispatcher(object):
+    def __init__(self, app):
+        self.app = app
+        self.wsgi_app = app.wsgi_app
+
+    def __call__(self, environ, start_response):
+        return self.wsgi_app(environ, start_response)
+
+app.wsgi_app = Dispatcher(app)
+
+'''

@@ -14,7 +14,7 @@ from .languages import Languages
 from .news import News
 
 
-API_V01 = Blueprint('v_0_1', __name__, url_prefix='/api/v.0.1')
+API_V01 = Blueprint('v_0_1', __name__, url_prefix='/v.0.1')
 
 _COMMANDS = [Users, Languages, News]
 
