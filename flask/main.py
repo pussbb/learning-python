@@ -5,15 +5,24 @@ Created on Jul 3, 2013
 '''
 from __future__ import absolute_import, unicode_literals
 
+
+import logging.config
+
+
 from werkzeug.wsgi import DispatcherMiddleware
 from werkzeug.serving import run_simple
+
+logging.config.fileConfig("logger.cfg", disable_existing_loggers=False)
 
 import api
 import blog
 
+
+
 application = DispatcherMiddleware(blog.app, {
     '/api': api.app
 })
+
 
 if __name__ == '__main__':
     # run api server

@@ -11,7 +11,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from .output import output_response, output_error
 from .logger import attach_logger
-from logging import getLogger
+#from logging import getLogger
 import traceback
 
 
@@ -24,7 +24,7 @@ else:
 
 DB = SQLAlchemy(app)
 
-attach_logger(app.logger, getLogger('sqlalchemy'), getLogger('DB'))
+#attach_logger(app.logger, getLogger('sqlalchemy'), getLogger('DB'))
 
 
 @app.errorhandler(Exception)

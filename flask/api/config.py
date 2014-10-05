@@ -17,6 +17,7 @@ class Config(object):
     LOG_FILENAME = 'log/access.log'
     LOG_MAX_BYTES = 524288000
     LOG_BACKUP_COUNT = 5
+    SQLALCHEMY_RECORD_QUERIES = True
 
 
 class ProductionConfig(Config):
