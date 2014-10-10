@@ -52,7 +52,7 @@ class MPlayer(object):
     def __del__(self):
         if self.__mp_proc and self.is_running():
             self.quit()
-        if self.thread and self.thread.is_alive():
+        if hasattr(self, 'thread') and self.thread.is_alive():
             self.thread.join(0.1)
 
     def __setattr__(self, key, value):
@@ -66,10 +66,8 @@ class MPlayer(object):
         if len(args) == 1:
             args = args[0]
 
-        if isinstance(args, (list, tuple)):
-            cmd = []
-            for item in args:
-                cmd.append(pipes.quote(item))
+        if isinstance(args, (list, tuple, set)):
+            cmd = [pipes.quote(item) for item in args]
             args = " ".join(cmd)
 
         return subprocess.Popen(args,
@@ -95,7 +93,7 @@ class MPlayer(object):
     def __init_mplayer_commands(self):
         proc = MPlayer.__create_proc(self.mplayer_exe, '-input', 'cmdlist')
         stdout, _ = proc.communicate()
-        if proc.returncode != 1:
+        if proc.returncode > 1:
             raise MPlayerException('Cold not fetch cmdlist')
         types = {
             'String': str,
