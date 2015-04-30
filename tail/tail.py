@@ -35,9 +35,8 @@ class PosixStatResult(PosixStatResultBase):
 def tail(file_name, last=10, last_pos=0):
     result = []
     if PosixStatResult.stats(file_name).size == 0:
-        return result
+        return TailResults(result, 0)
     with open(file_name, 'r') as fd:
-
         if last_pos:
             fd.seek(last_pos)
             result = fd.readlines()
