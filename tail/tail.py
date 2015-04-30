@@ -38,7 +38,7 @@ def tail(file_name, last=10):
         fd.seek(0, 2)
         pos = fd.tell()
         while True:
-            pos = pos // last
+            pos -= pos // last
             if pos < last or pos < 0:
                 pos = fd.tell()
             fd.seek(0 - pos, 2)
