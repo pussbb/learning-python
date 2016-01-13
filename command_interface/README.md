@@ -30,9 +30,19 @@ $(type -P java) -version 2>&1
 **Execute**
 ```python
 cmd = ShellCommand('java', '-version')
+cmd.execute()
 print(cmd.exit_code)
 print(cmd.output())  #   list
 print(cmd.output(raw=True) #  bytes
+```
+
+**Get command output at runtime**
+```python
+def handler(line):
+    print('got line', line)
+
+cmd = ShellCommand('java', '-version')
+cmd.execute(handler=handler)
 ```
 
 **Raises**
@@ -40,5 +50,7 @@ print(cmd.output(raw=True) #  bytes
  -  ShellCommandNotFound if command not found
 
 
-Bugs :
+**Bugs** :
 ShellCommandNotFound not always raises because by default it tries to get full path of executable using $(type -P smth). 
+
+
