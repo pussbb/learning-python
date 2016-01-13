@@ -5,7 +5,6 @@
 import asyncio
 import io
 import shlex
-from contextlib import closing
 import atexit
 
 _LOOP = asyncio.get_event_loop()
