@@ -4,7 +4,8 @@
 """
 import unittest
 
-from shell_command import is_quoted, ShellCommand, ShellIORedirection
+from shell_command import is_quoted, ShellCommand, ShellIORedirection, \
+    ShellCommandNotFound, ShellCommandRuntimeException
 
 
 class ShellCommandTest(unittest.TestCase):
@@ -71,3 +72,20 @@ class ShellCommandTest(unittest.TestCase):
                 ShellCommand('java', '-version') + ShellIORedirection.error_to_out(),
                 '$(type -P java) -version 2>&1'
         )
+
+    def test_command_exceptions(self):
+        with self.assertRaises(ShellCommandNotFound) as exp:
+            ShellCommand('some_non_existing_command', full_path=False).execute()
+
+        self.assertEqual(
+                exp.exception.command,
+                'some_non_existing_command'
+        )
+        self.assertEqual(exp.exception.exit_code, 127)
+        self.assertIsNotNone(exp.exception.output)
+
+        with self.assertRaises(ShellCommandRuntimeException) as exp:
+            ShellCommand('cat', '/wew/wewe/wew').execute()
+
+        self.assertGreater(exp.exception.exit_code, 0)
+        self.assertIsNotNone(exp.exception.output)

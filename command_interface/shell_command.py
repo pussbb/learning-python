@@ -5,15 +5,40 @@
 import asyncio
 import io
 import shlex
-from asyncio.subprocess import PIPE
 from contextlib import closing
-
 import atexit
 
-atexit.register(asyncio.get_event_loop().close)
+_LOOP = asyncio.get_event_loop()
+atexit.register(_LOOP.close)
+
+
+class ShellCommandRuntimeException(Exception):
+    """General exception for failed shell commands. Raised when shell command
+    returns with nonzero exit code
+
+    """
+
+    def __init__(self, command, exit_code, output):
+        self.message = 'External command "{cmd}" failed to execute ended' \
+                       ' with exit code {code}'.format(code=exit_code,
+                                                       cmd=command)
+        super().__init__(self.message)
+        self.exit_code = exit_code
+        self.output = output
+        self.command = command
+
+
+class ShellCommandNotFound(ShellCommandRuntimeException):
+    """Helper exception for exit code 127 - when there are no such command
+
+    """
+    pass
 
 
 class ShellIORedirection(object):
+    """Helper class to create IO redirection and append them into ShellCommand
+
+    """
 
     __slots__ = ('input', 'redir', 'out')
 
@@ -27,10 +52,19 @@ class ShellIORedirection(object):
 
     @staticmethod
     def error_to_out():
+        """Creates 2>&1 shell redirection
+
+        :return: ShellIORedirection object
+        """
         return ShellIORedirection(2, '>&', 1)
 
 
 def is_quoted(line):
+    """Checks if string is surrounded with ' or "
+
+    :param line: string
+    :return: True if it escaped otherwise False
+    """
     return not set([line[0], line[-1]]) - set(['"', '\'']) and len(line) > 1
 
 
@@ -45,6 +79,9 @@ def _unify_newlines(s):
 
 
 class ShellCommand(object):
+    """Build shell command
+
+    """
 
     __slots__ = ('__command', '__command_args', '__proccess', '__output')
 
@@ -58,6 +95,12 @@ class ShellCommand(object):
         self.__output = io.BytesIO()
 
     def __append_arguments(self, *args, **kwargs):
+        """Append arguments into command
+
+        :param args: list
+        :param kwargs: dict
+        :return:
+        """
         for item in args:
             if not isinstance(item, ShellIORedirection):
                 item = str(item)
@@ -70,36 +113,85 @@ class ShellCommand(object):
 
     @property
     def name(self):
+        """Command name
+
+        :return: string
+        """
         return self.__command
 
     @property
     def arguments(self):
+        """Command arguments
+
+        :return: list
+        """
         return self.__command_args
 
     def extend(self, *args, **kwargs):
+        """Add extra command arguments
+
+        :param args:
+        :param kwargs:
+        :return: None
+        """
         self.__append_arguments(*args, **kwargs)
 
     def __gt__(self, other):
+        """Creates shell IO redirection '>'
+
+        :param other:
+        :return: self
+        """
         self.__command_args.extend(['>', str(other)])
         return self
 
+    def __lt__(self, other):
+        """Creates shell IO redirection '<'
+
+        :param other:
+        :return: self
+        """
+        self.__command_args.extend(['<', str(other)])
+        return self
+
     def __rshift__(self, other):
+        """Creates shell IO redirection '>>'
+
+        :param other:
+        :return: self
+        """
         self.__command_args.extend(['>>', str(other)])
         return self
 
     def __or__(self, other):
+        """Adds new command with logical || into existing command
+
+        :param other:
+        :return: self
+        """
         if not isinstance(other, ShellCommand):
             raise RuntimeError('Object is not instance of ShellCommand')
         self.__command_args.extend(['||', str(other)])
         return self
 
     def __and__(self, other):
+        """Adds new command with logical && into existing command
+
+        :param other:
+        :return: self
+        """
         if not isinstance(other, ShellCommand):
             raise RuntimeError('Object is not instance of ShellCommand')
         self.__command_args.extend(['&&', str(other)])
         return self
 
     def __add__(self, other):
+        """Creates shell PIPE for another command by adding | before other
+        command. If other is instance of ShellIORedirection it just appends it.
+
+        :param other:
+        :return:
+        """
         if not isinstance(other, (ShellCommand, ShellIORedirection)):
             raise RuntimeError('Object is not instance of ShellCommand')
         if isinstance(other, ShellIORedirection):
@@ -109,9 +201,18 @@ class ShellCommand(object):
         return self
 
     def __eq__(self, other):
+        """Just compare
+
+        :param other:
+        :return:
+        """
         return str(self) == str(other)
 
     def build(self):
+        """Builds command with all known arguments
+
+        :return: string
+        """
         args = ' '.join([str(item) for item in self.__command_args])
         return "{} {}".format(self.__command, args).strip()
 
@@ -119,6 +220,11 @@ class ShellCommand(object):
         return self.build()
 
     async def run(self, handler=None):
+        """Executes command asynchronously.
+
+        :param handler: callable
+        :return:
+        """
         self.__proccess = await asyncio.create_subprocess_shell(
                 str(self),
                 stdout=asyncio.subprocess.PIPE,
@@ -136,20 +242,42 @@ class ShellCommand(object):
         return await self.__proccess.wait()
 
     def execute(self, handler=None):
-        with closing(asyncio.get_event_loop()) as loop:
-            loop.run_until_complete(self.run(handler))
+        """Executes command and wait's when it finish
 
-    def returncode(self):
+        Raises:
+                ShellCommandNotFound - when command does not exists
+                ShellCommandRuntimeException - if command execution returned
+                nonzero exit code
+
+        :param handler: callable
+        :return: int command exit code
+        """
+
+        _LOOP.run_until_complete(self.run(handler))
+
+        if self.exit_code() == 0:
+            return self.exit_code()
+
+        exception = ShellCommandRuntimeException
+        if self.exit_code() == 127:
+            exception = ShellCommandNotFound
+        raise exception(str(self), self.exit_code(), self.output())
+
+    def exit_code(self):
+        """Returns exit code
+
+        :return: int
+        """
+        if not self.__proccess:
+            return None
         return self.__proccess.returncode
 
-    def output(self):
-        return self.__output.getvalue().split(b'\n')
+    def output(self, raw=True):
+        """Returns command output
 
-ss = ShellCommand('cat', '/opt/Exchange_Protocols/[MS-ASAIRS].pdf')
-
-def hh(line):
-    print('got line', line)
-ss.execute(handler=hh)
-
-print(ss.returncode())
-print(ss.output())
+        :param raw: if True will return bytes if False list
+        :return: bytes or string
+        """
+        if raw:
+            yield self.__output.getvalue()
+        yield from self.__output.getvalue().split(b'\n')
