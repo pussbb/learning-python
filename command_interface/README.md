@@ -1,28 +1,39 @@
 **Usage:**
 ```python
 >>> ShellCommand('java', '-version') > 'some_file'
-$(type -P java) -version > some_file
+java -version > some_file
 >>> 
 >>> ShellCommand('java', '-version', file_='asasa'),
-$(type -P java) -version file_=asasa
+java -version file_=asasa
 >>> 
->>> ShellCommand('java', '-version', '2>&1', full_path=False)
+>>> ShellCommand('java', '-version', '2>&1')
 java -version '2>&1'
 >>>
 >>> ShellCommand('java', '-version') >> 'some_file'
-$(type -P java) -version >> some_file
+java -version >> some_file
 >>> 
 >>> ShellCommand('java', '-version') < 'some_file'
-$(type -P java) -version < some_file
+java -version < some_file
 >>> 
 >>> ShellCommand('java', '-version') & ShellCommand('something')
-$(type -P java) -version && $(type -P something)
+java -version && something
 >>> 
 >>> ShellCommand('java', '-version', ShellIORedirection.error_to_out()) + ShellCommand('grep', 'version')
-$(type -P java) -version 2>&1 | $(type -P grep) version
+java -version 2>&1 | grep version
 >>>
 >>> ShellCommand('java', '-version') + ShellIORedirection.error_to_out()
-$(type -P java) -version 2>&1
+java -version 2>&1
+>>> 
+
+```
+
+**Execute command and get executable full path at runtime**
+```python
+>>> using_command_full_path('java')
+$(type -P java)
+>>> 
+>>> using_command_full_path('java', use_which=True)
+$(which java)
 >>> 
 
 ```
