@@ -4,8 +4,10 @@
 """
 import unittest
 
+import sys
+
 from shell_command import is_quoted, ShellCommand, ShellIORedirection, \
-    ShellCommandNotFound, ShellCommandRuntimeException
+    ShellCommandNotFound, ShellCommandRuntimeException, using_command_full_path
 
 
 class ShellCommandTest(unittest.TestCase):
@@ -21,71 +23,85 @@ class ShellCommandTest(unittest.TestCase):
     def test_command_simple(self):
         self.assertEqual(
                 ShellCommand('java', '-version'),
-                '$(type -P java) -version'
-        )
-
-        self.assertEqual(
-                ShellCommand('java', '-version', full_path=False),
                 'java -version'
         )
 
         self.assertEqual(
                 ShellCommand('java', '-version', file_='asasa'),
-                '$(type -P java) -version file_=asasa'
+                'java -version file_=asasa'
         )
 
         self.assertEqual(
-                ShellCommand('java', '-version', '2>&1', full_path=False),
+                ShellCommand('java', '-version', '2>&1'),
                 'java -version \'2>&1\''
         )
 
     def test_command_io_redir_to_file(self):
         self.assertEqual(
                 ShellCommand('java', '-version') > 'some_file',
-                '$(type -P java) -version > some_file'
+                'java -version > some_file'
         )
 
         self.assertEqual(
                 ShellCommand('java', '-version') >> 'some_file',
-                '$(type -P java) -version >> some_file'
+                'java -version >> some_file'
         )
 
     def test_command_logical_op(self):
         self.assertEqual(
                 ShellCommand('java', '-version') | ShellCommand('something'),
-                '$(type -P java) -version || $(type -P something)'
+                'java -version || something'
         )
 
         self.assertEqual(
                 ShellCommand('java', '-version') & ShellCommand('something'),
-                '$(type -P java) -version && $(type -P something)'
+                'java -version && something'
         )
 
     def test_add_append_another_cmd(self):
 
         self.assertEqual(
                 ShellCommand('java', '-version', ShellIORedirection.error_to_out()) + ShellCommand('grep', 'version'),
-                '$(type -P java) -version 2>&1 | $(type -P grep) version'
+                'java -version 2>&1 | grep version'
         )
 
         self.assertEqual(
                 ShellCommand('java', '-version') + ShellIORedirection.error_to_out(),
-                '$(type -P java) -version 2>&1'
+                'java -version 2>&1'
         )
 
     def test_command_exceptions(self):
         with self.assertRaises(ShellCommandNotFound) as exp:
-            ShellCommand('some_non_existing_command', full_path=False).execute()
+            ShellCommand('some_non_existing_command').execute()
 
         self.assertEqual(
                 exp.exception.command,
                 'some_non_existing_command'
         )
-        self.assertEqual(exp.exception.exit_code, 127)
-        self.assertIsNotNone(exp.exception.output)
+        self.assertEqual(exp.exception.result.exit_code, 127)
+        self.assertIsNotNone(exp.exception.result.response)
 
         with self.assertRaises(ShellCommandRuntimeException) as exp:
             ShellCommand('cat', '/wew/wewe/wew').execute()
 
-        self.assertGreater(exp.exception.exit_code, 0)
-        self.assertIsNotNone(exp.exception.output)
+        self.assertGreater(exp.exception.result.exit_code, 0)
+        self.assertIsNotNone(exp.exception.result.response)
+
+    def test_command_execution(self):
+        result = ShellCommand(sys.executable, '-h').execute()
+        self.assertIsNotNone(result)
+        self.assertIsInstance(result, ShellCommand.Response)
+        self.assertEqual(result.exit_code, 0)
+        self.assertIsNotNone(result.response)
+        self.assertIsInstance(list(result), list)
+
+    def test_wrapping_command_name(self):
+        self.assertEqual(
+                using_command_full_path('java'),
+                '$(type -P java)'
+        )
+
+        self.assertEqual(
+                using_command_full_path('java', use_which=True),
+                '$(which java)'
+        )

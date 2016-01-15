@@ -29,11 +29,20 @@ $(type -P java) -version 2>&1
 
 **Execute**
 ```python
-cmd = ShellCommand('java', '-version')
-cmd.execute()
-print(cmd.exit_code)
-print(cmd.output())  #   list
-print(cmd.output(raw=True) #  bytes
+result = ShellCommand('java', '-version').execute()
+print(result)
+#  output
+#  Command exit code 0. Response: b' ......'
+
+#  get command exit code 
+print(result.exit_code)
+
+#  get command response
+print(result.response)
+
+#  get command response as iterable
+print(list(response)
+print([line for line in response])
 ```
 
 **Get command output at runtime**

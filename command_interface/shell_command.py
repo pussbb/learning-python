@@ -17,13 +17,11 @@ class ShellCommandRuntimeException(Exception):
 
     """
 
-    def __init__(self, command, exit_code, output):
-        self.message = 'External command "{cmd}" failed to execute ended' \
-                       ' with exit code {code}'.format(code=exit_code,
-                                                       cmd=command)
+    def __init__(self, command, response):
+        self.message = 'External command. Failed to execute "{cmd}"' \
+                       ' {resp}'.format(resp=response, cmd=command)
         super().__init__(self.message)
-        self.exit_code = exit_code
-        self.output = output
+        self.result = response
         self.command = command
 
 
@@ -46,11 +44,11 @@ class ShellIORedirection(object):
         self.redir = redir
         self.out = out
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return "{}{}{}".format(self.input, self.redir, self.out)
 
     @staticmethod
-    def error_to_out():
+    def error_to_out() -> str:
         """Creates 2>&1 shell redirection
 
         :return: ShellIORedirection object
@@ -58,16 +56,16 @@ class ShellIORedirection(object):
         return ShellIORedirection(2, '>&', 1)
 
 
-def is_quoted(line):
+def is_quoted(data) -> bool:
     """Checks if string is surrounded with ' or "
 
-    :param line: string
+    :param data: string
     :return: True if it escaped otherwise False
     """
-    return not set([line[0], line[-1]]) - set(['"', '\'']) and len(line) > 1
+    return not set([data[0], data[-1]]) - set(['"', '\'']) and len(data) > 1
 
 
-def _unify_newlines(s):
+def _unify_newlines(s) -> bytes:
     r'''Because all asyncio subprocess output is read in binary mode, we don't
     get universal newlines for free. But it's the right thing to do, because we
     do all our printing with strings in text mode, which translates "\n" back
@@ -77,21 +75,69 @@ def _unify_newlines(s):
     return s.replace(b'\r\n', b'\n')
 
 
+def using_command_full_path(name, use_which=False) -> str:
+    """Dummy function which will wrap command name with extra commands
+    which help to determine full path of executable and run it.
+    By default it will use command `type -P` to determine executable full path
+    because command `which` can be not installed on some systems but
+    `type ` is always there. And also `which` has a cache and sometimes it
+    needs a time to get path to some executable.
+
+    :param name: string
+    :param use_which: boolean if True it will use `which`
+    :return:
+    """
+    command = 'type -P'
+    if use_which:
+        command = 'which'
+    return '$({} {})'.format(command, name)
+
+
 class ShellCommand(object):
     """Build shell command
 
     """
 
-    __slots__ = ('__command', '__command_args', '__proccess', '__output')
+    __slots__ = ('__command', '__command_args',)
 
-    def __init__(self, command, *args, full_path=True, **kwargs):
-        if full_path:
-            command = '$(type -P {0})'.format(command)
+    class Response(object):
+        """Helper class to represent results of executed command
+
+        """
+
+        __slots__ = ('__exit_code', '__response')
+
+        def __init__(self, exit_code, response):
+            self.__exit_code = exit_code
+            self.__response = response
+
+        @property
+        def exit_code(self) -> int:
+            """Returns command exit code
+
+            :return: int
+            """
+            return self.__exit_code
+
+        @property
+        def response(self) -> bytes:
+            """Returns command output
+
+            :return: bytes
+            """
+            return self.__response.getvalue()
+
+        def __iter__(self):
+            yield from self.__response.getvalue().split(b'\n')
+
+        def __repr__(self) -> str:
+            return 'Command exit code {}. Response: {}'.format(
+                    self.__exit_code, self.response)
+
+    def __init__(self, command, *args, **kwargs):
         self.__command = command
         self.__command_args = []
         self.__append_arguments(*args, **kwargs)
-        self.__proccess = None
-        self.__output = io.BytesIO()
 
     def __append_arguments(self, *args, **kwargs):
         """Append arguments into command
@@ -111,7 +157,7 @@ class ShellCommand(object):
             self.__command_args.append("{}={}".format(key, value))
 
     @property
-    def name(self):
+    def name(self) -> str:
         """Command name
 
         :return: string
@@ -119,7 +165,7 @@ class ShellCommand(object):
         return self.__command
 
     @property
-    def arguments(self):
+    def arguments(self) -> list:
         """Command arguments
 
         :return: list
@@ -207,7 +253,7 @@ class ShellCommand(object):
         """
         return str(self) == str(other)
 
-    def build(self):
+    def build(self) -> str:
         """Builds command with all known arguments
 
         :return: string
@@ -222,23 +268,25 @@ class ShellCommand(object):
         """Executes command asynchronously.
 
         :param handler: callable
-        :return:
+        :return: ShellCommand.Response object
         """
-        self.__proccess = await asyncio.create_subprocess_shell(
+        proc = await asyncio.create_subprocess_shell(
                 str(self),
                 stdout=asyncio.subprocess.PIPE,
                 stderr=asyncio.subprocess.STDOUT,
                 executable='/bin/bash',
         )
 
-        self.__output = io.BytesIO()
-        async for line in self.__proccess.stdout:
+        response = io.BytesIO()
+        async for line in proc.stdout:
             line = _unify_newlines(line)
-            self.__output.write(line)
+            response.write(line)
             if handler:
                 handler(line)
 
-        return await self.__proccess.wait()
+        exit_code = await proc.wait()
+        del proc
+        return ShellCommand.Response(exit_code, response)
 
     def execute(self, handler=None):
         """Executes command and wait's when it finish
@@ -249,34 +297,25 @@ class ShellCommand(object):
                 nonzero exit code
 
         :param handler: callable
-        :return: int command exit code
+        :return: ShellCommand.Response object
         """
+        res = _LOOP.run_until_complete(self.run(handler))
 
-        _LOOP.run_until_complete(self.run(handler))
-
-        if self.exit_code() == 0:
-            return self.exit_code()
+        if res.exit_code == 0:
+            return res
 
         exception = ShellCommandRuntimeException
-        if self.exit_code() == 127:
+        if res.exit_code == 127:
             exception = ShellCommandNotFound
-        raise exception(str(self), self.exit_code(), self.output())
+        raise exception(str(self), res)
 
-    def exit_code(self):
-        """Returns exit code
 
-        :return: int
-        """
-        if not self.__proccess:
-            return None
-        return self.__proccess.returncode
-
-    def output(self, raw=True):
-        """Returns command output
-
-        :param raw: if True will return bytes if False list
-        :return: bytes or string
-        """
-        if raw:
-            yield self.__output.getvalue()
-        yield from self.__output.getvalue().split(b'\n')
+if __name__ == '__main__':
+    import sys
+    result = ShellCommand(sys.executable, '-h').execute()
+    print(result)
+    print('*'*80)
+    print('result.exit_code: ', result.exit_code)
+    print('result.response: ', result.response)
+    print('as list: ', list(result))
+    print('lets iterate throw it: ', [line for line in result])
