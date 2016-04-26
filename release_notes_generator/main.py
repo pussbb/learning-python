@@ -35,19 +35,19 @@ Record = namedtuple('Record', [
 ])
 
 
-def parse_cvs_line(line: str):
+def parse_csv_line(line: str):
     for item in re.split(r'''(?:,)(?=(?:[^"]|"[^"]*")*$)''', line):
         yield item.strip('"')
 
 
-def parse_cvs(data: TextIOWrapper):
+def parse_csv(data: TextIOWrapper):
     if 'Category' not in data.readline().split(','):
         raise SystemExit('CSV file does not contain Category section')
 
     result = defaultdict(list)
     for line in data:
         try:
-            item = Record(*parse_cvs_line(line))
+            item = Record(*parse_csv_line(line))
         except Exception as _:
             pprint(line)
             raise
@@ -66,6 +66,6 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         raise SystemExit('Please specify a csv file')
 
-    items = parse_cvs(open(sys.argv[1], 'rt', encoding='utf-8'))
+    items = parse_csv(open(sys.argv[1], 'rt', encoding='utf-8'))
     text = JINJA_ENV.get_template('index.html').render(categories=items)
     open(os.path.join(BASE_PATH, 'result.html'), 'wt').write(text)
