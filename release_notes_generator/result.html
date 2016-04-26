@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        body {
+            background-color:  #E2E2E2;
+        }
+        .container {
+            -webkit-box-shadow: 0 -5px 5px #CCC inset;
+            box-shadow: 0 -5px 5px #CCC inset;
+            margin: 1% 10%;
+            padding: 2%;
+            border: 1px solid #CCC;
+            height: 80%;
+            min-height: 80%;
+            background: #fff;
+        }
+        table, th, td {
+            border: 1px solid #CCC;
+        }
+        table {
+            width: 100%;
+        }
+
+
+        /* http://codepen.io/chrisdpratt/pen/IAymB */
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="bs-callout bs-callout-warning">
+          <h4>Warning Callout</h4>
+          This is a default callout.
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+          <h4>Danger Firewall Callout</h4>
+          This is a default callout.
+        </div>
+        <hr>
+        
+            <h3> Category  </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60384"
+                                target="_blank">
+                                60384
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            SENDMAIL - error occurred sending email in the api layer, I00005 could not select folder
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60301"
+                                target="_blank">
+                                60301
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            strange output in installer
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Indexer </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/50048"
+                                target="_blank">
+                                50048
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Update of SIS URL using general.cfg option can result in invalid URL
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60303"
+                                target="_blank">
+                                60303
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            search returns foreign emails content
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Installer </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60152"
+                                target="_blank">
+                                60152
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            scalix installer not updates some config files  for web app
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60300"
+                                target="_blank">
+                                60300
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            installer jre version check error. 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60271"
+                                target="_blank">
+                                60271
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Installer issues on Ubuntu 14.04 x32 when hostname is FQDN
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60285"
+                                target="_blank">
+                                60285
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            Possible Bug : installer ask to install libical package even already exist. (Scalix 12.6.0 in Debian 7.9_x86_64)
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60293"
+                                target="_blank">
+                                60293
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            strange output in deb_installer 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60292"
+                                target="_blank">
+                                60292
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            installer tries to install deb7 package for Debian 8
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60324"
+                                target="_blank">
+                                60324
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            during reconfiguration of scalix-postgres pkg via installer, it  recreates config files for httpd (ajp connectors)
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60359"
+                                target="_blank">
+                                60359
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            clean instalation centos 7 issues
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Scalix SIS </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60041"
+                                target="_blank">
+                                60041
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            update lucene to  4.7.2 (it's the latest version which requires minimum jre version 1.6 )
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60042"
+                                target="_blank">
+                                60042
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            Drop  custom analyzers and use standart lucene analizers
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60043"
+                                target="_blank">
+                                60043
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            ignore some setting in sis.properties
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60044"
+                                target="_blank">
+                                60044
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            keep index opened during tomcat session  Closing indexes is heavy operation it cause merge docs, optimizations .
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60045"
+                                target="_blank">
+                                60045
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            Indexer Searcher should use Indexer Writter it means that even if document does not flushed into a file they are will be available for searching.
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60046"
+                                target="_blank">
+                                60046
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            contetn type  HTML is not parsed and does not added into indexed document
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60047"
+                                target="_blank">
+                                60047
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Contact does not indexing
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60048"
+                                target="_blank">
+                                60048
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            VTodo component is ignoring by sis
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60049"
+                                target="_blank">
+                                60049
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            remove old custom query parser for lucene and use one from lucene library 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60076"
+                                target="_blank">
+                                60076
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            search fails with query='[____]' with  org.apache.lucene.queryparser.classic.ParseException: Encountered "" ""]"" ""] """" at line 1, column 6
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60140"
+                                target="_blank">
+                                60140
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Index not removed
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60159"
+                                target="_blank">
+                                60159
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Lock obtain timed out while indexing
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60188"
+                                target="_blank">
+                                60188
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            not all message is indexed
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Scalix SMTP service </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60169"
+                                target="_blank">
+                                60169
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Scalix 12.5.1: Some RTF attachments sent into Scalix cannot be opened/read after delivery 
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Scalix WEB </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60250"
+                                target="_blank">
+                                60250
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            update all libraries to latest version
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60281"
+                                target="_blank">
+                                60281
+                            </a>
+                        </td>
+                        <td>
+                            Feature internal
+                        </td>
+                        <td>
+                            IBM JRE support
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category WEb </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60040"
+                                target="_blank">
+                                60040
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            migrate from tomcat 6 to tomcat 7
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Scalix Wireless </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60031"
+                                target="_blank">
+                                60031
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            it seems that request for a PING request  is always runing
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60032"
+                                target="_blank">
+                                60032
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            response for PING command from device is wrong
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60033"
+                                target="_blank">
+                                60033
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            could not get or set Out Of office from device
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60034"
+                                target="_blank">
+                                60034
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Device sync constantly wants to delete deleted messages 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60035"
+                                target="_blank">
+                                60035
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            add extra escaping for a wireless response to prevent invalid XML
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60036"
+                                target="_blank">
+                                60036
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            escape folder names when make requests to api 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60037"
+                                target="_blank">
+                                60037
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Ping command fails because folder was deleted
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60038"
+                                target="_blank">
+                                60038
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            SYNC fails when collectionId for e.g 'inf' 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60039"
+                                target="_blank">
+                                60039
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            add simple provisining functionality 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/50043"
+                                target="_blank">
+                                50043
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            partial contact sync on Android
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/50042"
+                                target="_blank">
+                                50042
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Contacts added by EAS-devices are misformatted
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60255"
+                                target="_blank">
+                                60255
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            address parse
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Scalix API </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60010"
+                                target="_blank">
+                                60010
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            needs to restart tomcat after enabling  ActiveSync option for a user 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60016"
+                                target="_blank">
+                                60016
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Contacts does not support X-SCALIX-DAVBODY
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60012"
+                                target="_blank">
+                                60012
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Problem processing request method=GET URI=/api/....../sync/getMessageSyncKey
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60013"
+                                target="_blank">
+                                60013
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            add  indexes in tables for some fields to speed up searching in postgres
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60014"
+                                target="_blank">
+                                60014
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            ImapDataCache is slow when requested fullResync
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60015"
+                                target="_blank">
+                                60015
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            Search via API is slow
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60017"
+                                target="_blank">
+                                60017
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            It seems that not all calendars are returned for a DAV query 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60018"
+                                target="_blank">
+                                60018
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Api requests to /api/{user}/mailbox/{encoded_folder_name} fails
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60019"
+                                target="_blank">
+                                60019
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            devices can ignore Synckey in response and use initial synkey if MoreAvailable tag exists in response 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60020"
+                                target="_blank">
+                                60020
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Api sync creates new scheme at database
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60021"
+                                target="_blank">
+                                60021
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            implement  automative fullResync
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60022"
+                                target="_blank">
+                                60022
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            java.lang.IndexOutOfBoundsException:  while searcing via api 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60023"
+                                target="_blank">
+                                60023
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            reinitialize internal services(MailBox, ImapDataCache) if they was previously closed or in invalid state
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60024"
+                                target="_blank">
+                                60024
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            supportt for a Postgresql 9.4
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60025"
+                                target="_blank">
+                                60025
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                             MailboxStore dav NullPointerException
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60026"
+                                target="_blank">
+                                60026
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            some requests to api  fails with java.lang.NumberFormatException
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60177"
+                                target="_blank">
+                                60177
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            fullSync fails with org.hibernate.StaleStateException
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60011"
+                                target="_blank">
+                                60011
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            resync fails because some messages was deleted 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60144"
+                                target="_blank">
+                                60144
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            scalix api reInitializeState fails with exception
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60154"
+                                target="_blank">
+                                60154
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            exception during deleting message  
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60155"
+                                target="_blank">
+                                60155
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            api folder fullSync fails with an exception   when another client deletes message 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60247"
+                                target="_blank">
+                                60247
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            SyncServlet for AS -   Null pointer Exception 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60249"
+                                target="_blank">
+                                60249
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Failed to add message to database cache
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60252"
+                                target="_blank">
+                                60252
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            incrementalSynch error java.lang.NullPointerException
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60308"
+                                target="_blank">
+                                60308
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                             java.lang.NullPointerException in com.scalix.api.notification.ExpungeIfFlagDeleted.run
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Tomcat 7 </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60027"
+                                target="_blank">
+                                60027
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            add option disablereuse=On for all ajp  to force httpd close connections to tomcat and create new (leads to less CLOSE_WAIT connections)
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60028"
+                                target="_blank">
+                                60028
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            increase timeout ajp option to 30 min isnstead of 20 sec  for all app
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60029"
+                                target="_blank">
+                                60029
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            enable  StuckThreadDetectionValve with 40 min timeout  it will force close leeked connections (leads to less CLOSE_WAIT connections)
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60030"
+                                target="_blank">
+                                60030
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            increase values to handle more requests 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60160"
+                                target="_blank">
+                                60160
+                            </a>
+                        </td>
+                        <td>
+                            Feature
+                        </td>
+                        <td>
+                            update scalix-tomcat to Version 7.0.65
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60309"
+                                target="_blank">
+                                60309
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            strange output while stopping  tomcat service (ppc64)
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60291"
+                                target="_blank">
+                                60291
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            Tomcat version does not matched with deb package version
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Scalix Server </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60164"
+                                target="_blank">
+                                60164
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            why envelope response inside BODYSTRUCTURE 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60096"
+                                target="_blank">
+                                60096
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            No such file or directory ERRORs in Scalix server log for Calendar items
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/50040"
+                                target="_blank">
+                                50040
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            local.delivery hangs due to another process holding a lock on the mailbox. 
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60146"
+                                target="_blank">
+                                60146
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            server fail ""IMAP Server Da(IMAP Server Pr) 11.30.15 04:53:29
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60200"
+                                target="_blank">
+                                60200
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            regression API - DAv Groupware
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60148"
+                                target="_blank">
+                                60148
+                            </a>
+                        </td>
+                        <td>
+                            Bug
+                        </td>
+                        <td>
+                            fetch answer includes EXPUNGE messages
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60305"
+                                target="_blank">
+                                60305
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            Proxy folder not updating correctly on IBM ppc64 SLES 11
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+            <h3> Category Scalix Webmail (SWA) </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60297"
+                                target="_blank">
+                                60297
+                            </a>
+                        </td>
+                        <td>
+                            Bug internal
+                        </td>
+                        <td>
+                            ibm-java-x86_64-60
+                        </td>
+                  </tr>
+                
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/60320"
+                                target="_blank">
+                                60320
+                            </a>
+                        </td>
+                        <td>
+                            Feature internal
+                        </td>
+                        <td>
+                            italian locale
+                        </td>
+                  </tr>
+                
+                </table>
+                <hr/>
+        
+    </div>
+  </body>
+</html>

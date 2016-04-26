@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        body {
+            background-color:  #E2E2E2;
+        }
+        .container {
+            -webkit-box-shadow: 0 -5px 5px #CCC inset;
+            box-shadow: 0 -5px 5px #CCC inset;
+            margin: 1% 10%;
+            padding: 2%;
+            border: 1px solid #CCC;
+            height: 80%;
+            min-height: 80%;
+            background: #fff;
+        }
+        table, th, td {
+            border: 1px solid #CCC;
+        }
+        table {
+            width: 100%;
+        }
+
+
+        /* http://codepen.io/chrisdpratt/pen/IAymB */
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout code {
+    border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.bs-callout-default {
+    border-left-color: #777;
+}
+.bs-callout-default h4 {
+    color: #777;
+}
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+.bs-callout-success {
+    border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+    color: #5bc0de;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="bs-callout bs-callout-warning">
+          <h4>Warning Callout</h4>
+          This is a default callout.
+        </div>
+
+        <div class="bs-callout bs-callout-danger">
+          <h4>Danger Firewall Callout</h4>
+          This is a default callout.
+        </div>
+        <hr>
+        {% for key, value in categories.items() %}
+            <h3> Category {{ key }} </h3>
+            <table>
+                <tr>
+                    <th>Issue #</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+                {% for row in value %}
+                  <tr>
+                        <td>
+                            <a href="https://rm.scalix.com/issues/{{row.id}}"
+                                target="_blank">
+                                {{ row.id }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ row.tracker }}
+                        </td>
+                        <td>
+                            {{ row.subject }}
+                        </td>
+                  </tr>
+                {% endfor %}
+                </table>
+                <hr/>
+        {% endfor %}
+    </div>
+  </body>
+</html>
