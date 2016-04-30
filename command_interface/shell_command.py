@@ -4,6 +4,7 @@
 """
 import asyncio
 import io
+import os
 import shlex
 import atexit
 
@@ -162,7 +163,15 @@ class ShellCommand(object):
 
         :return: string
         """
-        return self.__command
+        return os.path.basename(self.__command)
+
+    @property
+    def basename(self) -> str:
+        """Command base nname
+
+        :return: string
+        """
+        return os.path.basename(self.__command)
 
     @property
     def arguments(self) -> list:
@@ -312,7 +321,10 @@ class ShellCommand(object):
 
 if __name__ == '__main__':
     import sys
-    result = ShellCommand(sys.executable, '-h').execute()
+    cmd = ShellCommand(sys.executable, '-h')
+    print(cmd)
+    print(cmd.basename)
+    result = cmd.execute()
     print(result)
     print('*'*80)
     print('result.exit_code: ', result.exit_code)
