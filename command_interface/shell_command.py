@@ -262,6 +262,18 @@ class ShellCommand(object):
         """
         return str(self) == str(other)
 
+    def __call__(self, handler=None):
+        """Call class as a function
+        Raises:
+                ShellCommandNotFound - when command does not exists
+                ShellCommandRuntimeException - if command execution returned
+                nonzero exit code
+
+        :param handler: callback function
+        :return: ShellCommand.Response object
+        """
+        return self.execute(handler=handler)
+
     def build(self) -> str:
         """Builds command with all known arguments
 
@@ -286,12 +298,14 @@ class ShellCommand(object):
                 executable='/bin/bash',
         )
 
+        if not handler:
+            def dummy(_): pass
+            handler = dummy
         response = io.BytesIO()
         async for line in proc.stdout:
             line = _unify_newlines(line)
             response.write(line)
-            if handler:
-                handler(line)
+            handler(line)
 
         exit_code = await proc.wait()
         del proc
@@ -324,6 +338,7 @@ if __name__ == '__main__':
     cmd = ShellCommand(sys.executable, '-h')
     print(cmd)
     print(cmd.basename)
+    print(cmd())
     result = cmd.execute()
     print(result)
     print('*'*80)
