@@ -5,6 +5,7 @@
 import asyncio
 import time
 
+import atexit
 from flask import Flask
 from flask import Response
 from flask import render_template
@@ -16,8 +17,9 @@ APP = Flask(__name__)
 
 LOOP = asyncio.get_event_loop()
 asyncio.set_event_loop(LOOP)
+atexit.register(LOOP.close)
 cmd = ShellCommand('tail', '/var/log/syslog')
-print(cmd.execute())
+cmd.execute()
 
 
 @APP.route('/shell')
@@ -37,9 +39,9 @@ def shell():
         future = asyncio.ensure_future(cmd.run(handler), loop=LOOP)
 
         while LOOP.run_until_complete(future):
-            if ll:
+            while ll:
                 yield 'event: ping\n'
-                yield 'data: {}\n\n'.format(ll.pop())
+                yield 'data: {}\n\n'.format(ll.pop(0))
             if future.done() and not ll:
                 break
             asyncio.sleep(.1)

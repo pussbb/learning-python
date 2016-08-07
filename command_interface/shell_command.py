@@ -9,6 +9,7 @@ import shlex
 import atexit
 
 _LOOP = asyncio.get_event_loop()
+asyncio.set_event_loop(_LOOP)
 atexit.register(_LOOP.close)
 
 
