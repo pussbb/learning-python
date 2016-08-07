@@ -42,8 +42,9 @@ def shell():
             while ll:
                 yield 'event: ping\n'
                 yield 'data: {}\n\n'.format(ll.pop(0))
-            if future.done() and not ll:
-                break
+            else:
+                if future.done():
+                    break
             asyncio.sleep(.1)
 
         yield 'event: close\n'
