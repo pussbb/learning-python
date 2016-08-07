@@ -322,6 +322,9 @@ class ShellCommand(object):
         :param handler: callable
         :return: ShellCommand.Response object
         """
+        #  in case we are in another thread we need to add loop
+        #  into that thread other we will get RuntimeError
+        asyncio.set_event_loop(_LOOP)
         res = _LOOP.run_until_complete(self.run(handler))
 
         if res.exit_code == 0:

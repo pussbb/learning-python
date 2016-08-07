@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EventSource Test </title>
+</head>
+
+<script type="text/javascript">
+    var executeEventSource = function (url, dataContainer, errContainer) {
+        var addItem = function (data) {
+            var newElement = document.createElement("li");
+            newElement.innerHTML = data;
+            dataContainer.appendChild(newElement);
+        }
+
+        var evtSource = new EventSource(url, {withCredentials: true});
+
+        var close = function (data) {
+            addItem('Closing');
+            addItem(data);
+            evtSource.removeEventListener('ping', false);
+            evtSource.removeEventListener('close', false);
+            evtSource.close();
+            delete evtSource;
+        }
+
+        evtSource.onerror = function(err) {
+            errContainer.innerHTML = err;
+            close('error');
+            console.log(err);
+        };
+        evtSource.onmessage = function(event) {
+            addItem("onmessage :"+event.data);
+
+            console.log(arguments);
+        }
+        evtSource.onopen = function() {
+            console.log(arguments);
+        }
+
+        evtSource.addEventListener("ping", function(event) {
+            addItem("ping: "+event.data);
+        }, false);
+
+        evtSource.addEventListener("close", function(event) {
+            close(event.data);
+        }, false);
+        return evtSource;
+    }
+
+
+    var runLongPoolingRequest = function(url) {
+        var container = document.createElement("div");
+        var result = document.createElement("ul");
+        var errorContainer = document.createElement("div");
+        container.innerHTML = "Event source for " + url + "<br>Results:";
+        container.appendChild(result);
+        container.style.float = 'left';
+        container.style.width = '15%';
+        container.style.margin = '5%';
+        container.appendChild(errorContainer);
+        document.body.appendChild(container);
+        executeEventSource(url, result, errorContainer);
+        return container;
+    }
+
+    window.onload = function() {
+        setTimeout( function () {
+            runLongPoolingRequest("//127.0.0.1:8080/event");
+        }, 1);
+        setTimeout( function () {
+            runLongPoolingRequest("//127.0.0.1:8080/event");
+        }, 1500);
+        setTimeout( function () {
+            runLongPoolingRequest("//127.0.0.1:8080/shell");
+        }, 2300);
+    }
+
+</script>
+<body>
+
+</body>
+</html>
