@@ -6,6 +6,7 @@ LIBWBXML_DIR="$CURR_DIR/libwbxml/"
 
 if [ ! -d "$LIBWBXML_DIR" ]; then
     echo "Please download libwbxml and unpack into folder '$LIBWBXML_DIR' "
+    exit 1
 fi
 if [ ! -d "$LIBWBXML_DIR/build" ]; then
     mkdir -p "$LIBWBXML_DIR/build"

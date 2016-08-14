@@ -1,6 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+"""
+
+cimport cython
+
+from enum import IntEnum, Enum
+
 
 cdef extern from "Python.h":
     object PyBytes_FromStringAndSize(char *s, int len)
+
 
 cdef extern from "wbxml.h":
     ctypedef unsigned char      WB_BOOL
@@ -131,8 +140,6 @@ cdef extern from "stdlib.h":
     void free(void *ptr)
 
 
-from enum import IntEnum, Enum
-
 class Lang(IntEnum):
     UNKNOWN = WBXMLLanguage.WBXML_LANG_UNKNOWN #   Unknown / Not Specified
     WML10 = WBXMLLanguage.WBXML_LANG_WML10 #   WML 1.0
@@ -185,7 +192,6 @@ class WBXMLCharset(IntEnum):
     BIG5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_BIG5
 
 
-#
 class XMLType(IntEnum):
 
     COMPACT = WBXMLGenXMLType.WBXML_GEN_XML_COMPACT
@@ -212,6 +218,8 @@ class WBXMLParseError(Exception):
     def __repr__(self):
         return self.__str__()
 
+
+@cython.boundscheck(False)
 def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,
               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):
     cdef WB_UTINY *xml
@@ -246,6 +254,7 @@ def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,
     return res
 
 
+@cython.boundscheck(False)
 def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,
               remove_public_id=True, version=WbxmlVersion.V_13):
     cdef  WBXMLError ret = WBXML_OK

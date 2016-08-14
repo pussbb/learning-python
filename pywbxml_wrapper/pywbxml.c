@@ -816,12 +816,15 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
+/* Module declarations from 'cython' */
+
 /* Module declarations from 'pywbxml' */
 #define __Pyx_MODULE_NAME "pywbxml"
 int __pyx_module_is_main_pywbxml = 0;
 
 /* Implementation of 'pywbxml' */
 static PyObject *__pyx_builtin_Exception;
+static const char __pyx_k__9[] = "\n";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_res[] = "res";
 static const char __pyx_k_ret[] = "ret";
@@ -926,7 +929,7 @@ static const char __pyx_k_WBXMLParseError___repr[] = "WBXMLParseError.__repr__";
 static const char __pyx_k_Charset_param_is_not_enum[] = "Charset param is not enum";
 static const char __pyx_k_version_param_is_not_enum[] = "version param is not enum";
 static const char __pyx_k_xml_type_param_is_not_enum[] = "xml_type param is not enum";
-static const char __pyx_k_opt_github_learning_python_pywb[] = "/opt/github/learning-python/pywbxml_wrapper/pywbxml.pyx";
+static const char __pyx_k_home_pussbb_PycharmProjects_lib[] = "/home/pussbb/PycharmProjects/libwxml/pywbxml.pyx";
 static PyObject *__pyx_n_s_ACTIVESYNC;
 static PyObject *__pyx_n_s_AIRSYNC;
 static PyObject *__pyx_n_s_BIG5;
@@ -999,6 +1002,7 @@ static PyObject *__pyx_n_s_description;
 static PyObject *__pyx_n_s_disable_string_table;
 static PyObject *__pyx_n_s_doc;
 static PyObject *__pyx_n_s_enum;
+static PyObject *__pyx_kp_s_home_pussbb_PycharmProjects_lib;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_indent;
 static PyObject *__pyx_n_s_init;
@@ -1006,7 +1010,6 @@ static PyObject *__pyx_n_s_lang;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_metaclass;
 static PyObject *__pyx_n_s_module;
-static PyObject *__pyx_kp_s_opt_github_learning_python_pywb;
 static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_preserve_whitesaces;
 static PyObject *__pyx_n_s_preserve_whitespaces;
@@ -1046,18 +1049,18 @@ static PyObject *__pyx_tuple__4;
 static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__8;
-static PyObject *__pyx_tuple__9;
-static PyObject *__pyx_tuple__11;
-static PyObject *__pyx_tuple__13;
-static PyObject *__pyx_tuple__15;
-static PyObject *__pyx_tuple__17;
-static PyObject *__pyx_codeobj__10;
-static PyObject *__pyx_codeobj__12;
-static PyObject *__pyx_codeobj__14;
-static PyObject *__pyx_codeobj__16;
-static PyObject *__pyx_codeobj__18;
+static PyObject *__pyx_tuple__10;
+static PyObject *__pyx_tuple__12;
+static PyObject *__pyx_tuple__14;
+static PyObject *__pyx_tuple__16;
+static PyObject *__pyx_tuple__18;
+static PyObject *__pyx_codeobj__11;
+static PyObject *__pyx_codeobj__13;
+static PyObject *__pyx_codeobj__15;
+static PyObject *__pyx_codeobj__17;
+static PyObject *__pyx_codeobj__19;
 
-/* "pywbxml.pyx":205
+/* "pywbxml.pyx":209
  * 
  * class WBXMLParseError(Exception):
  *     def __init__(self, code):             # <<<<<<<<<<<<<<
@@ -1094,11 +1097,11 @@ static PyObject *__pyx_pw_7pywbxml_15WBXMLParseError_1__init__(PyObject *__pyx_s
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_code)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 205, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 209, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 205, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 209, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1111,7 +1114,7 @@ static PyObject *__pyx_pw_7pywbxml_15WBXMLParseError_1__init__(PyObject *__pyx_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 205, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 209, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pywbxml.WBXMLParseError.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1131,29 +1134,29 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError___init__(CYTHON_UNUSED PyOb
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "pywbxml.pyx":206
+  /* "pywbxml.pyx":210
  * class WBXMLParseError(Exception):
  *     def __init__(self, code):
  *         self.code = code             # <<<<<<<<<<<<<<
  *         self.description = <char *> wbxml_errors_string(code)
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_code, __pyx_v_code) < 0) __PYX_ERR(0, 206, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_code, __pyx_v_code) < 0) __PYX_ERR(0, 210, __pyx_L1_error)
 
-  /* "pywbxml.pyx":207
+  /* "pywbxml.pyx":211
  *     def __init__(self, code):
  *         self.code = code
  *         self.description = <char *> wbxml_errors_string(code)             # <<<<<<<<<<<<<<
  * 
  *     def __str__(self):
  */
-  __pyx_t_1 = __Pyx_PyInt_As_WBXMLError(__pyx_v_code); if (unlikely((__pyx_t_1 == (WBXMLError)-1) && PyErr_Occurred())) __PYX_ERR(0, 207, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyBytes_FromString(((char *)wbxml_errors_string(__pyx_t_1))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_WBXMLError(__pyx_v_code); if (unlikely((__pyx_t_1 == (WBXMLError)-1) && PyErr_Occurred())) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBytes_FromString(((char *)wbxml_errors_string(__pyx_t_1))); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_description, __pyx_t_2) < 0) __PYX_ERR(0, 207, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_description, __pyx_t_2) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pywbxml.pyx":205
+  /* "pywbxml.pyx":209
  * 
  * class WBXMLParseError(Exception):
  *     def __init__(self, code):             # <<<<<<<<<<<<<<
@@ -1174,7 +1177,7 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError___init__(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "pywbxml.pyx":209
+/* "pywbxml.pyx":213
  *         self.description = <char *> wbxml_errors_string(code)
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -1204,7 +1207,7 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_2__str__(CYTHON_UNUSED PyOb
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__str__", 0);
 
-  /* "pywbxml.pyx":210
+  /* "pywbxml.pyx":214
  * 
  *     def __str__(self):
  *         return "%s (%d)" % (self.description, self.code)             # <<<<<<<<<<<<<<
@@ -1212,11 +1215,11 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_2__str__(CYTHON_UNUSED PyOb
  *     def __repr__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_description); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_description); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_code); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_code); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -1224,14 +1227,14 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_2__str__(CYTHON_UNUSED PyOb
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyUnicode_Format(__pyx_kp_u_s_d, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_2 = PyUnicode_Format(__pyx_kp_u_s_d, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pywbxml.pyx":209
+  /* "pywbxml.pyx":213
  *         self.description = <char *> wbxml_errors_string(code)
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -1252,7 +1255,7 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_2__str__(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "pywbxml.pyx":212
+/* "pywbxml.pyx":216
  *         return "%s (%d)" % (self.description, self.code)
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -1282,15 +1285,15 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_4__repr__(CYTHON_UNUSED PyO
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__repr__", 0);
 
-  /* "pywbxml.pyx":213
+  /* "pywbxml.pyx":217
  * 
  *     def __repr__(self):
  *         return self.__str__()             # <<<<<<<<<<<<<<
  * 
- * def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_str); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_str); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -1303,10 +1306,10 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_4__repr__(CYTHON_UNUSED PyO
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 213, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 217, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 213, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 217, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -1314,7 +1317,7 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_4__repr__(CYTHON_UNUSED PyO
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pywbxml.pyx":212
+  /* "pywbxml.pyx":216
  *         return "%s (%d)" % (self.description, self.code)
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -1335,9 +1338,9 @@ static PyObject *__pyx_pf_7pywbxml_15WBXMLParseError_4__repr__(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "pywbxml.pyx":215
- *         return self.__str__()
+/* "pywbxml.pyx":221
  * 
+ * @cython.boundscheck(False)
  * def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,             # <<<<<<<<<<<<<<
  *               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):
  *     cdef WB_UTINY *xml
@@ -1409,7 +1412,7 @@ static PyObject *__pyx_pw_7pywbxml_1wbxml2xml(PyObject *__pyx_self, PyObject *__
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "wbxml2xml") < 0)) __PYX_ERR(0, 215, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "wbxml2xml") < 0)) __PYX_ERR(0, 221, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -1432,7 +1435,7 @@ static PyObject *__pyx_pw_7pywbxml_1wbxml2xml(PyObject *__pyx_self, PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("wbxml2xml", 0, 1, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 215, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("wbxml2xml", 0, 1, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 221, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pywbxml.wbxml2xml", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1469,7 +1472,7 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
   __Pyx_RefNannySetupContext("wbxml2xml", 0);
   __Pyx_INCREF(__pyx_v_wbxml);
 
-  /* "pywbxml.pyx":220
+  /* "pywbxml.pyx":226
  *     cdef WB_ULONG xml_len
  *     cdef WBXMLError ret
  *     cdef WBXMLConvWBXML2XML *conv = NULL             # <<<<<<<<<<<<<<
@@ -1478,37 +1481,37 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   __pyx_v_conv = NULL;
 
-  /* "pywbxml.pyx":222
+  /* "pywbxml.pyx":228
  *     cdef WBXMLConvWBXML2XML *conv = NULL
  * 
  *     if not isinstance(lang, Lang):             # <<<<<<<<<<<<<<
  *         raise WBXMLParseError('Lang param is not enum')
  *     if not isinstance(charset, WBXMLCharset):
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_Lang); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_Lang); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_lang, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 222, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_lang, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 228, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = ((!(__pyx_t_2 != 0)) != 0);
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":223
+    /* "pywbxml.pyx":229
  * 
  *     if not isinstance(lang, Lang):
  *         raise WBXMLParseError('Lang param is not enum')             # <<<<<<<<<<<<<<
  *     if not isinstance(charset, WBXMLCharset):
  *         raise WBXMLParseError('Charset param is not enum')
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 223, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 223, __pyx_L1_error)
+    __PYX_ERR(0, 229, __pyx_L1_error)
 
-    /* "pywbxml.pyx":222
+    /* "pywbxml.pyx":228
  *     cdef WBXMLConvWBXML2XML *conv = NULL
  * 
  *     if not isinstance(lang, Lang):             # <<<<<<<<<<<<<<
@@ -1517,37 +1520,37 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   }
 
-  /* "pywbxml.pyx":224
+  /* "pywbxml.pyx":230
  *     if not isinstance(lang, Lang):
  *         raise WBXMLParseError('Lang param is not enum')
  *     if not isinstance(charset, WBXMLCharset):             # <<<<<<<<<<<<<<
  *         raise WBXMLParseError('Charset param is not enum')
  *     if not isinstance(xml_type, XMLType):
  */
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLCharset); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLCharset); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyObject_IsInstance(__pyx_v_charset, __pyx_t_4); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_charset, __pyx_t_4); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_2 = ((!(__pyx_t_3 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pywbxml.pyx":225
+    /* "pywbxml.pyx":231
  *         raise WBXMLParseError('Lang param is not enum')
  *     if not isinstance(charset, WBXMLCharset):
  *         raise WBXMLParseError('Charset param is not enum')             # <<<<<<<<<<<<<<
  *     if not isinstance(xml_type, XMLType):
  *         raise WBXMLParseError('xml_type param is not enum')
  */
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 231, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 225, __pyx_L1_error)
+    __PYX_ERR(0, 231, __pyx_L1_error)
 
-    /* "pywbxml.pyx":224
+    /* "pywbxml.pyx":230
  *     if not isinstance(lang, Lang):
  *         raise WBXMLParseError('Lang param is not enum')
  *     if not isinstance(charset, WBXMLCharset):             # <<<<<<<<<<<<<<
@@ -1556,37 +1559,37 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   }
 
-  /* "pywbxml.pyx":226
+  /* "pywbxml.pyx":232
  *     if not isinstance(charset, WBXMLCharset):
  *         raise WBXMLParseError('Charset param is not enum')
  *     if not isinstance(xml_type, XMLType):             # <<<<<<<<<<<<<<
  *         raise WBXMLParseError('xml_type param is not enum')
  * 
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_XMLType); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_XMLType); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_xml_type, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_xml_type, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = ((!(__pyx_t_2 != 0)) != 0);
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":227
+    /* "pywbxml.pyx":233
  *         raise WBXMLParseError('Charset param is not enum')
  *     if not isinstance(xml_type, XMLType):
  *         raise WBXMLParseError('xml_type param is not enum')             # <<<<<<<<<<<<<<
  * 
  *     retval = wbxml_conv_wbxml2xml_create(&conv)
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 227, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 233, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 227, __pyx_L1_error)
+    __PYX_ERR(0, 233, __pyx_L1_error)
 
-    /* "pywbxml.pyx":226
+    /* "pywbxml.pyx":232
  *     if not isinstance(charset, WBXMLCharset):
  *         raise WBXMLParseError('Charset param is not enum')
  *     if not isinstance(xml_type, XMLType):             # <<<<<<<<<<<<<<
@@ -1595,7 +1598,7 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   }
 
-  /* "pywbxml.pyx":229
+  /* "pywbxml.pyx":235
  *         raise WBXMLParseError('xml_type param is not enum')
  * 
  *     retval = wbxml_conv_wbxml2xml_create(&conv)             # <<<<<<<<<<<<<<
@@ -1604,7 +1607,7 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   __pyx_v_retval = wbxml_conv_wbxml2xml_create((&__pyx_v_conv));
 
-  /* "pywbxml.pyx":230
+  /* "pywbxml.pyx":236
  * 
  *     retval = wbxml_conv_wbxml2xml_create(&conv)
  *     if retval != WBXML_OK:             # <<<<<<<<<<<<<<
@@ -1614,16 +1617,16 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
   __pyx_t_3 = ((__pyx_v_retval != WBXML_OK) != 0);
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":231
+    /* "pywbxml.pyx":237
  *     retval = wbxml_conv_wbxml2xml_create(&conv)
  *     if retval != WBXML_OK:
  *         raise WBXMLParseError(retval)             # <<<<<<<<<<<<<<
  * 
  *     wbxml_conv_wbxml2xml_set_charset(conv, charset.value)
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyInt_From_WBXMLError(__pyx_v_retval); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 231, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_WBXMLError(__pyx_v_retval); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 237, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -1636,26 +1639,26 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
       }
     }
     if (!__pyx_t_6) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 231, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_4);
     } else {
-      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 231, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 237, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 231, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 231, __pyx_L1_error)
+    __PYX_ERR(0, 237, __pyx_L1_error)
 
-    /* "pywbxml.pyx":230
+    /* "pywbxml.pyx":236
  * 
  *     retval = wbxml_conv_wbxml2xml_create(&conv)
  *     if retval != WBXML_OK:             # <<<<<<<<<<<<<<
@@ -1664,43 +1667,43 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   }
 
-  /* "pywbxml.pyx":233
+  /* "pywbxml.pyx":239
  *         raise WBXMLParseError(retval)
  * 
  *     wbxml_conv_wbxml2xml_set_charset(conv, charset.value)             # <<<<<<<<<<<<<<
  *     wbxml_conv_wbxml2xml_set_language(conv, lang.value)
  *     if preserve_whitesaces:
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_charset, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_charset, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = ((WBXMLCharsetMIBEnum)__Pyx_PyInt_As_WBXMLCharsetMIBEnum(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_8 = ((WBXMLCharsetMIBEnum)__Pyx_PyInt_As_WBXMLCharsetMIBEnum(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 239, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   wbxml_conv_wbxml2xml_set_charset(__pyx_v_conv, __pyx_t_8);
 
-  /* "pywbxml.pyx":234
+  /* "pywbxml.pyx":240
  * 
  *     wbxml_conv_wbxml2xml_set_charset(conv, charset.value)
  *     wbxml_conv_wbxml2xml_set_language(conv, lang.value)             # <<<<<<<<<<<<<<
  *     if preserve_whitesaces:
  *         wbxml_conv_wbxml2xml_enable_preserve_whitespaces(conv)
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_lang, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_lang, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_9 = ((WBXMLLanguage)__Pyx_PyInt_As_WBXMLLanguage(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_9 = ((WBXMLLanguage)__Pyx_PyInt_As_WBXMLLanguage(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   wbxml_conv_wbxml2xml_set_language(__pyx_v_conv, __pyx_t_9);
 
-  /* "pywbxml.pyx":235
+  /* "pywbxml.pyx":241
  *     wbxml_conv_wbxml2xml_set_charset(conv, charset.value)
  *     wbxml_conv_wbxml2xml_set_language(conv, lang.value)
  *     if preserve_whitesaces:             # <<<<<<<<<<<<<<
  *         wbxml_conv_wbxml2xml_enable_preserve_whitespaces(conv)
  *     wbxml_conv_wbxml2xml_set_indent(conv, int(indent))
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_preserve_whitesaces); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_preserve_whitesaces); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":236
+    /* "pywbxml.pyx":242
  *     wbxml_conv_wbxml2xml_set_language(conv, lang.value)
  *     if preserve_whitesaces:
  *         wbxml_conv_wbxml2xml_enable_preserve_whitespaces(conv)             # <<<<<<<<<<<<<<
@@ -1709,7 +1712,7 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
     wbxml_conv_wbxml2xml_enable_preserve_whitespaces(__pyx_v_conv);
 
-    /* "pywbxml.pyx":235
+    /* "pywbxml.pyx":241
  *     wbxml_conv_wbxml2xml_set_charset(conv, charset.value)
  *     wbxml_conv_wbxml2xml_set_language(conv, lang.value)
  *     if preserve_whitesaces:             # <<<<<<<<<<<<<<
@@ -1718,44 +1721,44 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   }
 
-  /* "pywbxml.pyx":237
+  /* "pywbxml.pyx":243
  *     if preserve_whitesaces:
  *         wbxml_conv_wbxml2xml_enable_preserve_whitespaces(conv)
  *     wbxml_conv_wbxml2xml_set_indent(conv, int(indent))             # <<<<<<<<<<<<<<
  * 
  *     wbxml_conv_wbxml2xml_set_gen_type(conv, xml_type.value)
  */
-  __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_v_indent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_v_indent); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_10 = __Pyx_PyInt_As_WB_UTINY(__pyx_t_4); if (unlikely((__pyx_t_10 == (WB_UTINY)-1) && PyErr_Occurred())) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyInt_As_WB_UTINY(__pyx_t_4); if (unlikely((__pyx_t_10 == (WB_UTINY)-1) && PyErr_Occurred())) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   wbxml_conv_wbxml2xml_set_indent(__pyx_v_conv, __pyx_t_10);
 
-  /* "pywbxml.pyx":239
+  /* "pywbxml.pyx":245
  *     wbxml_conv_wbxml2xml_set_indent(conv, int(indent))
  * 
  *     wbxml_conv_wbxml2xml_set_gen_type(conv, xml_type.value)             # <<<<<<<<<<<<<<
  *     retval = wbxml_conv_wbxml2xml_run(conv, wbxml, len(wbxml), &xml, &xml_len)
  *     if retval != WBXML_OK:
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_xml_type, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_xml_type, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 245, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_11 = ((WBXMLGenXMLType)__Pyx_PyInt_As_WBXMLGenXMLType(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_11 = ((WBXMLGenXMLType)__Pyx_PyInt_As_WBXMLGenXMLType(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 245, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   wbxml_conv_wbxml2xml_set_gen_type(__pyx_v_conv, __pyx_t_11);
 
-  /* "pywbxml.pyx":240
+  /* "pywbxml.pyx":246
  * 
  *     wbxml_conv_wbxml2xml_set_gen_type(conv, xml_type.value)
  *     retval = wbxml_conv_wbxml2xml_run(conv, wbxml, len(wbxml), &xml, &xml_len)             # <<<<<<<<<<<<<<
  *     if retval != WBXML_OK:
  *         raise WBXMLParseError(retval)
  */
-  __pyx_t_12 = __Pyx_PyObject_AsUString(__pyx_v_wbxml); if (unlikely((!__pyx_t_12) && PyErr_Occurred())) __PYX_ERR(0, 240, __pyx_L1_error)
-  __pyx_t_13 = PyObject_Length(__pyx_v_wbxml); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_AsUString(__pyx_v_wbxml); if (unlikely((!__pyx_t_12) && PyErr_Occurred())) __PYX_ERR(0, 246, __pyx_L1_error)
+  __pyx_t_13 = PyObject_Length(__pyx_v_wbxml); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 246, __pyx_L1_error)
   __pyx_v_retval = wbxml_conv_wbxml2xml_run(__pyx_v_conv, __pyx_t_12, __pyx_t_13, (&__pyx_v_xml), (&__pyx_v_xml_len));
 
-  /* "pywbxml.pyx":241
+  /* "pywbxml.pyx":247
  *     wbxml_conv_wbxml2xml_set_gen_type(conv, xml_type.value)
  *     retval = wbxml_conv_wbxml2xml_run(conv, wbxml, len(wbxml), &xml, &xml_len)
  *     if retval != WBXML_OK:             # <<<<<<<<<<<<<<
@@ -1765,16 +1768,16 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
   __pyx_t_3 = ((__pyx_v_retval != WBXML_OK) != 0);
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":242
+    /* "pywbxml.pyx":248
  *     retval = wbxml_conv_wbxml2xml_run(conv, wbxml, len(wbxml), &xml, &xml_len)
  *     if retval != WBXML_OK:
  *         raise WBXMLParseError(retval)             # <<<<<<<<<<<<<<
  *     res =  PyBytes_FromStringAndSize(<char *>xml, xml_len)
  *     free(xml)
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = __Pyx_PyInt_From_WBXMLError(__pyx_v_retval); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_From_WBXMLError(__pyx_v_retval); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -1787,26 +1790,26 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
       }
     }
     if (!__pyx_t_5) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 248, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_4);
     } else {
-      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 242, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 248, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
       __Pyx_GIVEREF(__pyx_t_7);
       PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_7);
       __pyx_t_7 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 242, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 248, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 242, __pyx_L1_error)
+    __PYX_ERR(0, 248, __pyx_L1_error)
 
-    /* "pywbxml.pyx":241
+    /* "pywbxml.pyx":247
  *     wbxml_conv_wbxml2xml_set_gen_type(conv, xml_type.value)
  *     retval = wbxml_conv_wbxml2xml_run(conv, wbxml, len(wbxml), &xml, &xml_len)
  *     if retval != WBXML_OK:             # <<<<<<<<<<<<<<
@@ -1815,19 +1818,19 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   }
 
-  /* "pywbxml.pyx":243
+  /* "pywbxml.pyx":249
  *     if retval != WBXML_OK:
  *         raise WBXMLParseError(retval)
  *     res =  PyBytes_FromStringAndSize(<char *>xml, xml_len)             # <<<<<<<<<<<<<<
  *     free(xml)
  *     del wbxml
  */
-  __pyx_t_4 = PyBytes_FromStringAndSize(((char *)__pyx_v_xml), __pyx_v_xml_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_4 = PyBytes_FromStringAndSize(((char *)__pyx_v_xml), __pyx_v_xml_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v_res = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":244
+  /* "pywbxml.pyx":250
  *         raise WBXMLParseError(retval)
  *     res =  PyBytes_FromStringAndSize(<char *>xml, xml_len)
  *     free(xml)             # <<<<<<<<<<<<<<
@@ -1836,7 +1839,7 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
  */
   free(__pyx_v_xml);
 
-  /* "pywbxml.pyx":245
+  /* "pywbxml.pyx":251
  *     res =  PyBytes_FromStringAndSize(<char *>xml, xml_len)
  *     free(xml)
  *     del wbxml             # <<<<<<<<<<<<<<
@@ -1846,7 +1849,7 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
   __Pyx_DECREF(__pyx_v_wbxml);
   __pyx_v_wbxml = NULL;
 
-  /* "pywbxml.pyx":246
+  /* "pywbxml.pyx":252
  *     free(xml)
  *     del wbxml
  *     return res             # <<<<<<<<<<<<<<
@@ -1858,9 +1861,9 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
   __pyx_r = __pyx_v_res;
   goto __pyx_L0;
 
-  /* "pywbxml.pyx":215
- *         return self.__str__()
+  /* "pywbxml.pyx":221
  * 
+ * @cython.boundscheck(False)
  * def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,             # <<<<<<<<<<<<<<
  *               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):
  *     cdef WB_UTINY *xml
@@ -1883,9 +1886,9 @@ static PyObject *__pyx_pf_7pywbxml_wbxml2xml(CYTHON_UNUSED PyObject *__pyx_self,
   return __pyx_r;
 }
 
-/* "pywbxml.pyx":249
+/* "pywbxml.pyx":256
  * 
- * 
+ * @cython.boundscheck(False)
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,             # <<<<<<<<<<<<<<
  *               remove_public_id=True, version=WbxmlVersion.V_13):
  *     cdef  WBXMLError ret = WBXML_OK
@@ -1909,8 +1912,8 @@ static PyObject *__pyx_pw_7pywbxml_3xml2wbxml(PyObject *__pyx_self, PyObject *__
     values[1] = ((PyObject *)Py_True);
     values[2] = ((PyObject *)Py_True);
 
-    /* "pywbxml.pyx":250
- * 
+    /* "pywbxml.pyx":257
+ * @cython.boundscheck(False)
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,
  *               remove_public_id=True, version=WbxmlVersion.V_13):             # <<<<<<<<<<<<<<
  *     cdef  WBXMLError ret = WBXML_OK
@@ -1957,7 +1960,7 @@ static PyObject *__pyx_pw_7pywbxml_3xml2wbxml(PyObject *__pyx_self, PyObject *__
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "xml2wbxml") < 0)) __PYX_ERR(0, 249, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "xml2wbxml") < 0)) __PYX_ERR(0, 256, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -1978,7 +1981,7 @@ static PyObject *__pyx_pw_7pywbxml_3xml2wbxml(PyObject *__pyx_self, PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("xml2wbxml", 0, 1, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 249, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("xml2wbxml", 0, 1, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 256, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pywbxml.xml2wbxml", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -1986,9 +1989,9 @@ static PyObject *__pyx_pw_7pywbxml_3xml2wbxml(PyObject *__pyx_self, PyObject *__
   __pyx_L4_argument_unpacking_done:;
   __pyx_r = __pyx_pf_7pywbxml_2xml2wbxml(__pyx_self, __pyx_v_xml, __pyx_v_disable_string_table, __pyx_v_preserve_whitespaces, __pyx_v_remove_public_id, __pyx_v_version);
 
-  /* "pywbxml.pyx":249
+  /* "pywbxml.pyx":256
  * 
- * 
+ * @cython.boundscheck(False)
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,             # <<<<<<<<<<<<<<
  *               remove_public_id=True, version=WbxmlVersion.V_13):
  *     cdef  WBXMLError ret = WBXML_OK
@@ -2021,7 +2024,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
   __Pyx_RefNannySetupContext("xml2wbxml", 0);
   __Pyx_INCREF(__pyx_v_xml);
 
-  /* "pywbxml.pyx":251
+  /* "pywbxml.pyx":258
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,
  *               remove_public_id=True, version=WbxmlVersion.V_13):
  *     cdef  WBXMLError ret = WBXML_OK             # <<<<<<<<<<<<<<
@@ -2030,7 +2033,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_ret = WBXML_OK;
 
-  /* "pywbxml.pyx":252
+  /* "pywbxml.pyx":259
  *               remove_public_id=True, version=WbxmlVersion.V_13):
  *     cdef  WBXMLError ret = WBXML_OK
  *     cdef WBXMLConvXML2WBXML *conv = NULL             # <<<<<<<<<<<<<<
@@ -2039,7 +2042,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_conv = NULL;
 
-  /* "pywbxml.pyx":253
+  /* "pywbxml.pyx":260
  *     cdef  WBXMLError ret = WBXML_OK
  *     cdef WBXMLConvXML2WBXML *conv = NULL
  *     cdef WB_UTINY * wbxml = NULL             # <<<<<<<<<<<<<<
@@ -2048,7 +2051,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_wbxml = NULL;
 
-  /* "pywbxml.pyx":254
+  /* "pywbxml.pyx":261
  *     cdef WBXMLConvXML2WBXML *conv = NULL
  *     cdef WB_UTINY * wbxml = NULL
  *     cdef WB_ULONG wbxml_len = 0             # <<<<<<<<<<<<<<
@@ -2057,37 +2060,37 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_wbxml_len = 0;
 
-  /* "pywbxml.pyx":256
+  /* "pywbxml.pyx":263
  *     cdef WB_ULONG wbxml_len = 0
  * 
  *     if not isinstance(version, WbxmlVersion):             # <<<<<<<<<<<<<<
  *         raise WBXMLParseError('version param is not enum')
  * 
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WbxmlVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WbxmlVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_v_version, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_v_version, __pyx_t_1); if (unlikely(__pyx_t_2 == -1)) __PYX_ERR(0, 263, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = ((!(__pyx_t_2 != 0)) != 0);
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":257
+    /* "pywbxml.pyx":264
  * 
  *     if not isinstance(version, WbxmlVersion):
  *         raise WBXMLParseError('version param is not enum')             # <<<<<<<<<<<<<<
  * 
  *     ret = wbxml_conv_xml2wbxml_create(&conv)
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 257, __pyx_L1_error)
+    __PYX_ERR(0, 264, __pyx_L1_error)
 
-    /* "pywbxml.pyx":256
+    /* "pywbxml.pyx":263
  *     cdef WB_ULONG wbxml_len = 0
  * 
  *     if not isinstance(version, WbxmlVersion):             # <<<<<<<<<<<<<<
@@ -2096,7 +2099,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   }
 
-  /* "pywbxml.pyx":259
+  /* "pywbxml.pyx":266
  *         raise WBXMLParseError('version param is not enum')
  * 
  *     ret = wbxml_conv_xml2wbxml_create(&conv)             # <<<<<<<<<<<<<<
@@ -2105,7 +2108,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_ret = wbxml_conv_xml2wbxml_create((&__pyx_v_conv));
 
-  /* "pywbxml.pyx":260
+  /* "pywbxml.pyx":267
  * 
  *     ret = wbxml_conv_xml2wbxml_create(&conv)
  *     if ret != WBXML_OK:             # <<<<<<<<<<<<<<
@@ -2115,16 +2118,16 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
   __pyx_t_3 = ((__pyx_v_ret != WBXML_OK) != 0);
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":261
+    /* "pywbxml.pyx":268
  *     ret = wbxml_conv_xml2wbxml_create(&conv)
  *     if ret != WBXML_OK:
  *         raise WBXMLParseError(ret)             # <<<<<<<<<<<<<<
  * 
  *     wbxml_conv_xml2wbxml_set_version(conv, version.value)
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 268, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyInt_From_WBXMLError(__pyx_v_ret); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 261, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_WBXMLError(__pyx_v_ret); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 268, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -2137,26 +2140,26 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
       }
     }
     if (!__pyx_t_6) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 261, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 268, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_4);
     } else {
-      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 261, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 268, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 261, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 268, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 261, __pyx_L1_error)
+    __PYX_ERR(0, 268, __pyx_L1_error)
 
-    /* "pywbxml.pyx":260
+    /* "pywbxml.pyx":267
  * 
  *     ret = wbxml_conv_xml2wbxml_create(&conv)
  *     if ret != WBXML_OK:             # <<<<<<<<<<<<<<
@@ -2165,30 +2168,30 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   }
 
-  /* "pywbxml.pyx":263
+  /* "pywbxml.pyx":270
  *         raise WBXMLParseError(ret)
  * 
  *     wbxml_conv_xml2wbxml_set_version(conv, version.value)             # <<<<<<<<<<<<<<
  *     if disable_string_table:
  *         wbxml_conv_xml2wbxml_disable_string_table(conv)
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_version, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_version, __pyx_n_s_value); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_8 = ((WBXMLVersion)__Pyx_PyInt_As_WBXMLVersion(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_8 = ((WBXMLVersion)__Pyx_PyInt_As_WBXMLVersion(__pyx_t_4)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   wbxml_conv_xml2wbxml_set_version(__pyx_v_conv, __pyx_t_8);
 
-  /* "pywbxml.pyx":264
+  /* "pywbxml.pyx":271
  * 
  *     wbxml_conv_xml2wbxml_set_version(conv, version.value)
  *     if disable_string_table:             # <<<<<<<<<<<<<<
  *         wbxml_conv_xml2wbxml_disable_string_table(conv)
  *     if preserve_whitespaces:
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_disable_string_table); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_disable_string_table); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":265
+    /* "pywbxml.pyx":272
  *     wbxml_conv_xml2wbxml_set_version(conv, version.value)
  *     if disable_string_table:
  *         wbxml_conv_xml2wbxml_disable_string_table(conv)             # <<<<<<<<<<<<<<
@@ -2197,7 +2200,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
     wbxml_conv_xml2wbxml_disable_string_table(__pyx_v_conv);
 
-    /* "pywbxml.pyx":264
+    /* "pywbxml.pyx":271
  * 
  *     wbxml_conv_xml2wbxml_set_version(conv, version.value)
  *     if disable_string_table:             # <<<<<<<<<<<<<<
@@ -2206,17 +2209,17 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   }
 
-  /* "pywbxml.pyx":266
+  /* "pywbxml.pyx":273
  *     if disable_string_table:
  *         wbxml_conv_xml2wbxml_disable_string_table(conv)
  *     if preserve_whitespaces:             # <<<<<<<<<<<<<<
  *         wbxml_conv_xml2wbxml_enable_preserve_whitespaces(conv)
  *     if remove_public_id:
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_preserve_whitespaces); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_preserve_whitespaces); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 273, __pyx_L1_error)
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":267
+    /* "pywbxml.pyx":274
  *         wbxml_conv_xml2wbxml_disable_string_table(conv)
  *     if preserve_whitespaces:
  *         wbxml_conv_xml2wbxml_enable_preserve_whitespaces(conv)             # <<<<<<<<<<<<<<
@@ -2225,7 +2228,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
     wbxml_conv_xml2wbxml_enable_preserve_whitespaces(__pyx_v_conv);
 
-    /* "pywbxml.pyx":266
+    /* "pywbxml.pyx":273
  *     if disable_string_table:
  *         wbxml_conv_xml2wbxml_disable_string_table(conv)
  *     if preserve_whitespaces:             # <<<<<<<<<<<<<<
@@ -2234,17 +2237,17 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   }
 
-  /* "pywbxml.pyx":268
+  /* "pywbxml.pyx":275
  *     if preserve_whitespaces:
  *         wbxml_conv_xml2wbxml_enable_preserve_whitespaces(conv)
  *     if remove_public_id:             # <<<<<<<<<<<<<<
  *         wbxml_conv_xml2wbxml_disable_public_id(conv)
  *     retval = wbxml_conv_xml2wbxml_run(conv, <WB_UTINY *> xml, len(xml),
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_remove_public_id); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_remove_public_id); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 275, __pyx_L1_error)
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":269
+    /* "pywbxml.pyx":276
  *         wbxml_conv_xml2wbxml_enable_preserve_whitespaces(conv)
  *     if remove_public_id:
  *         wbxml_conv_xml2wbxml_disable_public_id(conv)             # <<<<<<<<<<<<<<
@@ -2253,7 +2256,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
     wbxml_conv_xml2wbxml_disable_public_id(__pyx_v_conv);
 
-    /* "pywbxml.pyx":268
+    /* "pywbxml.pyx":275
  *     if preserve_whitespaces:
  *         wbxml_conv_xml2wbxml_enable_preserve_whitespaces(conv)
  *     if remove_public_id:             # <<<<<<<<<<<<<<
@@ -2262,17 +2265,17 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   }
 
-  /* "pywbxml.pyx":270
+  /* "pywbxml.pyx":277
  *     if remove_public_id:
  *         wbxml_conv_xml2wbxml_disable_public_id(conv)
  *     retval = wbxml_conv_xml2wbxml_run(conv, <WB_UTINY *> xml, len(xml),             # <<<<<<<<<<<<<<
  *                                 &wbxml, &wbxml_len)
  *     if retval != 0:
  */
-  __pyx_t_9 = __Pyx_PyObject_AsUString(__pyx_v_xml); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(0, 270, __pyx_L1_error)
-  __pyx_t_10 = PyObject_Length(__pyx_v_xml); if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_AsUString(__pyx_v_xml); if (unlikely((!__pyx_t_9) && PyErr_Occurred())) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_t_10 = PyObject_Length(__pyx_v_xml); if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 277, __pyx_L1_error)
 
-  /* "pywbxml.pyx":271
+  /* "pywbxml.pyx":278
  *         wbxml_conv_xml2wbxml_disable_public_id(conv)
  *     retval = wbxml_conv_xml2wbxml_run(conv, <WB_UTINY *> xml, len(xml),
  *                                 &wbxml, &wbxml_len)             # <<<<<<<<<<<<<<
@@ -2281,7 +2284,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   __pyx_v_retval = wbxml_conv_xml2wbxml_run(__pyx_v_conv, ((WB_UTINY *)__pyx_t_9), __pyx_t_10, (&__pyx_v_wbxml), (&__pyx_v_wbxml_len));
 
-  /* "pywbxml.pyx":272
+  /* "pywbxml.pyx":279
  *     retval = wbxml_conv_xml2wbxml_run(conv, <WB_UTINY *> xml, len(xml),
  *                                 &wbxml, &wbxml_len)
  *     if retval != 0:             # <<<<<<<<<<<<<<
@@ -2291,16 +2294,16 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
   __pyx_t_3 = ((__pyx_v_retval != 0) != 0);
   if (__pyx_t_3) {
 
-    /* "pywbxml.pyx":273
+    /* "pywbxml.pyx":280
  *                                 &wbxml, &wbxml_len)
  *     if retval != 0:
  *         raise WBXMLParseError(retval)             # <<<<<<<<<<<<<<
  *     res = PyBytes_FromStringAndSize(<char *>wbxml, wbxml_len)
  *     free(wbxml)
  */
-    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLParseError); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = __Pyx_PyInt_From_WBXMLError(__pyx_v_retval); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_From_WBXMLError(__pyx_v_retval); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 280, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -2313,26 +2316,26 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
       }
     }
     if (!__pyx_t_5) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 273, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_GOTREF(__pyx_t_4);
     } else {
-      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 273, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 280, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
       __Pyx_GIVEREF(__pyx_t_7);
       PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_7);
       __pyx_t_7 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 273, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 273, __pyx_L1_error)
+    __PYX_ERR(0, 280, __pyx_L1_error)
 
-    /* "pywbxml.pyx":272
+    /* "pywbxml.pyx":279
  *     retval = wbxml_conv_xml2wbxml_run(conv, <WB_UTINY *> xml, len(xml),
  *                                 &wbxml, &wbxml_len)
  *     if retval != 0:             # <<<<<<<<<<<<<<
@@ -2341,19 +2344,19 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   }
 
-  /* "pywbxml.pyx":274
+  /* "pywbxml.pyx":281
  *     if retval != 0:
  *         raise WBXMLParseError(retval)
  *     res = PyBytes_FromStringAndSize(<char *>wbxml, wbxml_len)             # <<<<<<<<<<<<<<
  *     free(wbxml)
  *     del xml
  */
-  __pyx_t_4 = PyBytes_FromStringAndSize(((char *)__pyx_v_wbxml), __pyx_v_wbxml_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 274, __pyx_L1_error)
+  __pyx_t_4 = PyBytes_FromStringAndSize(((char *)__pyx_v_wbxml), __pyx_v_wbxml_len); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v_res = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":275
+  /* "pywbxml.pyx":282
  *         raise WBXMLParseError(retval)
  *     res = PyBytes_FromStringAndSize(<char *>wbxml, wbxml_len)
  *     free(wbxml)             # <<<<<<<<<<<<<<
@@ -2362,7 +2365,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
  */
   free(__pyx_v_wbxml);
 
-  /* "pywbxml.pyx":276
+  /* "pywbxml.pyx":283
  *     res = PyBytes_FromStringAndSize(<char *>wbxml, wbxml_len)
  *     free(wbxml)
  *     del xml             # <<<<<<<<<<<<<<
@@ -2371,7 +2374,7 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
   __Pyx_DECREF(__pyx_v_xml);
   __pyx_v_xml = NULL;
 
-  /* "pywbxml.pyx":277
+  /* "pywbxml.pyx":284
  *     free(wbxml)
  *     del xml
  *     return res             # <<<<<<<<<<<<<<
@@ -2381,9 +2384,9 @@ static PyObject *__pyx_pf_7pywbxml_2xml2wbxml(CYTHON_UNUSED PyObject *__pyx_self
   __pyx_r = __pyx_v_res;
   goto __pyx_L0;
 
-  /* "pywbxml.pyx":249
+  /* "pywbxml.pyx":256
  * 
- * 
+ * @cython.boundscheck(False)
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,             # <<<<<<<<<<<<<<
  *               remove_public_id=True, version=WbxmlVersion.V_13):
  *     cdef  WBXMLError ret = WBXML_OK
@@ -2418,7 +2421,7 @@ static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
   #endif
     "pywbxml",
-    0, /* m_doc */
+    __pyx_k__9, /* m_doc */
     -1, /* m_size */
     __pyx_methods /* m_methods */,
     NULL, /* m_reload */
@@ -2501,6 +2504,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_disable_string_table, __pyx_k_disable_string_table, sizeof(__pyx_k_disable_string_table), 0, 0, 1, 1},
   {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
   {&__pyx_n_s_enum, __pyx_k_enum, sizeof(__pyx_k_enum), 0, 0, 1, 1},
+  {&__pyx_kp_s_home_pussbb_PycharmProjects_lib, __pyx_k_home_pussbb_PycharmProjects_lib, sizeof(__pyx_k_home_pussbb_PycharmProjects_lib), 0, 0, 1, 0},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_indent, __pyx_k_indent, sizeof(__pyx_k_indent), 0, 0, 1, 1},
   {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
@@ -2508,7 +2512,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_metaclass, __pyx_k_metaclass, sizeof(__pyx_k_metaclass), 0, 0, 1, 1},
   {&__pyx_n_s_module, __pyx_k_module, sizeof(__pyx_k_module), 0, 0, 1, 1},
-  {&__pyx_kp_s_opt_github_learning_python_pywb, __pyx_k_opt_github_learning_python_pywb, sizeof(__pyx_k_opt_github_learning_python_pywb), 0, 0, 1, 0},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
   {&__pyx_n_s_preserve_whitesaces, __pyx_k_preserve_whitesaces, sizeof(__pyx_k_preserve_whitesaces), 0, 0, 1, 1},
   {&__pyx_n_s_preserve_whitespaces, __pyx_k_preserve_whitespaces, sizeof(__pyx_k_preserve_whitespaces), 0, 0, 1, 1},
@@ -2537,7 +2540,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_builtin_Exception = __Pyx_GetBuiltinName(__pyx_n_s_Exception); if (!__pyx_builtin_Exception) __PYX_ERR(0, 208, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2547,109 +2550,109 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "pywbxml.pyx":223
+  /* "pywbxml.pyx":229
  * 
  *     if not isinstance(lang, Lang):
  *         raise WBXMLParseError('Lang param is not enum')             # <<<<<<<<<<<<<<
  *     if not isinstance(charset, WBXMLCharset):
  *         raise WBXMLParseError('Charset param is not enum')
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_u_Lang_param_is_not_enum); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_u_Lang_param_is_not_enum); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "pywbxml.pyx":225
+  /* "pywbxml.pyx":231
  *         raise WBXMLParseError('Lang param is not enum')
  *     if not isinstance(charset, WBXMLCharset):
  *         raise WBXMLParseError('Charset param is not enum')             # <<<<<<<<<<<<<<
  *     if not isinstance(xml_type, XMLType):
  *         raise WBXMLParseError('xml_type param is not enum')
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_u_Charset_param_is_not_enum); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_u_Charset_param_is_not_enum); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 231, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "pywbxml.pyx":227
+  /* "pywbxml.pyx":233
  *         raise WBXMLParseError('Charset param is not enum')
  *     if not isinstance(xml_type, XMLType):
  *         raise WBXMLParseError('xml_type param is not enum')             # <<<<<<<<<<<<<<
  * 
  *     retval = wbxml_conv_wbxml2xml_create(&conv)
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_xml_type_param_is_not_enum); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 227, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_xml_type_param_is_not_enum); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "pywbxml.pyx":257
+  /* "pywbxml.pyx":264
  * 
  *     if not isinstance(version, WbxmlVersion):
  *         raise WBXMLParseError('version param is not enum')             # <<<<<<<<<<<<<<
  * 
  *     ret = wbxml_conv_xml2wbxml_create(&conv)
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_u_version_param_is_not_enum); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_u_version_param_is_not_enum); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 264, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "pywbxml.pyx":205
+  /* "pywbxml.pyx":209
  * 
  * class WBXMLParseError(Exception):
  *     def __init__(self, code):             # <<<<<<<<<<<<<<
  *         self.code = code
  *         self.description = <char *> wbxml_errors_string(code)
  */
-  __pyx_tuple__9 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_code); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 205, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__9);
-  __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_opt_github_learning_python_pywb, __pyx_n_s_init, 205, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_code); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__10);
+  __Pyx_GIVEREF(__pyx_tuple__10);
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_pussbb_PycharmProjects_lib, __pyx_n_s_init, 209, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 209, __pyx_L1_error)
 
-  /* "pywbxml.pyx":209
+  /* "pywbxml.pyx":213
  *         self.description = <char *> wbxml_errors_string(code)
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
  *         return "%s (%d)" % (self.description, self.code)
  * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 209, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_opt_github_learning_python_pywb, __pyx_n_s_str, 209, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__12);
+  __Pyx_GIVEREF(__pyx_tuple__12);
+  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_pussbb_PycharmProjects_lib, __pyx_n_s_str, 213, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 213, __pyx_L1_error)
 
-  /* "pywbxml.pyx":212
+  /* "pywbxml.pyx":216
  *         return "%s (%d)" % (self.description, self.code)
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
  *         return self.__str__()
  * 
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 212, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_opt_github_learning_python_pywb, __pyx_n_s_repr, 212, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__14);
+  __Pyx_GIVEREF(__pyx_tuple__14);
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_pussbb_PycharmProjects_lib, __pyx_n_s_repr, 216, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 216, __pyx_L1_error)
 
-  /* "pywbxml.pyx":215
- *         return self.__str__()
+  /* "pywbxml.pyx":221
  * 
+ * @cython.boundscheck(False)
  * def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,             # <<<<<<<<<<<<<<
  *               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):
  *     cdef WB_UTINY *xml
  */
-  __pyx_tuple__15 = PyTuple_Pack(12, __pyx_n_s_wbxml, __pyx_n_s_lang, __pyx_n_s_preserve_whitesaces, __pyx_n_s_charset, __pyx_n_s_indent, __pyx_n_s_xml_type, __pyx_n_s_xml, __pyx_n_s_xml_len, __pyx_n_s_ret, __pyx_n_s_conv, __pyx_n_s_retval, __pyx_n_s_res); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 215, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__15);
-  __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(6, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_opt_github_learning_python_pywb, __pyx_n_s_wbxml2xml, 215, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(12, __pyx_n_s_wbxml, __pyx_n_s_lang, __pyx_n_s_preserve_whitesaces, __pyx_n_s_charset, __pyx_n_s_indent, __pyx_n_s_xml_type, __pyx_n_s_xml, __pyx_n_s_xml_len, __pyx_n_s_ret, __pyx_n_s_conv, __pyx_n_s_retval, __pyx_n_s_res); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 221, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__16);
+  __Pyx_GIVEREF(__pyx_tuple__16);
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(6, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_pussbb_PycharmProjects_lib, __pyx_n_s_wbxml2xml, 221, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 221, __pyx_L1_error)
 
-  /* "pywbxml.pyx":249
+  /* "pywbxml.pyx":256
  * 
- * 
+ * @cython.boundscheck(False)
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,             # <<<<<<<<<<<<<<
  *               remove_public_id=True, version=WbxmlVersion.V_13):
  *     cdef  WBXMLError ret = WBXML_OK
  */
-  __pyx_tuple__17 = PyTuple_Pack(11, __pyx_n_s_xml, __pyx_n_s_disable_string_table, __pyx_n_s_preserve_whitespaces, __pyx_n_s_remove_public_id, __pyx_n_s_version, __pyx_n_s_ret, __pyx_n_s_conv, __pyx_n_s_wbxml, __pyx_n_s_wbxml_len, __pyx_n_s_retval, __pyx_n_s_res); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 249, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__17);
-  __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(5, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_opt_github_learning_python_pywb, __pyx_n_s_xml2wbxml, 249, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(11, __pyx_n_s_xml, __pyx_n_s_disable_string_table, __pyx_n_s_preserve_whitespaces, __pyx_n_s_remove_public_id, __pyx_n_s_version, __pyx_n_s_ret, __pyx_n_s_conv, __pyx_n_s_wbxml, __pyx_n_s_wbxml_len, __pyx_n_s_retval, __pyx_n_s_res); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__18);
+  __Pyx_GIVEREF(__pyx_tuple__18);
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(5, 0, 11, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_pussbb_PycharmProjects_lib, __pyx_n_s_xml2wbxml, 256, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2658,8 +2661,8 @@ static int __Pyx_InitCachedConstants(void) {
 }
 
 static int __Pyx_InitGlobals(void) {
-  if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 2, __pyx_L1_error);
-  __pyx_int_4 = PyInt_FromLong(4); if (unlikely(!__pyx_int_4)) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
+  __pyx_int_4 = PyInt_FromLong(4); if (unlikely(!__pyx_int_4)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2688,24 +2691,24 @@ PyMODINIT_FUNC PyInit_pywbxml(void)
   }
   #endif
   __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_pywbxml(void)", 0);
-  if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_empty_unicode = PyUnicode_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_unicode)) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_empty_unicode = PyUnicode_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_unicode)) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pyx_CyFunction_USED
-  if (__pyx_CyFunction_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_CyFunction_init() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   #ifdef __Pyx_FusedFunction_USED
-  if (__pyx_FusedFunction_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_FusedFunction_init() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   #ifdef __Pyx_Coroutine_USED
-  if (__pyx_Coroutine_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_Coroutine_init() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   #ifdef __Pyx_Generator_USED
-  if (__pyx_Generator_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_Generator_init() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   #ifdef __Pyx_StopAsyncIteration_USED
-  if (__pyx_StopAsyncIteration_init() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__pyx_StopAsyncIteration_init() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   /*--- Library function declarations ---*/
   /*--- Threads initialization code ---*/
@@ -2716,38 +2719,38 @@ PyMODINIT_FUNC PyInit_pywbxml(void)
   #endif
   /*--- Module creation code ---*/
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("pywbxml", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("pywbxml", __pyx_methods, __pyx_k__9, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
-  if (unlikely(!__pyx_m)) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_d = PyModule_GetDict(__pyx_m); if (unlikely(!__pyx_d)) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (unlikely(!__pyx_m)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_d = PyModule_GetDict(__pyx_m); if (unlikely(!__pyx_d)) __PYX_ERR(0, 1, __pyx_L1_error)
   Py_INCREF(__pyx_d);
-  __pyx_b = PyImport_AddModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_b)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_b = PyImport_AddModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_b)) __PYX_ERR(0, 1, __pyx_L1_error)
   #if CYTHON_COMPILING_IN_PYPY
   Py_INCREF(__pyx_b);
   #endif
-  if (PyObject_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) __PYX_ERR(0, 2, __pyx_L1_error);
+  if (PyObject_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   /*--- Initialize various global constants etc. ---*/
-  if (__Pyx_InitGlobals() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitGlobals() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
-  if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
   if (__pyx_module_is_main_pywbxml) {
-    if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+    if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
-    PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 2, __pyx_L1_error)
+    PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
     if (!PyDict_GetItemString(modules, "pywbxml")) {
-      if (unlikely(PyDict_SetItemString(modules, "pywbxml", __pyx_m) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
+      if (unlikely(PyDict_SetItemString(modules, "pywbxml", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
   /*--- Builtin init code ---*/
-  if (__Pyx_InitCachedBuiltins() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitCachedBuiltins() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   /*--- Constants init code ---*/
-  if (__Pyx_InitCachedConstants() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_InitCachedConstants() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   /*--- Global init code ---*/
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
@@ -2757,17 +2760,17 @@ PyMODINIT_FUNC PyInit_pywbxml(void)
   /*--- Function import code ---*/
   /*--- Execution code ---*/
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
-  if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "pywbxml.pyx":134
- * 
+  /* "pywbxml.pyx":7
+ * cimport cython
  * 
  * from enum import IntEnum, Enum             # <<<<<<<<<<<<<<
  * 
- * class Lang(IntEnum):
+ * cdef extern from "Python.h":
  */
-  __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_IntEnum);
   __Pyx_GIVEREF(__pyx_n_s_IntEnum);
@@ -2775,960 +2778,959 @@ PyMODINIT_FUNC PyInit_pywbxml(void)
   __Pyx_INCREF(__pyx_n_s_Enum);
   __Pyx_GIVEREF(__pyx_n_s_Enum);
   PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_Enum);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_enum, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_enum, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_IntEnum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_IntEnum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_IntEnum, __pyx_t_1) < 0) __PYX_ERR(0, 134, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_IntEnum, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Enum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Enum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Enum, __pyx_t_1) < 0) __PYX_ERR(0, 134, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Enum, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pywbxml.pyx":136
- * from enum import IntEnum, Enum
+  /* "pywbxml.pyx":141
+ * 
  * 
  * class Lang(IntEnum):             # <<<<<<<<<<<<<<
  *     UNKNOWN = WBXMLLanguage.WBXML_LANG_UNKNOWN #   Unknown / Not Specified
  *     WML10 = WBXMLLanguage.WBXML_LANG_WML10 #   WML 1.0
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_IntEnum); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_IntEnum); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_Lang, __pyx_n_s_Lang, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_Lang, __pyx_n_s_Lang, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "pywbxml.pyx":137
+  /* "pywbxml.pyx":142
  * 
  * class Lang(IntEnum):
  *     UNKNOWN = WBXMLLanguage.WBXML_LANG_UNKNOWN #   Unknown / Not Specified             # <<<<<<<<<<<<<<
  *     WML10 = WBXMLLanguage.WBXML_LANG_WML10 #   WML 1.0
  *     WML11 = WBXMLLanguage.WBXML_LANG_WML11 #   WML 1.1
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_UNKNOWN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_UNKNOWN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UNKNOWN, __pyx_t_4) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UNKNOWN, __pyx_t_4) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":138
+  /* "pywbxml.pyx":143
  * class Lang(IntEnum):
  *     UNKNOWN = WBXMLLanguage.WBXML_LANG_UNKNOWN #   Unknown / Not Specified
  *     WML10 = WBXMLLanguage.WBXML_LANG_WML10 #   WML 1.0             # <<<<<<<<<<<<<<
  *     WML11 = WBXMLLanguage.WBXML_LANG_WML11 #   WML 1.1
  *     WML12 = WBXMLLanguage.WBXML_LANG_WML12 #   WML 1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML10, __pyx_t_4) < 0) __PYX_ERR(0, 138, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML10, __pyx_t_4) < 0) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":139
+  /* "pywbxml.pyx":144
  *     UNKNOWN = WBXMLLanguage.WBXML_LANG_UNKNOWN #   Unknown / Not Specified
  *     WML10 = WBXMLLanguage.WBXML_LANG_WML10 #   WML 1.0
  *     WML11 = WBXMLLanguage.WBXML_LANG_WML11 #   WML 1.1             # <<<<<<<<<<<<<<
  *     WML12 = WBXMLLanguage.WBXML_LANG_WML12 #   WML 1.2
  *     WML13 = WBXMLLanguage.WBXML_LANG_WML13 #   WML 1.3
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML11, __pyx_t_4) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML11, __pyx_t_4) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":140
+  /* "pywbxml.pyx":145
  *     WML10 = WBXMLLanguage.WBXML_LANG_WML10 #   WML 1.0
  *     WML11 = WBXMLLanguage.WBXML_LANG_WML11 #   WML 1.1
  *     WML12 = WBXMLLanguage.WBXML_LANG_WML12 #   WML 1.2             # <<<<<<<<<<<<<<
  *     WML13 = WBXMLLanguage.WBXML_LANG_WML13 #   WML 1.3
  *     WTA10     = WBXMLLanguage.WBXML_LANG_WTA10     #   WTA 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML12, __pyx_t_4) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML12, __pyx_t_4) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":141
+  /* "pywbxml.pyx":146
  *     WML11 = WBXMLLanguage.WBXML_LANG_WML11 #   WML 1.1
  *     WML12 = WBXMLLanguage.WBXML_LANG_WML12 #   WML 1.2
  *     WML13 = WBXMLLanguage.WBXML_LANG_WML13 #   WML 1.3             # <<<<<<<<<<<<<<
  *     WTA10     = WBXMLLanguage.WBXML_LANG_WTA10     #   WTA 1.0
  *     WTAWML12  = WBXMLLanguage.WBXML_LANG_WTAWML12  #   WTAWML 1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WML13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML13, __pyx_t_4) < 0) __PYX_ERR(0, 141, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WML13, __pyx_t_4) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":142
+  /* "pywbxml.pyx":147
  *     WML12 = WBXMLLanguage.WBXML_LANG_WML12 #   WML 1.2
  *     WML13 = WBXMLLanguage.WBXML_LANG_WML13 #   WML 1.3
  *     WTA10     = WBXMLLanguage.WBXML_LANG_WTA10     #   WTA 1.0             # <<<<<<<<<<<<<<
  *     WTAWML12  = WBXMLLanguage.WBXML_LANG_WTAWML12  #   WTAWML 1.2
  *     CHANNEL11 = WBXMLLanguage.WBXML_LANG_CHANNEL11 #   CHANNEL 1.1
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WTA10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WTA10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WTA10, __pyx_t_4) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WTA10, __pyx_t_4) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":143
+  /* "pywbxml.pyx":148
  *     WML13 = WBXMLLanguage.WBXML_LANG_WML13 #   WML 1.3
  *     WTA10     = WBXMLLanguage.WBXML_LANG_WTA10     #   WTA 1.0
  *     WTAWML12  = WBXMLLanguage.WBXML_LANG_WTAWML12  #   WTAWML 1.2             # <<<<<<<<<<<<<<
  *     CHANNEL11 = WBXMLLanguage.WBXML_LANG_CHANNEL11 #   CHANNEL 1.1
  *     CHANNEL12 = WBXMLLanguage.WBXML_LANG_CHANNEL12 #   CHANNEL 1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WTAWML12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 143, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WTAWML12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WTAWML12, __pyx_t_4) < 0) __PYX_ERR(0, 143, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WTAWML12, __pyx_t_4) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":144
+  /* "pywbxml.pyx":149
  *     WTA10     = WBXMLLanguage.WBXML_LANG_WTA10     #   WTA 1.0
  *     WTAWML12  = WBXMLLanguage.WBXML_LANG_WTAWML12  #   WTAWML 1.2
  *     CHANNEL11 = WBXMLLanguage.WBXML_LANG_CHANNEL11 #   CHANNEL 1.1             # <<<<<<<<<<<<<<
  *     CHANNEL12 = WBXMLLanguage.WBXML_LANG_CHANNEL12 #   CHANNEL 1.2
  *     SI10 = WBXMLLanguage.WBXML_LANG_SI10 #   SI 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_CHANNEL11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 144, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_CHANNEL11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CHANNEL11, __pyx_t_4) < 0) __PYX_ERR(0, 144, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CHANNEL11, __pyx_t_4) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":145
+  /* "pywbxml.pyx":150
  *     WTAWML12  = WBXMLLanguage.WBXML_LANG_WTAWML12  #   WTAWML 1.2
  *     CHANNEL11 = WBXMLLanguage.WBXML_LANG_CHANNEL11 #   CHANNEL 1.1
  *     CHANNEL12 = WBXMLLanguage.WBXML_LANG_CHANNEL12 #   CHANNEL 1.2             # <<<<<<<<<<<<<<
  *     SI10 = WBXMLLanguage.WBXML_LANG_SI10 #   SI 1.0
  *     SL10 = WBXMLLanguage.WBXML_LANG_SL10 #   SL 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_CHANNEL12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_CHANNEL12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CHANNEL12, __pyx_t_4) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CHANNEL12, __pyx_t_4) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":146
+  /* "pywbxml.pyx":151
  *     CHANNEL11 = WBXMLLanguage.WBXML_LANG_CHANNEL11 #   CHANNEL 1.1
  *     CHANNEL12 = WBXMLLanguage.WBXML_LANG_CHANNEL12 #   CHANNEL 1.2
  *     SI10 = WBXMLLanguage.WBXML_LANG_SI10 #   SI 1.0             # <<<<<<<<<<<<<<
  *     SL10 = WBXMLLanguage.WBXML_LANG_SL10 #   SL 1.0
  *     CO10 = WBXMLLanguage.WBXML_LANG_CO10 #   CO 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SI10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SI10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SI10, __pyx_t_4) < 0) __PYX_ERR(0, 146, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SI10, __pyx_t_4) < 0) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":147
+  /* "pywbxml.pyx":152
  *     CHANNEL12 = WBXMLLanguage.WBXML_LANG_CHANNEL12 #   CHANNEL 1.2
  *     SI10 = WBXMLLanguage.WBXML_LANG_SI10 #   SI 1.0
  *     SL10 = WBXMLLanguage.WBXML_LANG_SL10 #   SL 1.0             # <<<<<<<<<<<<<<
  *     CO10 = WBXMLLanguage.WBXML_LANG_CO10 #   CO 1.0
  *     PROV10 = WBXMLLanguage.WBXML_LANG_PROV10 #   PROV 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SL10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SL10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SL10, __pyx_t_4) < 0) __PYX_ERR(0, 147, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SL10, __pyx_t_4) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":148
+  /* "pywbxml.pyx":153
  *     SI10 = WBXMLLanguage.WBXML_LANG_SI10 #   SI 1.0
  *     SL10 = WBXMLLanguage.WBXML_LANG_SL10 #   SL 1.0
  *     CO10 = WBXMLLanguage.WBXML_LANG_CO10 #   CO 1.0             # <<<<<<<<<<<<<<
  *     PROV10 = WBXMLLanguage.WBXML_LANG_PROV10 #   PROV 1.0
  *     EMN10 = WBXMLLanguage.WBXML_LANG_EMN10 #   EMN 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_CO10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_CO10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CO10, __pyx_t_4) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CO10, __pyx_t_4) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":149
+  /* "pywbxml.pyx":154
  *     SL10 = WBXMLLanguage.WBXML_LANG_SL10 #   SL 1.0
  *     CO10 = WBXMLLanguage.WBXML_LANG_CO10 #   CO 1.0
  *     PROV10 = WBXMLLanguage.WBXML_LANG_PROV10 #   PROV 1.0             # <<<<<<<<<<<<<<
  *     EMN10 = WBXMLLanguage.WBXML_LANG_EMN10 #   EMN 1.0
  *     DRMREL10 = WBXMLLanguage.WBXML_LANG_DRMREL10 #   DRMREL 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_PROV10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_PROV10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_PROV10, __pyx_t_4) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_PROV10, __pyx_t_4) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":150
+  /* "pywbxml.pyx":155
  *     CO10 = WBXMLLanguage.WBXML_LANG_CO10 #   CO 1.0
  *     PROV10 = WBXMLLanguage.WBXML_LANG_PROV10 #   PROV 1.0
  *     EMN10 = WBXMLLanguage.WBXML_LANG_EMN10 #   EMN 1.0             # <<<<<<<<<<<<<<
  *     DRMREL10 = WBXMLLanguage.WBXML_LANG_DRMREL10 #   DRMREL 1.0
  *     OTA_SETTINGS = WBXMLLanguage.WBXML_LANG_OTA_SETTINGS #   OTA Settings
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_EMN10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 150, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_EMN10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_EMN10, __pyx_t_4) < 0) __PYX_ERR(0, 150, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_EMN10, __pyx_t_4) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":151
+  /* "pywbxml.pyx":156
  *     PROV10 = WBXMLLanguage.WBXML_LANG_PROV10 #   PROV 1.0
  *     EMN10 = WBXMLLanguage.WBXML_LANG_EMN10 #   EMN 1.0
  *     DRMREL10 = WBXMLLanguage.WBXML_LANG_DRMREL10 #   DRMREL 1.0             # <<<<<<<<<<<<<<
  *     OTA_SETTINGS = WBXMLLanguage.WBXML_LANG_OTA_SETTINGS #   OTA Settings
  *     SYNCML_SYNCML10 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML10 #   SYNCML 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_DRMREL10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 151, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_DRMREL10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 156, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_DRMREL10, __pyx_t_4) < 0) __PYX_ERR(0, 151, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_DRMREL10, __pyx_t_4) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":152
+  /* "pywbxml.pyx":157
  *     EMN10 = WBXMLLanguage.WBXML_LANG_EMN10 #   EMN 1.0
  *     DRMREL10 = WBXMLLanguage.WBXML_LANG_DRMREL10 #   DRMREL 1.0
  *     OTA_SETTINGS = WBXMLLanguage.WBXML_LANG_OTA_SETTINGS #   OTA Settings             # <<<<<<<<<<<<<<
  *     SYNCML_SYNCML10 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML10 #   SYNCML 1.0
  *     SYNCML_DEVINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF10 #   DEVINF 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_OTA_SETTINGS); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_OTA_SETTINGS); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_OTA_SETTINGS, __pyx_t_4) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_OTA_SETTINGS, __pyx_t_4) < 0) __PYX_ERR(0, 157, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":153
+  /* "pywbxml.pyx":158
  *     DRMREL10 = WBXMLLanguage.WBXML_LANG_DRMREL10 #   DRMREL 1.0
  *     OTA_SETTINGS = WBXMLLanguage.WBXML_LANG_OTA_SETTINGS #   OTA Settings
  *     SYNCML_SYNCML10 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML10 #   SYNCML 1.0             # <<<<<<<<<<<<<<
  *     SYNCML_DEVINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF10 #   DEVINF 1.0
  *     SYNCML_METINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF10 #   METINF 1.0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_SYNCML10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_SYNCML10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_SYNCML10, __pyx_t_4) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_SYNCML10, __pyx_t_4) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":154
+  /* "pywbxml.pyx":159
  *     OTA_SETTINGS = WBXMLLanguage.WBXML_LANG_OTA_SETTINGS #   OTA Settings
  *     SYNCML_SYNCML10 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML10 #   SYNCML 1.0
  *     SYNCML_DEVINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF10 #   DEVINF 1.0             # <<<<<<<<<<<<<<
  *     SYNCML_METINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF10 #   METINF 1.0
  *     SYNCML_SYNCML11 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML11 #   SYNCML 1.1
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DEVINF10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DEVINF10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DEVINF10, __pyx_t_4) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DEVINF10, __pyx_t_4) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":155
+  /* "pywbxml.pyx":160
  *     SYNCML_SYNCML10 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML10 #   SYNCML 1.0
  *     SYNCML_DEVINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF10 #   DEVINF 1.0
  *     SYNCML_METINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF10 #   METINF 1.0             # <<<<<<<<<<<<<<
  *     SYNCML_SYNCML11 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML11 #   SYNCML 1.1
  *     SYNCML_DEVINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF11 #   DEVINF 1.1
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_METINF10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_METINF10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_METINF10, __pyx_t_4) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_METINF10, __pyx_t_4) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":156
+  /* "pywbxml.pyx":161
  *     SYNCML_DEVINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF10 #   DEVINF 1.0
  *     SYNCML_METINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF10 #   METINF 1.0
  *     SYNCML_SYNCML11 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML11 #   SYNCML 1.1             # <<<<<<<<<<<<<<
  *     SYNCML_DEVINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF11 #   DEVINF 1.1
  *     SYNCML_METINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF11 #   METINF 1.1
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_SYNCML11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_SYNCML11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_SYNCML11, __pyx_t_4) < 0) __PYX_ERR(0, 156, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_SYNCML11, __pyx_t_4) < 0) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":157
+  /* "pywbxml.pyx":162
  *     SYNCML_METINF10 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF10 #   METINF 1.0
  *     SYNCML_SYNCML11 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML11 #   SYNCML 1.1
  *     SYNCML_DEVINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF11 #   DEVINF 1.1             # <<<<<<<<<<<<<<
  *     SYNCML_METINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF11 #   METINF 1.1
  *     SYNCML_SYNCML12 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML12 #   SYNCML 1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DEVINF11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 157, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DEVINF11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DEVINF11, __pyx_t_4) < 0) __PYX_ERR(0, 157, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DEVINF11, __pyx_t_4) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":158
+  /* "pywbxml.pyx":163
  *     SYNCML_SYNCML11 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML11 #   SYNCML 1.1
  *     SYNCML_DEVINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF11 #   DEVINF 1.1
  *     SYNCML_METINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF11 #   METINF 1.1             # <<<<<<<<<<<<<<
  *     SYNCML_SYNCML12 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML12 #   SYNCML 1.2
  *     SYNCML_DEVINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF12 #   DEVINF 1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_METINF11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_METINF11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_METINF11, __pyx_t_4) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_METINF11, __pyx_t_4) < 0) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":159
+  /* "pywbxml.pyx":164
  *     SYNCML_DEVINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF11 #   DEVINF 1.1
  *     SYNCML_METINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF11 #   METINF 1.1
  *     SYNCML_SYNCML12 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML12 #   SYNCML 1.2             # <<<<<<<<<<<<<<
  *     SYNCML_DEVINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF12 #   DEVINF 1.2
  *     SYNCML_METINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF12 #   METINF 1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_SYNCML12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_SYNCML12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_SYNCML12, __pyx_t_4) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_SYNCML12, __pyx_t_4) < 0) __PYX_ERR(0, 164, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":160
+  /* "pywbxml.pyx":165
  *     SYNCML_METINF11 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF11 #   METINF 1.1
  *     SYNCML_SYNCML12 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML12 #   SYNCML 1.2
  *     SYNCML_DEVINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF12 #   DEVINF 1.2             # <<<<<<<<<<<<<<
  *     SYNCML_METINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF12 #   METINF 1.2
  *     SYNCML_DMDDF12  = WBXMLLanguage.WBXML_LANG_SYNCML_DMDDF12  #   DMDDF  1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DEVINF12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DEVINF12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DEVINF12, __pyx_t_4) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DEVINF12, __pyx_t_4) < 0) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":161
+  /* "pywbxml.pyx":166
  *     SYNCML_SYNCML12 = WBXMLLanguage.WBXML_LANG_SYNCML_SYNCML12 #   SYNCML 1.2
  *     SYNCML_DEVINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF12 #   DEVINF 1.2
  *     SYNCML_METINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF12 #   METINF 1.2             # <<<<<<<<<<<<<<
  *     SYNCML_DMDDF12  = WBXMLLanguage.WBXML_LANG_SYNCML_DMDDF12  #   DMDDF  1.2
  *     WV_CSP11 = WBXMLLanguage.WBXML_LANG_WV_CSP11 #   WV CSP 1.1
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_METINF12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_METINF12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_METINF12, __pyx_t_4) < 0) __PYX_ERR(0, 161, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_METINF12, __pyx_t_4) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":162
+  /* "pywbxml.pyx":167
  *     SYNCML_DEVINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_DEVINF12 #   DEVINF 1.2
  *     SYNCML_METINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF12 #   METINF 1.2
  *     SYNCML_DMDDF12  = WBXMLLanguage.WBXML_LANG_SYNCML_DMDDF12  #   DMDDF  1.2             # <<<<<<<<<<<<<<
  *     WV_CSP11 = WBXMLLanguage.WBXML_LANG_WV_CSP11 #   WV CSP 1.1
  *     WV_CSP12 = WBXMLLanguage.WBXML_LANG_WV_CSP12 #   WV CSP 1.2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DMDDF12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_SYNCML_DMDDF12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DMDDF12, __pyx_t_4) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SYNCML_DMDDF12, __pyx_t_4) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":163
+  /* "pywbxml.pyx":168
  *     SYNCML_METINF12 = WBXMLLanguage.WBXML_LANG_SYNCML_METINF12 #   METINF 1.2
  *     SYNCML_DMDDF12  = WBXMLLanguage.WBXML_LANG_SYNCML_DMDDF12  #   DMDDF  1.2
  *     WV_CSP11 = WBXMLLanguage.WBXML_LANG_WV_CSP11 #   WV CSP 1.1             # <<<<<<<<<<<<<<
  *     WV_CSP12 = WBXMLLanguage.WBXML_LANG_WV_CSP12 #   WV CSP 1.2
  *     AIRSYNC    = WBXMLLanguage.WBXML_LANG_AIRSYNC    #   AirSync
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WV_CSP11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WV_CSP11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WV_CSP11, __pyx_t_4) < 0) __PYX_ERR(0, 163, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WV_CSP11, __pyx_t_4) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":164
+  /* "pywbxml.pyx":169
  *     SYNCML_DMDDF12  = WBXMLLanguage.WBXML_LANG_SYNCML_DMDDF12  #   DMDDF  1.2
  *     WV_CSP11 = WBXMLLanguage.WBXML_LANG_WV_CSP11 #   WV CSP 1.1
  *     WV_CSP12 = WBXMLLanguage.WBXML_LANG_WV_CSP12 #   WV CSP 1.2             # <<<<<<<<<<<<<<
  *     AIRSYNC    = WBXMLLanguage.WBXML_LANG_AIRSYNC    #   AirSync
  *     ACTIVESYNC = WBXMLLanguage.WBXML_LANG_ACTIVESYNC #   ActiveSync
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WV_CSP12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_WV_CSP12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WV_CSP12, __pyx_t_4) < 0) __PYX_ERR(0, 164, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_WV_CSP12, __pyx_t_4) < 0) __PYX_ERR(0, 169, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":165
+  /* "pywbxml.pyx":170
  *     WV_CSP11 = WBXMLLanguage.WBXML_LANG_WV_CSP11 #   WV CSP 1.1
  *     WV_CSP12 = WBXMLLanguage.WBXML_LANG_WV_CSP12 #   WV CSP 1.2
  *     AIRSYNC    = WBXMLLanguage.WBXML_LANG_AIRSYNC    #   AirSync             # <<<<<<<<<<<<<<
  *     ACTIVESYNC = WBXMLLanguage.WBXML_LANG_ACTIVESYNC #   ActiveSync
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_AIRSYNC); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_AIRSYNC); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_AIRSYNC, __pyx_t_4) < 0) __PYX_ERR(0, 165, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_AIRSYNC, __pyx_t_4) < 0) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":166
+  /* "pywbxml.pyx":171
  *     WV_CSP12 = WBXMLLanguage.WBXML_LANG_WV_CSP12 #   WV CSP 1.2
  *     AIRSYNC    = WBXMLLanguage.WBXML_LANG_AIRSYNC    #   AirSync
  *     ACTIVESYNC = WBXMLLanguage.WBXML_LANG_ACTIVESYNC #   ActiveSync             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_ACTIVESYNC); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLLanguage(WBXML_LANG_ACTIVESYNC); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ACTIVESYNC, __pyx_t_4) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ACTIVESYNC, __pyx_t_4) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":136
- * from enum import IntEnum, Enum
+  /* "pywbxml.pyx":141
+ * 
  * 
  * class Lang(IntEnum):             # <<<<<<<<<<<<<<
  *     UNKNOWN = WBXMLLanguage.WBXML_LANG_UNKNOWN #   Unknown / Not Specified
  *     WML10 = WBXMLLanguage.WBXML_LANG_WML10 #   WML 1.0
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_Lang, __pyx_t_1, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_Lang, __pyx_t_1, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Lang, __pyx_t_4) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Lang, __pyx_t_4) < 0) __PYX_ERR(0, 141, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pywbxml.pyx":169
+  /* "pywbxml.pyx":174
  * 
  * 
  * class WBXMLCharset(IntEnum):             # <<<<<<<<<<<<<<
  *     UNKNOWN = WBXMLCharsetMIBEnum.WBXML_CHARSET_UNKNOWN
  *     US_ASCII = WBXMLCharsetMIBEnum.WBXML_CHARSET_US_ASCII
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_IntEnum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_IntEnum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_WBXMLCharset, __pyx_n_s_WBXMLCharset, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_WBXMLCharset, __pyx_n_s_WBXMLCharset, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "pywbxml.pyx":170
+  /* "pywbxml.pyx":175
  * 
  * class WBXMLCharset(IntEnum):
  *     UNKNOWN = WBXMLCharsetMIBEnum.WBXML_CHARSET_UNKNOWN             # <<<<<<<<<<<<<<
  *     US_ASCII = WBXMLCharsetMIBEnum.WBXML_CHARSET_US_ASCII
  *     ISO_8859_1 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_1
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_UNKNOWN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_UNKNOWN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UNKNOWN, __pyx_t_4) < 0) __PYX_ERR(0, 170, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UNKNOWN, __pyx_t_4) < 0) __PYX_ERR(0, 175, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":171
+  /* "pywbxml.pyx":176
  * class WBXMLCharset(IntEnum):
  *     UNKNOWN = WBXMLCharsetMIBEnum.WBXML_CHARSET_UNKNOWN
  *     US_ASCII = WBXMLCharsetMIBEnum.WBXML_CHARSET_US_ASCII             # <<<<<<<<<<<<<<
  *     ISO_8859_1 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_1
  *     ISO_8859_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_US_ASCII); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_US_ASCII); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_US_ASCII, __pyx_t_4) < 0) __PYX_ERR(0, 171, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_US_ASCII, __pyx_t_4) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":172
+  /* "pywbxml.pyx":177
  *     UNKNOWN = WBXMLCharsetMIBEnum.WBXML_CHARSET_UNKNOWN
  *     US_ASCII = WBXMLCharsetMIBEnum.WBXML_CHARSET_US_ASCII
  *     ISO_8859_1 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_1             # <<<<<<<<<<<<<<
  *     ISO_8859_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_2
  *     ISO_8859_3 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_3
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_1, __pyx_t_4) < 0) __PYX_ERR(0, 172, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_1, __pyx_t_4) < 0) __PYX_ERR(0, 177, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":173
+  /* "pywbxml.pyx":178
  *     US_ASCII = WBXMLCharsetMIBEnum.WBXML_CHARSET_US_ASCII
  *     ISO_8859_1 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_1
  *     ISO_8859_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_2             # <<<<<<<<<<<<<<
  *     ISO_8859_3 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_3
  *     ISO_8859_4 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_4
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_2, __pyx_t_4) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_2, __pyx_t_4) < 0) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":174
+  /* "pywbxml.pyx":179
  *     ISO_8859_1 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_1
  *     ISO_8859_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_2
  *     ISO_8859_3 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_3             # <<<<<<<<<<<<<<
  *     ISO_8859_4 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_4
  *     ISO_8859_5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_5
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 179, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_3, __pyx_t_4) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_3, __pyx_t_4) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":175
+  /* "pywbxml.pyx":180
  *     ISO_8859_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_2
  *     ISO_8859_3 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_3
  *     ISO_8859_4 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_4             # <<<<<<<<<<<<<<
  *     ISO_8859_5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_5
  *     ISO_8859_6 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_6
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 175, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_4, __pyx_t_4) < 0) __PYX_ERR(0, 175, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_4, __pyx_t_4) < 0) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":176
+  /* "pywbxml.pyx":181
  *     ISO_8859_3 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_3
  *     ISO_8859_4 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_4
  *     ISO_8859_5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_5             # <<<<<<<<<<<<<<
  *     ISO_8859_6 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_6
  *     ISO_8859_7 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_7
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_5, __pyx_t_4) < 0) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_5, __pyx_t_4) < 0) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":177
+  /* "pywbxml.pyx":182
  *     ISO_8859_4 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_4
  *     ISO_8859_5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_5
  *     ISO_8859_6 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_6             # <<<<<<<<<<<<<<
  *     ISO_8859_7 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_7
  *     ISO_8859_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_8
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_6, __pyx_t_4) < 0) __PYX_ERR(0, 177, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_6, __pyx_t_4) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":178
+  /* "pywbxml.pyx":183
  *     ISO_8859_5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_5
  *     ISO_8859_6 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_6
  *     ISO_8859_7 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_7             # <<<<<<<<<<<<<<
  *     ISO_8859_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_8
  *     ISO_8859_9 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_9
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_7, __pyx_t_4) < 0) __PYX_ERR(0, 178, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_7, __pyx_t_4) < 0) __PYX_ERR(0, 183, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":179
+  /* "pywbxml.pyx":184
  *     ISO_8859_6 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_6
  *     ISO_8859_7 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_7
  *     ISO_8859_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_8             # <<<<<<<<<<<<<<
  *     ISO_8859_9 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_9
  *     SHIFT_JIS = WBXMLCharsetMIBEnum.WBXML_CHARSET_SHIFT_JIS
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 179, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_8, __pyx_t_4) < 0) __PYX_ERR(0, 179, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_8, __pyx_t_4) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":180
+  /* "pywbxml.pyx":185
  *     ISO_8859_7 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_7
  *     ISO_8859_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_8
  *     ISO_8859_9 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_9             # <<<<<<<<<<<<<<
  *     SHIFT_JIS = WBXMLCharsetMIBEnum.WBXML_CHARSET_SHIFT_JIS
  *     UTF_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_8
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_8859_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_9, __pyx_t_4) < 0) __PYX_ERR(0, 180, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_8859_9, __pyx_t_4) < 0) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":181
+  /* "pywbxml.pyx":186
  *     ISO_8859_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_8
  *     ISO_8859_9 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_9
  *     SHIFT_JIS = WBXMLCharsetMIBEnum.WBXML_CHARSET_SHIFT_JIS             # <<<<<<<<<<<<<<
  *     UTF_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_8
  *     ISO_10646_UCS_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_10646_UCS_2
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_SHIFT_JIS); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_SHIFT_JIS); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SHIFT_JIS, __pyx_t_4) < 0) __PYX_ERR(0, 181, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_SHIFT_JIS, __pyx_t_4) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":182
+  /* "pywbxml.pyx":187
  *     ISO_8859_9 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_8859_9
  *     SHIFT_JIS = WBXMLCharsetMIBEnum.WBXML_CHARSET_SHIFT_JIS
  *     UTF_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_8             # <<<<<<<<<<<<<<
  *     ISO_10646_UCS_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_10646_UCS_2
  *     UTF_16 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_16
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_UTF_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_UTF_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UTF_8, __pyx_t_4) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UTF_8, __pyx_t_4) < 0) __PYX_ERR(0, 187, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":183
+  /* "pywbxml.pyx":188
  *     SHIFT_JIS = WBXMLCharsetMIBEnum.WBXML_CHARSET_SHIFT_JIS
  *     UTF_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_8
  *     ISO_10646_UCS_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_10646_UCS_2             # <<<<<<<<<<<<<<
  *     UTF_16 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_16
  *     BIG5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_BIG5
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_10646_UCS_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_ISO_10646_UCS_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_10646_UCS_2, __pyx_t_4) < 0) __PYX_ERR(0, 183, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_ISO_10646_UCS_2, __pyx_t_4) < 0) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":184
+  /* "pywbxml.pyx":189
  *     UTF_8 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_8
  *     ISO_10646_UCS_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_10646_UCS_2
  *     UTF_16 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_16             # <<<<<<<<<<<<<<
  *     BIG5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_BIG5
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_UTF_16); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_UTF_16); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UTF_16, __pyx_t_4) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UTF_16, __pyx_t_4) < 0) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":185
+  /* "pywbxml.pyx":190
  *     ISO_10646_UCS_2 = WBXMLCharsetMIBEnum.WBXML_CHARSET_ISO_10646_UCS_2
  *     UTF_16 = WBXMLCharsetMIBEnum.WBXML_CHARSET_UTF_16
  *     BIG5 = WBXMLCharsetMIBEnum.WBXML_CHARSET_BIG5             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_BIG5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 185, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLCharsetMIBEnum(WBXML_CHARSET_BIG5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_BIG5, __pyx_t_4) < 0) __PYX_ERR(0, 185, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_BIG5, __pyx_t_4) < 0) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":169
+  /* "pywbxml.pyx":174
  * 
  * 
  * class WBXMLCharset(IntEnum):             # <<<<<<<<<<<<<<
  *     UNKNOWN = WBXMLCharsetMIBEnum.WBXML_CHARSET_UNKNOWN
  *     US_ASCII = WBXMLCharsetMIBEnum.WBXML_CHARSET_US_ASCII
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_WBXMLCharset, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_WBXMLCharset, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WBXMLCharset, __pyx_t_4) < 0) __PYX_ERR(0, 169, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WBXMLCharset, __pyx_t_4) < 0) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pywbxml.pyx":189
+  /* "pywbxml.pyx":193
  * 
- * #
+ * 
  * class XMLType(IntEnum):             # <<<<<<<<<<<<<<
  * 
  *     COMPACT = WBXMLGenXMLType.WBXML_GEN_XML_COMPACT
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_IntEnum); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_IntEnum); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_XMLType, __pyx_n_s_XMLType, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_XMLType, __pyx_n_s_XMLType, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "pywbxml.pyx":191
+  /* "pywbxml.pyx":195
  * class XMLType(IntEnum):
  * 
  *     COMPACT = WBXMLGenXMLType.WBXML_GEN_XML_COMPACT             # <<<<<<<<<<<<<<
  *     INDENT = WBXMLGenXMLType.WBXML_GEN_XML_INDENT
  *     CANONICAL = WBXMLGenXMLType.WBXML_GEN_XML_CANONICAL
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLGenXMLType(WBXML_GEN_XML_COMPACT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLGenXMLType(WBXML_GEN_XML_COMPACT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_COMPACT, __pyx_t_4) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_COMPACT, __pyx_t_4) < 0) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":192
+  /* "pywbxml.pyx":196
  * 
  *     COMPACT = WBXMLGenXMLType.WBXML_GEN_XML_COMPACT
  *     INDENT = WBXMLGenXMLType.WBXML_GEN_XML_INDENT             # <<<<<<<<<<<<<<
  *     CANONICAL = WBXMLGenXMLType.WBXML_GEN_XML_CANONICAL
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLGenXMLType(WBXML_GEN_XML_INDENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLGenXMLType(WBXML_GEN_XML_INDENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_INDENT, __pyx_t_4) < 0) __PYX_ERR(0, 192, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_INDENT, __pyx_t_4) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":193
+  /* "pywbxml.pyx":197
  *     COMPACT = WBXMLGenXMLType.WBXML_GEN_XML_COMPACT
  *     INDENT = WBXMLGenXMLType.WBXML_GEN_XML_INDENT
  *     CANONICAL = WBXMLGenXMLType.WBXML_GEN_XML_CANONICAL             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLGenXMLType(WBXML_GEN_XML_CANONICAL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLGenXMLType(WBXML_GEN_XML_CANONICAL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CANONICAL, __pyx_t_4) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_CANONICAL, __pyx_t_4) < 0) __PYX_ERR(0, 197, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":189
+  /* "pywbxml.pyx":193
  * 
- * #
+ * 
  * class XMLType(IntEnum):             # <<<<<<<<<<<<<<
  * 
  *     COMPACT = WBXMLGenXMLType.WBXML_GEN_XML_COMPACT
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_XMLType, __pyx_t_1, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_XMLType, __pyx_t_1, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_XMLType, __pyx_t_4) < 0) __PYX_ERR(0, 189, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_XMLType, __pyx_t_4) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pywbxml.pyx":196
+  /* "pywbxml.pyx":200
  * 
  * 
  * class WbxmlVersion(Enum):             # <<<<<<<<<<<<<<
  *     UNKNOWN = WBXMLVersion.WBXML_VERSION_UNKNOWN
  *     V_10 = WBXMLVersion.WBXML_VERSION_10
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_Enum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_Enum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_WbxmlVersion, __pyx_n_s_WbxmlVersion, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_WbxmlVersion, __pyx_n_s_WbxmlVersion, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "pywbxml.pyx":197
+  /* "pywbxml.pyx":201
  * 
  * class WbxmlVersion(Enum):
  *     UNKNOWN = WBXMLVersion.WBXML_VERSION_UNKNOWN             # <<<<<<<<<<<<<<
  *     V_10 = WBXMLVersion.WBXML_VERSION_10
  *     V_11 = WBXMLVersion.WBXML_VERSION_11
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_UNKNOWN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_UNKNOWN); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UNKNOWN, __pyx_t_4) < 0) __PYX_ERR(0, 197, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_UNKNOWN, __pyx_t_4) < 0) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":198
+  /* "pywbxml.pyx":202
  * class WbxmlVersion(Enum):
  *     UNKNOWN = WBXMLVersion.WBXML_VERSION_UNKNOWN
  *     V_10 = WBXMLVersion.WBXML_VERSION_10             # <<<<<<<<<<<<<<
  *     V_11 = WBXMLVersion.WBXML_VERSION_11
  *     V_12 = WBXMLVersion.WBXML_VERSION_12
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 202, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_10, __pyx_t_4) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_10, __pyx_t_4) < 0) __PYX_ERR(0, 202, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":199
+  /* "pywbxml.pyx":203
  *     UNKNOWN = WBXMLVersion.WBXML_VERSION_UNKNOWN
  *     V_10 = WBXMLVersion.WBXML_VERSION_10
  *     V_11 = WBXMLVersion.WBXML_VERSION_11             # <<<<<<<<<<<<<<
  *     V_12 = WBXMLVersion.WBXML_VERSION_12
  *     V_13 = WBXMLVersion.WBXML_VERSION_13
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_11); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_11, __pyx_t_4) < 0) __PYX_ERR(0, 199, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_11, __pyx_t_4) < 0) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":200
+  /* "pywbxml.pyx":204
  *     V_10 = WBXMLVersion.WBXML_VERSION_10
  *     V_11 = WBXMLVersion.WBXML_VERSION_11
  *     V_12 = WBXMLVersion.WBXML_VERSION_12             # <<<<<<<<<<<<<<
  *     V_13 = WBXMLVersion.WBXML_VERSION_13
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_12, __pyx_t_4) < 0) __PYX_ERR(0, 200, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_12, __pyx_t_4) < 0) __PYX_ERR(0, 204, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":201
+  /* "pywbxml.pyx":205
  *     V_11 = WBXMLVersion.WBXML_VERSION_11
  *     V_12 = WBXMLVersion.WBXML_VERSION_12
  *     V_13 = WBXMLVersion.WBXML_VERSION_13             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 201, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_WBXMLVersion(WBXML_VERSION_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_13, __pyx_t_4) < 0) __PYX_ERR(0, 201, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_V_13, __pyx_t_4) < 0) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":196
+  /* "pywbxml.pyx":200
  * 
  * 
  * class WbxmlVersion(Enum):             # <<<<<<<<<<<<<<
  *     UNKNOWN = WBXMLVersion.WBXML_VERSION_UNKNOWN
  *     V_10 = WBXMLVersion.WBXML_VERSION_10
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_WbxmlVersion, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_WbxmlVersion, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WbxmlVersion, __pyx_t_4) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WbxmlVersion, __pyx_t_4) < 0) __PYX_ERR(0, 200, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pywbxml.pyx":204
+  /* "pywbxml.pyx":208
  * 
  * 
  * class WBXMLParseError(Exception):             # <<<<<<<<<<<<<<
  *     def __init__(self, code):
  *         self.code = code
  */
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_builtin_Exception);
   __Pyx_GIVEREF(__pyx_builtin_Exception);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_builtin_Exception);
-  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_WBXMLParseError, __pyx_n_s_WBXMLParseError, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_WBXMLParseError, __pyx_n_s_WBXMLParseError, (PyObject *) NULL, __pyx_n_s_pywbxml, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "pywbxml.pyx":205
+  /* "pywbxml.pyx":209
  * 
  * class WBXMLParseError(Exception):
  *     def __init__(self, code):             # <<<<<<<<<<<<<<
  *         self.code = code
  *         self.description = <char *> wbxml_errors_string(code)
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7pywbxml_15WBXMLParseError_1__init__, 0, __pyx_n_s_WBXMLParseError___init, NULL, __pyx_n_s_pywbxml, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7pywbxml_15WBXMLParseError_1__init__, 0, __pyx_n_s_WBXMLParseError___init, NULL, __pyx_n_s_pywbxml, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 205, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":209
+  /* "pywbxml.pyx":213
  *         self.description = <char *> wbxml_errors_string(code)
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
  *         return "%s (%d)" % (self.description, self.code)
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7pywbxml_15WBXMLParseError_3__str__, 0, __pyx_n_s_WBXMLParseError___str, NULL, __pyx_n_s_pywbxml, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 209, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7pywbxml_15WBXMLParseError_3__str__, 0, __pyx_n_s_WBXMLParseError___str, NULL, __pyx_n_s_pywbxml, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 213, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_str, __pyx_t_4) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_str, __pyx_t_4) < 0) __PYX_ERR(0, 213, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":212
+  /* "pywbxml.pyx":216
  *         return "%s (%d)" % (self.description, self.code)
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
  *         return self.__str__()
  * 
  */
-  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7pywbxml_15WBXMLParseError_5__repr__, 0, __pyx_n_s_WBXMLParseError___repr, NULL, __pyx_n_s_pywbxml, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_7pywbxml_15WBXMLParseError_5__repr__, 0, __pyx_n_s_WBXMLParseError___repr, NULL, __pyx_n_s_pywbxml, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_repr, __pyx_t_4) < 0) __PYX_ERR(0, 212, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_repr, __pyx_t_4) < 0) __PYX_ERR(0, 216, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pywbxml.pyx":204
+  /* "pywbxml.pyx":208
  * 
  * 
  * class WBXMLParseError(Exception):             # <<<<<<<<<<<<<<
  *     def __init__(self, code):
  *         self.code = code
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_WBXMLParseError, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_WBXMLParseError, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WBXMLParseError, __pyx_t_4) < 0) __PYX_ERR(0, 204, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_WBXMLParseError, __pyx_t_4) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pywbxml.pyx":215
- *         return self.__str__()
+  /* "pywbxml.pyx":221
  * 
+ * @cython.boundscheck(False)
  * def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,             # <<<<<<<<<<<<<<
  *               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):
  *     cdef WB_UTINY *xml
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Lang); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Lang); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ACTIVESYNC); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ACTIVESYNC); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_k_ = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pywbxml.pyx":216
- * 
+  /* "pywbxml.pyx":222
+ * @cython.boundscheck(False)
  * def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,
  *               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):             # <<<<<<<<<<<<<<
  *     cdef WB_UTINY *xml
  *     cdef WB_ULONG xml_len
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLCharset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WBXMLCharset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_UTF_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_UTF_8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__2 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_XMLType); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_XMLType); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_INDENT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_INDENT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_k__3 = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pywbxml.pyx":215
- *         return self.__str__()
+  /* "pywbxml.pyx":221
  * 
+ * @cython.boundscheck(False)
  * def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,             # <<<<<<<<<<<<<<
  *               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):
  *     cdef WB_UTINY *xml
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7pywbxml_1wbxml2xml, NULL, __pyx_n_s_pywbxml); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_7pywbxml_1wbxml2xml, NULL, __pyx_n_s_pywbxml); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_wbxml2xml, __pyx_t_1) < 0) __PYX_ERR(0, 215, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_wbxml2xml, __pyx_t_1) < 0) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pywbxml.pyx":250
- * 
+  /* "pywbxml.pyx":257
+ * @cython.boundscheck(False)
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,
  *               remove_public_id=True, version=WbxmlVersion.V_13):             # <<<<<<<<<<<<<<
  *     cdef  WBXMLError ret = WBXML_OK
  *     cdef WBXMLConvXML2WBXML *conv = NULL
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WbxmlVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_WbxmlVersion); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V_13); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_V_13); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_k__7 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pywbxml.pyx":249
+  /* "pywbxml.pyx":256
  * 
- * 
+ * @cython.boundscheck(False)
  * def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,             # <<<<<<<<<<<<<<
  *               remove_public_id=True, version=WbxmlVersion.V_13):
  *     cdef  WBXMLError ret = WBXML_OK
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7pywbxml_3xml2wbxml, NULL, __pyx_n_s_pywbxml); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_7pywbxml_3xml2wbxml, NULL, __pyx_n_s_pywbxml); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_xml2wbxml, __pyx_t_2) < 0) __PYX_ERR(0, 249, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_xml2wbxml, __pyx_t_2) < 0) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pywbxml.pyx":2
- * 
- * cdef extern from "Python.h":             # <<<<<<<<<<<<<<
- *     object PyBytes_FromStringAndSize(char *s, int len)
- * 
+  /* "pywbxml.pyx":1
+ * # -*- coding: utf-8 -*-             # <<<<<<<<<<<<<<
+ * """
+ * """
  */
-  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /*--- Wrapped vars code ---*/
