@@ -30,7 +30,7 @@ def shell():
         def handler(item):
             ll.append(item)
 
-        cmd = ShellCommand('cat', '/var/log/syslog')
+        cmd = ShellCommand('tail', '/var/log/syslog')
 
         yield 'event: ping\n'
         yield 'data: Executing "{}"\n\n'.format(cmd)
