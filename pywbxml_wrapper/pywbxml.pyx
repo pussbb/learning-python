@@ -12,13 +12,14 @@ cdef extern from "Python.h":
 
 
 cdef extern from "wbxml.h":
-    ctypedef unsigned char      WB_BOOL
-    ctypedef unsigned char      WB_UTINY
-    ctypedef char               WB_TINY
-    ctypedef unsigned int       WB_ULONG
-    ctypedef int                WB_LONG
-    ctypedef unsigned int  WBXMLError
-    cdef int WBXML_OK = WBXMLError.WBXML_OK
+    ctypedef unsigned char  WB_BOOL
+    ctypedef unsigned char WB_UTINY
+    ctypedef char WB_TINY
+    ctypedef unsigned int  WB_ULONG
+    ctypedef int WB_LONG
+
+    ctypedef enum WBXMLError:
+        WBXML_OK
 
     ctypedef enum WBXMLVersion:
         WBXML_VERSION_UNKNOWN = -1
@@ -28,10 +29,10 @@ cdef extern from "wbxml.h":
         WBXML_VERSION_13 = 0x03
 
     ctypedef struct WBXMLConvXML2WBXML:
-        WBXMLGenXMLType        gen_type
-        WBXMLLanguage        lang
-        WBXMLCharsetMIBEnum        charset
-        WB_UTINY        indent
+        WBXMLGenXMLType  gen_type
+        WBXMLLanguage  lang
+        WBXMLCharsetMIBEnum charset
+        WB_UTINY indent
         WB_BOOL  keep_ignorable_ws
 
     ctypedef struct WBXMLConvWBXML2XML:
@@ -77,7 +78,7 @@ cdef extern from "wbxml.h":
         WBXML_LANG_AIRSYNC    = 2401     #   AirSync
         WBXML_LANG_ACTIVESYNC = 2402     #   ActiveSync
         #   Nokia ConML
-        WBXML_LANG_CONML = 2501            #   ConML
+        WBXML_LANG_CONML = 2501           #   ConML
 
     ctypedef enum WBXMLGenXMLType:
         WBXML_GEN_XML_COMPACT = 0
@@ -120,6 +121,8 @@ cdef extern from "wbxml.h":
                                          WB_UTINY indent)
     void wbxml_conv_wbxml2xml_set_gen_type(WBXMLConvWBXML2XML *conv,
                                            WBXMLGenXMLType gen_type)
+    void wbxml_conv_wbxml2xml_destroy(WBXMLConvWBXML2XML *conv)
+    void wbxml_conv_xml2wbxml_destroy(WBXMLConvXML2WBXML *conv)
 
     WBXMLError wbxml_conv_xml2wbxml_run(WBXMLConvXML2WBXML *conv,
                                                    WB_UTINY  *xml,
@@ -219,24 +222,28 @@ class WBXMLParseError(Exception):
         return self.__str__()
 
 
+class WBXMLRuntimeError(RuntimeError):
+    pass
+
+
 @cython.boundscheck(False)
 def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,
               charset=WBXMLCharset.UTF_8, indent=4, xml_type=XMLType.INDENT):
     cdef WB_UTINY *xml
     cdef WB_ULONG xml_len
-    cdef WBXMLError ret
+    cdef WBXMLError ret = WBXML_OK
     cdef WBXMLConvWBXML2XML *conv = NULL
 
     if not isinstance(lang, Lang):
-        raise WBXMLParseError('Lang param is not enum')
+        raise WBXMLRuntimeError('Lang param is not enum value')
     if not isinstance(charset, WBXMLCharset):
-        raise WBXMLParseError('Charset param is not enum')
+        raise WBXMLRuntimeError('Charset param is not enum value')
     if not isinstance(xml_type, XMLType):
-        raise WBXMLParseError('xml_type param is not enum')
+        raise WBXMLRuntimeError('xml_type param is not enum value')
 
-    retval = wbxml_conv_wbxml2xml_create(&conv)
-    if retval != WBXML_OK:
-        raise WBXMLParseError(retval)
+    ret = wbxml_conv_wbxml2xml_create(&conv)
+    if ret != WBXML_OK:
+        raise WBXMLParseError(ret)
 
     wbxml_conv_wbxml2xml_set_charset(conv, charset.value)
     wbxml_conv_wbxml2xml_set_language(conv, lang.value)
@@ -245,25 +252,27 @@ def wbxml2xml(wbxml, lang=Lang.ACTIVESYNC, preserve_whitesaces=True,
     wbxml_conv_wbxml2xml_set_indent(conv, int(indent))
 
     wbxml_conv_wbxml2xml_set_gen_type(conv, xml_type.value)
-    retval = wbxml_conv_wbxml2xml_run(conv, wbxml, len(wbxml), &xml, &xml_len)
-    if retval != WBXML_OK:
-        raise WBXMLParseError(retval)
+    ret = wbxml_conv_wbxml2xml_run(conv, wbxml, len(wbxml), &xml, &xml_len)
+    if ret != WBXML_OK:
+        raise WBXMLParseError(ret)
     res =  PyBytes_FromStringAndSize(<char *>xml, xml_len)
     free(xml)
     del wbxml
+    if conv:
+        wbxml_conv_wbxml2xml_destroy(conv)
     return res
 
 
 @cython.boundscheck(False)
 def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,
               remove_public_id=True, version=WbxmlVersion.V_13):
-    cdef  WBXMLError ret = WBXML_OK
+    cdef WBXMLError ret = WBXML_OK
     cdef WBXMLConvXML2WBXML *conv = NULL
     cdef WB_UTINY * wbxml = NULL
     cdef WB_ULONG wbxml_len = 0
 
     if not isinstance(version, WbxmlVersion):
-        raise WBXMLParseError('version param is not enum')
+        raise WBXMLRuntimeError('version param is not enum value')
 
     ret = wbxml_conv_xml2wbxml_create(&conv)
     if ret != WBXML_OK:
@@ -276,11 +285,14 @@ def xml2wbxml(xml, disable_string_table=True, preserve_whitespaces=True,
         wbxml_conv_xml2wbxml_enable_preserve_whitespaces(conv)
     if remove_public_id:
         wbxml_conv_xml2wbxml_disable_public_id(conv)
-    retval = wbxml_conv_xml2wbxml_run(conv, <WB_UTINY *> xml, len(xml),
+
+    ret = wbxml_conv_xml2wbxml_run(conv, <WB_UTINY *> xml, len(xml),
                                 &wbxml, &wbxml_len)
-    if retval != 0:
-        raise WBXMLParseError(retval)
+    if ret != WBXML_OK:
+        raise WBXMLParseError(ret)
     res = PyBytes_FromStringAndSize(<char *>wbxml, wbxml_len)
     free(wbxml)
     del xml
+    if conv:
+        wbxml_conv_xml2wbxml_destroy(conv)
     return res

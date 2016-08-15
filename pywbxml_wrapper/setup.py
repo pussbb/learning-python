@@ -11,6 +11,7 @@ ext = [
     Extension(
         'pywbxml',
         ['pywbxml.pyx'],
+        extra_objects=['./wbxmldist/lib/libwbxml2.a'],
         library_dirs=['./', './wbxmldist/lib/'],
         include_dirs=['./wbxmldist/include/libwbxml-1.0/wbxml/'],
         )
