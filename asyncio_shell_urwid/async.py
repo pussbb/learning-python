@@ -1,16 +1,21 @@
 # -*- coding: utf-8 -*-
 
 import asyncio
+from typing import Any, Iterable
+
 import urwid
 
 from shell_command import _LOOP, ShellCommand
 
-#_LOOP.set_debug(True)
+_LOOP.set_debug(True)
 
-cmd = ShellCommand('sudo', 'apt', 'install', 'aptitude')
+cmd = ShellCommand('sudo', '-S', 'apt', 'install', 'aptitude')
 
 
 class ScrollableList(urwid.ListBox):
+    """
+
+    """
 
     auto_focus = True
 
@@ -21,10 +26,19 @@ class ScrollableList(urwid.ListBox):
         super().__init__(self.walker)
         urwid.connect_signal(self.walker, 'modified', self.modified)
 
-    def modified(self):
+    def modified(self) -> Any:
+        """ Callback on list modified event
+
+        :return:
+        """
         pass
 
-    def append(self, item):
+    def append(self, item: bytes) -> urwid.Text:
+        """
+
+        :param item: bytes
+        :return:urwid.Text
+        """
         assert isinstance(item, (bytearray, bytes)), 'Item must be byte or bytearray object'
         text_widget = urwid.Text(item)
         self.walker.append(text_widget)
@@ -32,13 +46,22 @@ class ScrollableList(urwid.ListBox):
             self.focus_next()
         return text_widget
 
-    def focus_next(self):
+    def focus_next(self) -> None:
+        """ Focus next element in list
+
+        :return:
+        """
         widget, pos = self.walker.get_focus()
         widget, pos = self.walker.get_next(pos)
         if widget:
             self.set_focus(pos)
 
-    def unhandled_keypress(self, key):
+    def unhandled_keypress(self, key: Any) -> Any:
+        """Scroll page down Page Up on mouse scroll
+
+        :param key:
+        :return:
+        """
         if urwid.is_mouse_event(key):
             if int(key[1]) == 4:
                 self._keypress_page_up(key[2:])
@@ -46,87 +69,135 @@ class ScrollableList(urwid.ListBox):
                 self._keypress_page_down(key[2:])
         return key
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.walker)
 
-    def __iter__(self):
+    def __iter__(self) -> Iterable:
         yield from self.walker
 
 
-class CommandWidget(ScrollableList):
+class CommandWidget(ScrollableList, metaclass=urwid.signals.MetaSignals):
+    """
 
-    __cmd = None
-    __proc = None
-    __loop = None
-    __last_item = None
-    exit_code = None
+    """
+
+    signals = ['starting', 'finished']
 
     def __init__(self, command, loop):
-        super().__init__()
         self.__cmd = command
         self.__loop = loop
-        self.append(str(self.__cmd).encode())
-        self.__new_element()
+        self.__proc = None
+        self.__task = None
+        self.__exit_code = None
+        self.__last_item = None
+        super().__init__()
 
-    def render(self, size, focus=False):
-        w = super().render(size, focus)
-        if not self.__proc:
-            self.__loop.call_later(0.3, self._run)
-        return w
+    def render(self, size, focus=False) -> urwid.canvas.CanvasCombine:
+        """ see :meth:`urwid.ListBox.render` for details
+        :param size:
+        :param focus:
+        :return: urwid.canvas.CanvasCombine
+        """
+        canvas = super().render(size, focus)
+        if not self.__task:
+            self.__loop.call_soon(self._run)
+        return canvas
 
-    def _run(self):
-        if self.__proc:
-            return
-        asyncio.wait(asyncio.ensure_future(self.execute()))
+    def _run(self) -> None:
+        self.__task = asyncio.wait(asyncio.ensure_future(self.execute()))
+
+    @property
+    def exit_code(self) -> int:
+        return self.__exit_code
+
+    @property
+    def output(self) -> Iterable:
+        for item in self:
+            yield item.text
 
     @asyncio.coroutine
-    def _read_stream(self, stream):
+    def _read_stream(self, stream: asyncio.StreamReader) -> None:
+        """
+
+        :param stream: asyncio.StreamReader
+        :return: None
+        """
         while not stream.at_eof():
             data = yield from stream.read(1)
-            if b'\n' == data:
+            if data == b'\n':
                 self.__new_element()
             else:
-                self.__last_item_update_text(data)
+                self.__update_last_item_text(data)
 
-    async def execute(self):
-        self.__proc = await asyncio.create_subprocess_shell(
-            str(self.__cmd),
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.STDOUT,
-            executable='/bin/bash',
-        )
+    async def execute(self) -> None:
+        """ Executes command
 
+        :return: None
+        """
+        urwid.signals.emit_signal(self, 'starting', bytes(self.__cmd))
+        self.__new_element()
+        self.__proc = await self.__cmd.get_process()
         await self._read_stream(self.__proc.stdout)
+        self.__exit_code = await self.__proc.wait()
+        urwid.signals.emit_signal(self, 'finished', self.__exit_code)
 
-        self.exit_code = await self.__proc.wait()
-        self.append('Exited with:{}'.format(self.exit_code).encode())
+    def unhandled_keypress(self, key: Any) -> Any:
+        """
 
-    def unhandled_keypress(self, key):
+        :param key:
+        :return:
+        """
         if len(key) == 1:
-            self.__send_to_stdin(key)
+            self.__forward_key(key)
         if key == 'enter':
-            self.__send_to_stdin(b'\n')
+            self.__forward_key(b'\n')
             self.__new_element()
 
         return super().unhandled_keypress(key)
 
     def __new_element(self):
+        """ Creates new Text widget
+
+        :return: None
+        """
         self.__last_item = self.append(b'+# ')
 
-    def __last_item_update_text(self, text):
+    def __update_last_item_text(self, text: bytes) -> None:
+        """ Append new text to the last Text widget
+
+        :param text: bytes
+        :return: None
+        """
         if self.__last_item.text.endswith(b'\r'):
             text = b'+# ' + text
         else:
             text = self.__last_item.text + text
         self.__last_item.set_text(text)
 
-    def __send_to_stdin(self, key):
+    def __forward_key(self, key: bytes) -> None:
+        """ Send key to process stdin pipe
+
+        :param key: bytes
+        :return: None
+        """
+        if not self.__proc:
+            return
         if self.__proc.stdin and not self.__proc.stdin.at_eof():
             self.__proc.stdin.write(key)
             self.__proc.stdin.flush()
 
 
 out_widget = CommandWidget(cmd, _LOOP)
+
+
+def finished(x):
+    out_widget.append(b'%# Exit code: ')
+    for item in out_widget.output:
+        print(item)
+
+
+urwid.connect_signal(out_widget, 'starting', lambda x: out_widget.append(b'%# Starting ' + x))
+urwid.connect_signal(out_widget, 'finished', finished)
 
 main_widget = urwid.Frame(
     body=out_widget,

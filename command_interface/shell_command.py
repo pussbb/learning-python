@@ -286,18 +286,29 @@ class ShellCommand(object):
     def __repr__(self):
         return self.build()
 
+    def __bytes__(self):
+        return self.build().encode()
+
+    async def get_process(self):
+        """ create process
+
+        :return: Process object
+        """
+        return await asyncio.create_subprocess_shell(
+                str(self),
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.STDOUT,
+                executable='/bin/bash',
+                close_fds=True
+        )
+
     async def run(self, handler=None):
         """Executes command asynchronously.
 
         :param handler: callable
         :return: ShellCommand.Response object
         """
-        proc = await asyncio.create_subprocess_shell(
-                str(self),
-                stdout=asyncio.subprocess.PIPE,
-                stderr=asyncio.subprocess.STDOUT,
-                executable='/bin/bash',
-        )
+        proc = await self.get_process()
 
         if not handler:
             def dummy(_): pass
@@ -312,7 +323,7 @@ class ShellCommand(object):
         del proc
         return ShellCommand.Response(exit_code, response)
 
-    def execute(self, handler=None):
+    def execute(self, handler=None, loop=None):
         """Executes command and wait's when it finish
 
         Raises:
@@ -325,8 +336,10 @@ class ShellCommand(object):
         """
         #  in case we are in another thread we need to add loop
         #  into that thread other we will get RuntimeError
-        asyncio.set_event_loop(_LOOP)
-        res = _LOOP.run_until_complete(self.run(handler))
+        if not loop:
+            loop = _LOOP
+        asyncio.set_event_loop(loop)
+        res = loop.run_until_complete(self.run(handler))
 
         if res.exit_code == 0:
             return res
