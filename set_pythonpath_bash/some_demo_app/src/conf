@@ -1,0 +1,16 @@
+#!/bin/bash
+''':'
+function get_real_path() {
+    [ -n "$(type -p realpath)" ] && $(type -p realpath) "$1" || $(type -p readlink) -f "$1"
+}
+REAL_SCRIPT_PATH=$(get_real_path `dirname $0`)
+OUR_PY_LIB_PATH=$(get_real_path "$REAL_SCRIPT_PATH/../lib/")
+exec env PYTHONPATH="$PYTHONPATH:$OUR_PY_LIB_PATH" python "$0"
+'''
+# -*- coding: utf-8 -*-
+from __future__ import print_function
+
+import sxadis
+
+print(sxadis.SOME_GLOBAL)
+exit(4)
