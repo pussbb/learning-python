@@ -45,3 +45,6 @@ procyon-*
 libwbxml
 build
 wbxmldist
+venv
+.vscode
+.directory
